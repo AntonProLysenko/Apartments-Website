@@ -2,13 +2,18 @@ import './App.css';
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
-
 import { getUser } from './utilities/users-service';
-import NewOrderPage from './pages/NewOrderPage';
+
+
+import HomePage from './pages/HomePage';
+import AvailabilitiesPage from './pages/AvailabilitiesPage'
+import AboutUsPage from './pages/AboutUsPage'
+import ContactUsPage from './pages/ContactUsPage'
+
 import AuthPage from './pages/admin/AuthPage';
-import OrderHistoryPage from './pages/OrderHistoryPage';
 import AdminHome from './pages/admin/AdminHome';
-import HomePage from './pages/user/HomePage';
+import NewListingPage from './pages/admin/NewListingPage'
+
 
 
 import NavBar from './components/NavBar';
@@ -24,19 +29,30 @@ function App() {
         user ? 
         <>
           <NavBar name={user.name} setUser={setUser} />
+
           <Routes>
-            <Route path="/orders/new" element={<NewOrderPage />} />
-            <Route path="/orders" element={<OrderHistoryPage />} />
-            <Route path ="/principal" element = {<AdminHome/>} />
             <Route path ="/" element = {<HomePage/>} />
+            <Route path="/available" element={<AvailabilitiesPage />} />
+            <Route path="/about" element={<AboutUsPage />} />
+            <Route path="/contact" element={<ContactUsPage />} />
+
+            {/* <Route path="/orders" element={<OrderHistoryPage />} /> */}
+            <Route path ="/principal" element = {<AdminHome/>} />
+            <Route path ="/principal/new" element = {<NewListingPage/>} />
+
           </Routes>
         </>
         : 
         <>
           <NavBar/>
+
           <Routes>
             <Route path ="/principal" element = {<AuthPage setUser={setUser}/> } />
+           
             <Route path ="/" element = {<HomePage/>} />
+            <Route path="/available" element={<AvailabilitiesPage />} />
+            <Route path="/about" element={<AboutUsPage />} />
+            <Route path="/contact" element={<ContactUsPage />} />
           </Routes>
         </>
    

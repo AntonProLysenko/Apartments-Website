@@ -13,20 +13,30 @@ export default function NavBar ({ name, setUser }) {
     name?
     <>
       <nav>
-      <Link to="/orders">Order History</Link>
+      <Link to="/">Home</Link>
       &nbsp; | &nbsp;
-      <Link to="/orders/new">New Order</Link>
+      <Link to="/available">Available</Link>
+      &nbsp; | &nbsp;
+      <Link to="/about">About Us</Link>
+      &nbsp; | &nbsp;
+      <Link to="/contact">Contact Us</Link>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <Link to="" onClick={handleLogout}>Log Out</Link>
       <p>Welcome, {name}</p>
-      &nbsp;&nbsp;<Link to="" onClick={handleLogout}>Log Out</Link>
+     
     </nav>
     </>
   
     :
     <>
       <nav>
-      <Link to="/orders">Order History</Link>
+      <Link to="/">Home</Link>
       &nbsp; | &nbsp;
-      <Link to="/orders/new">New Order</Link>
+      <Link to="/available">Available</Link>
+      &nbsp; | &nbsp;
+      <Link to="/about">About Us</Link>
+      &nbsp; | &nbsp;
+      <Link to="/contact">Contact Us</Link>
        <p>Welcome!</p>
       </nav>
     </>
