@@ -20,7 +20,11 @@ module.exports = {
 
 async function indexListing(req, res) {
   try{
+    console.log('in the index')
     const listings = await Listing.find({})
+
+    console.log(listings);
+    
     res.status(200).json(listings);
   }catch(e){
     res.status(400).json({ msg: e.message });

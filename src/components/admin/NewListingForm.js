@@ -1,9 +1,10 @@
-
+import { useState } from "react";
 import { Component } from "react";
 import { create } from "../../utilities/listings-service";
 
 export default class NewListingForm extends Component {
 
+  // const [listing, setListing] = useState([])
 
     state = {
         name: "",
@@ -22,27 +23,29 @@ export default class NewListingForm extends Component {
         })
     }
 
+   
 
 
 
-
-    // handleSubmit = async (evt) => {
-    //    evt.preventDefault()
-    //    try {
-    
-    //      const formData = {...this.state}
-    //      delete formData.error;
-    //      const listing = await create(formData)
-    //       this.props.setListing(listing)
-    //    } catch {
-    //      this.setState({ error: "Failed - Try Again"})
-    //    }
-    //  }
+    handleSubmit = async (evt) => {
+       evt.preventDefault()
+       try {
+        
+         const formData = {...this.state}
+         delete formData.error;
+         const listing = await create(formData)
+          this.props.setListing(listing)
+       } catch {
+        console.log('in HandleSubmit ')
+         this.setState({ error: "Failed - Try Again"})
+       }
+     }
 
   render () {
     return(
+      //action="/principal/" method="POST"
       // action="/principal/listings" method="POST" onSubmit={this.handleSubmit}
-         <form    action="/principal/" method="POST">
+         <form  onSubmit={this.handleSubmit}  >
           <fieldset>
             <legend>Create New Listing</legend>
 

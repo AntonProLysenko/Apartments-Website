@@ -6,11 +6,13 @@ const listingsCtrl = require('../../controllers/api/listings');
 //INDUCES
 //INDEX
 // GET /api/items
-router.get('/principal', listingsCtrl.indexListing);
+router.get('/', listingsCtrl.indexListing);
 //NEW
-router.get('/principal/listings/new', listingsCtrl.newListing)
+// router.get('/listings/new', listingsCtrl.newListing)
+//CREATE
+router.post('/new', listingsCtrl.createListing)
 //SHOW
 // GET /api/items/:id
-router.get('/principal/listings/:id', listingsCtrl.showListing);
+router.get('/:id', listingsCtrl.showListing);
 
 module.exports = router;
