@@ -22,13 +22,13 @@ export default function NewListingForm  (){
 
   
     const  handleSubmit = async (evt) => {
-        evt.preventDefault()
+         evt.preventDefault()
         
        try {
         errorCheck = false
         delete formData.error;
         navigation("/principal");
-        const listing = await create(formData)
+        await create(formData)
         delete formData.error;
 
        } catch {
@@ -69,10 +69,10 @@ export default function NewListingForm  (){
           
           
         </form>
-        <Routes>
+        {/* <Routes>
            <Route to = '/principal' element = {<AdminHome/>}>
          </Route>
-        </Routes>
+        </Routes> */}
         </>
     )
 }

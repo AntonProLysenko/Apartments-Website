@@ -7,7 +7,7 @@ module.exports = {
 
      indexListing,
      newListing,
-    // delete,
+     deleteListing,
     // update,
     createListing,
     // edit,
@@ -22,9 +22,6 @@ async function indexListing(req, res) {
   try{
    
     const listings = await Listing.find({})
-
-    // console.log("All Listings"+ listings);
-    
     res.status(200).json(listings);
   }catch(e){
     res.status(400).json({ msg: e.message });
@@ -40,10 +37,19 @@ async function newListing (req,res) {
   }
 }
   
-// router.get("/new", (req,res)=>{
-//   res.render("movies/New")
-// })
+
 //DELETE
+async function deleteListing(req,res){
+  try {
+    console.log(req.body)
+    // res.redirect("/principal")
+    const deletedListing = await Listing.findByIdAndDelete(req.body._id)
+    res.status(200).json(deletedListing)
+   
+  } catch (error) {
+    res.status(400).json({msg:error.message})
+  }
+}
 //UPDATE
 //CREATE
 async function createListing (req,res){

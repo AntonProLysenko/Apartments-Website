@@ -11,7 +11,6 @@ export default function AdminHome({listings}) {
 // const listingsArr = Object.values(listings);//converting object props to array props
 
 
-console.log(listings);
 
 
   function loaded (){

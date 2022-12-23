@@ -3,63 +3,59 @@ import { useState, useEffect } from 'react'
 
 export default function HomePage({listings}) {
 
-
-
-  // function getAvailable (){
-  //   const availableListings =  listings.find(element=>{
-  //     return element.available === true})
-  // }
-
-  // useEffect(()=>{
-  //   getAvailable()
-  // },[])
-
-
-
-
-  const availableListings=[]
+  const availableListings=[]//finding available listings
   listings.map((listing)=>{
-    // console.log(listing.available)
+  
     if(listing.available === true){
       console.log(listing)
      return availableListings.push( listing)
     }
 
   })
-  console.log(availableListings)
-//   const availableListings=[]
+
+
+
+function MultipleAvailable(){
+  return(  
+  <div>
+    We have {availableListings.length} available 
+    <Link to = "/available"> apartments</Link>
+  </div>
+  )
+}
+
+function SingleAvailable(){
+  return(  
+    <div>
+      We have {availableListings.length} available 
+      <Link to = "/available"> apartment</Link>
+    </div>
+    )
+}
+
+function noneAvailable(){
+  return(  
+    <div>
+      Unfortunately we don't have any apartments available here
+      <br/>
+      Please, Check out our family property
+      <Link to = "/available"> Green Forest Apartments</Link>
+    </div>
+    )
+}
+
   
-//   listings.find(element=>{
-//     availableListings.push(element.available === true
-//   )})
-//   // console.log(availableListings)
-
-
-// const available = listings.find(element=>{
-//   return element.available === true})
-//   console.log(available)
-
-
-
+  
 
 
 
 
 
   return (
-
-
     <>
-    <div>Salem Crown Apartments</div>
-    
-    <div>
-      We have {availableListings.length} available 
-      <Link to = "/available"> apartments</Link>
-    </div>
-    
+      {
+        (availableListings.length===1)?SingleAvailable: (availableListings.length===0)? noneAvailable() : MultipleAvailable()
+      }
     </>
-
-
-
   )
 }

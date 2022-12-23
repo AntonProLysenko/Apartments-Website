@@ -8,6 +8,10 @@ export function getAll() {
   return sendRequest(BASE_URL, 'GET');
 }
 
+export function deleteListing(listingData){
+  return sendRequest(`${BASE_URL}/:id`, 'DELETE',listingData)
+}
+
 export function create(listingData){
   return sendRequest(`${BASE_URL}/new`, 'POST',listingData)
 }
