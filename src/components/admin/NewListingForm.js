@@ -58,7 +58,7 @@ export default function NewListingForm  (){
 
             <label>Available :<input type="checkbox" name="available" onChange={(e) => setListingData({ ...listingData, available: e.target.value })} /> </label>
 
-            <div ><input type="file" multiple={true} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile: base64 })} /></div>
+            <div ><FileBase type="file" multiple={true} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile: base64 })} /></div>
          
             <button type="submit">Create Listing</button>
             {/* <button onClick={clear}>Clear</button> */}

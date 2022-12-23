@@ -1,9 +1,9 @@
 import './App.css';
-import { useState } from 'react'
-import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Routes, Route,} from 'react-router-dom'
 
 import { getUser } from './utilities/users-service';
-
+import * as listingsAPI from "./utilities/listings-api"
 
 import HomePage from './pages/HomePage';
 import AvailabilitiesPage from './pages/AvailabilitiesPage'
@@ -14,14 +14,23 @@ import AuthPage from './pages/admin/AuthPage';
 import AdminHome from './pages/admin/AdminHome';
 import NewListingPage from './pages/admin/NewListingPage'
 
-
-
 import NavBar from './components/NavBar';
 
 function App() {
-  const [user, setUser] = useState(getUser())//we need this state to be sure wether user is logged in
-  const navigate = useNavigate();
 
+  
+  const [user, setUser] = useState(getUser())//we need this state to be sure wether user is logged in
+  const [listings, setListings] = useState([]);//getting all listings from db
+
+  async function getListings() {
+    const listings = await listingsAPI.getAll();
+    setListings(listings);
+  }
+
+  useEffect(()=>{
+    getListings()
+  },[])
+  // console.log(listings)
 
   return (
     <main className="App">
@@ -32,15 +41,14 @@ function App() {
           <NavBar name={user.name} setUser={setUser} />
 
           <Routes>
-            <Route path ="/" element = {<HomePage/>} />
+            <Route path ="/" element = {<HomePage listings = {listings}/>} />
             <Route path="/available" element={<AvailabilitiesPage />} />
             <Route path="/about" element={<AboutUsPage />} />
             <Route path="/contact" element={<ContactUsPage />} />
 
             {/* <Route path="/orders" element={<OrderHistoryPage />} /> */}
-            <Route path ="/principal" element = {<AdminHome/>} />
-            <Route path ="/principal/new" element = {<NewListingPage navigate = {navigate}/>} />
-
+            <Route path ="/principal" element = {<AdminHome listings = {listings}/>} />
+            <Route path ="/principal/new" element = {<NewListingPage/>} />
           </Routes>
         </>
         : 
@@ -50,7 +58,7 @@ function App() {
           <Routes>
             <Route path ="/principal" element = {<AuthPage setUser={setUser}/> } />
            
-            <Route path ="/" element = {<HomePage/>} />
+            <Route path ="/" element = {<HomePage listings = {listings}/>} />
             <Route path="/available" element={<AvailabilitiesPage />} />
             <Route path="/about" element={<AboutUsPage />} />
             <Route path="/contact" element={<ContactUsPage />} />
