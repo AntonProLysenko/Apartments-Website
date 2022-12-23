@@ -1,6 +1,6 @@
 import './App.css';
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
 import { getUser } from './utilities/users-service';
 
@@ -20,6 +20,7 @@ import NavBar from './components/NavBar';
 
 function App() {
   const [user, setUser] = useState(getUser())//we need this state to be sure wether user is logged in
+  const navigate = useNavigate();
 
 
   return (
@@ -38,7 +39,7 @@ function App() {
 
             {/* <Route path="/orders" element={<OrderHistoryPage />} /> */}
             <Route path ="/principal" element = {<AdminHome/>} />
-            <Route path ="/principal/new" element = {<NewListingPage/>} />
+            <Route path ="/principal/new" element = {<NewListingPage navigate = {navigate}/>} />
 
           </Routes>
         </>
