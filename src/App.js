@@ -12,8 +12,9 @@ import ContactUsPage from './pages/ContactUsPage'
 
 import AuthPage from './pages/admin/AuthPage';
 import AdminHome from './pages/admin/AdminHome';
-import NewListingPage from './pages/admin/NewListingPage'
+import NewListingPage from './pages/admin/NewListingPage';
 import ListingDetailsPage from './pages/admin/ListingDetailsPage';
+import EditListingpage from './pages/admin/EditListingpage';
 
 import NavBar from './components/NavBar';
 
@@ -51,7 +52,7 @@ function App() {
             <Route path ="/principal" element = {<AdminHome listings = {listings}/>} />
             <Route path ="/principal/new" element = {<NewListingPage/>} />
             <Route path ="/principal/:id" element = {<ListingDetailsPage listings = {listings}/>} />
-
+            <Route path ="/principal/:id/edit" element = {<EditListingpage listings = {listings}/>} />
           </Routes>
         </>
         : 

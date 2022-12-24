@@ -17,4 +17,7 @@ router.post('/new', listingsCtrl.createListing)
 // GET /api/items/:id
 router.get('/:id', listingsCtrl.showListing);
 
+router.put('/:id', listingsCtrl.editListing);
+
+
 module.exports = router;

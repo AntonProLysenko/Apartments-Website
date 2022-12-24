@@ -19,3 +19,11 @@ export function create(listingData){
 export function getById(id) {
   return sendRequest(`${BASE_URL}/${id}`,'GET');
 }
+
+export function edit(listingData, id) {
+
+  console.log("in listings-api");
+  console.log(listingData, id);
+
+  return sendRequest(`${BASE_URL}/${id}`,'PUT', listingData);
+}

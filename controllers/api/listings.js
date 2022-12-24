@@ -10,9 +10,8 @@ module.exports = {
      deleteListing,
     // update,
     createListing,
-    // edit,
-     showListing,
-
+    editListing,
+     showListing
   };
 
 //INDUCES
@@ -51,6 +50,28 @@ async function deleteListing(req,res){
   }
 }
 //UPDATE
+async function editListing(req,res){
+  try {
+
+    console.log("in editListing /controllers");
+    console.log(req.params);
+    console.log('req.body');
+    console.log(req.body);
+    
+    
+    
+    
+    const id = req.params.id;
+    req.body.available  = req.body.available === "on"? true : false;
+    
+    await Listing.findByIdAndUpdate(id, req.body)
+    res.redirect(`/principal/${id}`)
+  } catch (e) {
+    console.log("here"+req.params);
+    res.status(400).json({msg:e.message})
+  }
+}
+
 //CREATE
 async function createListing (req,res){
   try{

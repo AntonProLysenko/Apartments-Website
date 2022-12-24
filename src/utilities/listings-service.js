@@ -11,3 +11,10 @@ export async function deleteListing (listingData){
      return  await listingAPI.deleteListing(listingData)
     
 }
+
+export async function edit (listingData, id){
+    
+     return  await listingAPI.edit(listingData, id)
+    
+}
+
