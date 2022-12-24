@@ -7,11 +7,13 @@ export default function HomePage({listings}) {
   listings.map((listing)=>{
   
     if(listing.available === true){
-      console.log(listing)
+      // console.log(listing)
      return availableListings.push( listing)
     }
-
   })
+
+  console.log(availableListings);
+  
 
 
 
@@ -39,7 +41,7 @@ function noneAvailable(){
       Unfortunately we don't have any apartments available here
       <br/>
       Please, Check out our family property
-      <Link to = "/available"> Green Forest Apartments</Link>
+      <a href = "https://greenforestapts.business.site/" target ="_blank"> Green Forest Apartments</a>
     </div>
     )
 }
@@ -54,7 +56,7 @@ function noneAvailable(){
   return (
     <>
       {
-        (availableListings.length===1)?SingleAvailable: (availableListings.length===0)? noneAvailable() : MultipleAvailable()
+        (availableListings.length===1)? SingleAvailable(): (availableListings.length===0)? noneAvailable() : MultipleAvailable()
       }
     </>
   )
