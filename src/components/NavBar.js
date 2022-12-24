@@ -11,33 +11,60 @@ export default function NavBar ({ name, setUser }) {
   return (
     name?
     <>
-      <nav>
-      <Link to="/">Home</Link>
-      &nbsp; | &nbsp;
-      <Link to="/available">Available</Link>
-      &nbsp; | &nbsp;
-      <Link to="/about">About Us</Link>
-      &nbsp; | &nbsp;
-      <Link to="/contact">Contact Us</Link>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <Link to="" onClick={handleLogout}>Log Out</Link>
-      <p>Welcome, {name}</p>
-     
+    <nav className = "navBar navbar fixed-top ">
+        <div>
+          <Link to="/" className = "d-inline-block align-text-top">
+          <img src ="https://i.imgur.com/3WSXIEd.png" height = "30px" className = "brand-img"></img> 
+          <span class="navbar-brand">Salem Crown Apartments</span> 
+          </Link>
+        </div>
+        
+
+        <ul className="nav-links"> 
+          <li>
+            <Link to="/available"> <span class="navbar-text">Available</span> </Link>
+          </li>
+          <li>
+            <Link to="/about"> <span class="navbar-text">About Us</span> </Link>
+          </li>
+          <li>
+            <Link to="/contact"> <span class="navbar-text">Contact Us</span> </Link>
+          </li>
+          <li>
+            <Link to="" onClick={handleLogout}> <span class="navbar-text"> Log Out</span> </Link>
+          </li>
+        </ul>
     </nav>
+    <p>Welcome, {name}</p>
     </>
   
     :
     <>
-      <nav>
-      <Link to="/">Home</Link>
-      &nbsp; | &nbsp;
-      <Link to="/available">Available</Link>
-      &nbsp; | &nbsp;
-      <Link to="/about">About Us</Link>
-      &nbsp; | &nbsp;
-      <Link to="/contact">Contact Us</Link>
-       <p>Welcome!</p>
+      <nav className = "navBar navbar fixed-top ">
+        <div>
+          <Link to="/" className = "d-inline-block align-text-top">
+          <img src ="https://i.imgur.com/3WSXIEd.png" height = "30px" className = "brand-img"></img> 
+          <span class="navbar-brand">Salem Crown Apartments</span> 
+          </Link>
+
+        </div>
+    
+
+        <ul className="nav-links"> 
+    
+          <li>
+            <Link to="/available"> <span class="navbar-text">Available</span> </Link>
+          </li>
+          <li>
+            <Link to="/about"> <span class="navbar-text">About Us</span> </Link>
+          </li>
+          <li>
+            <Link to="/contact"> <span class="navbar-text">Contact Us</span> </Link>
+          </li>
+  
+        </ul>
       </nav>
+      <p>Welcome!</p>
     </>
 
   )

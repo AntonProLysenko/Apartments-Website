@@ -31,7 +31,7 @@ function App() {
 
   useEffect(()=>{
     getListings()
-  },[])
+  },[listingsAPI])
   // console.log(listings)
 
   return (
