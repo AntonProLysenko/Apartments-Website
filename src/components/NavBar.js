@@ -64,7 +64,7 @@ export default function NavBar ({ name, setUser }) {
   
         </ul>
       </nav>
-      <p>Welcome!</p>
+      
     </>
 
   )

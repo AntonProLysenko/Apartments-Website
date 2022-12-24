@@ -44,7 +44,7 @@ export default function AdminHome({listings}) {
     <>  
     {/* <NewListingForm/> */}
       <h1>ListingsPage</h1> 
-      <Link to = "/principal/new"><button>Create new</button></Link> 
+      <Link to = "/principal/new"><button className='create-btn   '>Create new</button></Link> 
    {   listings? loaded():loading()}
     </>
      
