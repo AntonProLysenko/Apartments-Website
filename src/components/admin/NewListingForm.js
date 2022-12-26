@@ -112,12 +112,18 @@ export default function NewListingForm  (){
            
 
              
-          
-            <div ><FileBase type="file" multiple={true} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile: base64 })} /></div>
-         
-
-
-
+            <div className='photos'>
+              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile1: base64 })} /></div>
+              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile2: base64 })} /></div>
+              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile3: base64 })} /></div>
+              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile4: base64 })} /></div>
+              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile5: base64 })} /></div>
+              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile6: base64 })} /></div>
+              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile7: base64 })} /></div>
+              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile8: base64 })} /></div>
+              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile9: base64 })} /></div>
+              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile10: base64 })} /></div>
+            </div>
 
             <button type="submit">Create Listing</button>
         
