@@ -1,5 +1,8 @@
 const express = require('express');
 const path = require('path');
+const bodyParser= require ("body-parser");//alow to enable to sen POST req
+const cors = require ("cors")//enable cross-origin-requests
+
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const { createRequire } = require('module');
@@ -9,6 +12,10 @@ require('dotenv').config() // Always require and configure near the top
 require("./config/database");
 
 const app = express();
+
+ app.use(bodyParser.json({ limit: '30mb', extended: true }))   //setting the limin for uploading images no more than 30 mb
+app.use(bodyParser.urlencoded({ limin: "30mb", extended: true}))
+app.use(cors())
 
 app.use(logger('dev'));
 app.use(express.json());

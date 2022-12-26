@@ -11,12 +11,35 @@ import AdminHome from '../../pages/admin/AdminHome';
 
 export default function NewListingForm  (){
  
-  const [listingData, setListingData] = useState({ title: '', description: '', photo: '', available: false,  selectedFile: '' });
+    const [listingData, setListingData] = useState({   
+
+    title: '',
+    rent: '',
+    securityDeposit: '',
+    utilities: '',
+    description1: '',
+    description2: '',
+    pets: '',
+    qualifications: '',
+    available: false,
+    selectedFile1: '',
+    selectedFile2: '',
+    selectedFile3: '',
+    selectedFile4: '',
+    selectedFile5: '',
+    selectedFile6: '',
+    selectedFile7: '',
+    selectedFile8: '',
+    selectedFile9: '',
+    selectedFile10: '', 
+  });
+
+
   const navigation = useNavigate();
   //Autosize textarea
   
 
-   
+
 
     const formData = {...listingData}
     let errorMessage;
@@ -96,7 +119,7 @@ export default function NewListingForm  (){
 
 
             <label>Qualifications: </label>
-            <textarea  name="qualifications" placeholder="Enter Minimum Qualifications for Residents" required onChange={(e) => setListingData({ ...listingData, description1: e.target.value })}/>
+            <textarea  name="qualifications" placeholder="Enter Minimum Qualifications for Residents" required onChange={(e) => setListingData({ ...listingData, qualifications: e.target.value })}/>
 
 
             <div className = "checkr">
@@ -113,16 +136,16 @@ export default function NewListingForm  (){
 
              
             <div className='photos'>
-              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile1: base64 })} /></div>
-              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile2: base64 })} /></div>
-              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile3: base64 })} /></div>
-              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile4: base64 })} /></div>
-              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile5: base64 })} /></div>
-              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile6: base64 })} /></div>
-              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile7: base64 })} /></div>
-              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile8: base64 })} /></div>
-              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile9: base64 })} /></div>
-              <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile10: base64 })} /></div>
+              <div><FileBase type="file" name = "selectedFile1" multiple={false}  onDone={({ base64 }) => setListingData({ ...listingData, selectedFile1: base64 })} /></div>
+              <div><FileBase type="file" name = "selectedFile2" multiple={false}  onDone={({ base64 }) => setListingData({ ...listingData, selectedFile2: base64 })} /></div>
+              <div><FileBase type="file" name = "selectedFile3" multiple={false}  onDone={({ base64 }) => setListingData({ ...listingData, selectedFile3: base64 })} /></div>
+              <div><FileBase type="file" name = "selectedFile4" multiple={false}  onDone={({ base64 }) => setListingData({ ...listingData, selectedFile4: base64 })} /></div>
+              <div><FileBase type="file" name = "selectedFile5" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile5: base64 })} /></div>
+              <div><FileBase type="file" name = "selectedFile6" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile6: base64 })} /></div>
+              <div><FileBase type="file" name = "selectedFile7" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile7: base64 })} /></div>
+              <div><FileBase type="file" name = "selectedFile8" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile8: base64 })} /></div>
+              <div><FileBase type="file" name = "selectedFile9" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile9: base64 })} /></div>
+              <div><FileBase type="file" name = "selectedFile10" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile10: base64 })} /></div>
             </div>
 
             <button type="submit">Create Listing</button>
