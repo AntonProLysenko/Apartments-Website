@@ -10,7 +10,8 @@ import OrderHistoryPage from "../../pages/OrderHistoryPage"
 import AdminHome from '../../pages/admin/AdminHome';
 
 export default function NewListingForm  (){
- 
+
+    const [error, setError] = useState('');
     const [listingData, setListingData] = useState({   
 
     title: '',
@@ -42,8 +43,7 @@ export default function NewListingForm  (){
 
 
     const formData = {...listingData}
-    let errorMessage;
-    let errorCheck = false
+
   
 
   
@@ -51,24 +51,13 @@ export default function NewListingForm  (){
          evt.preventDefault()
         
        try {
-        errorCheck = false
-       
         navigation("/principal");
+        setListingData(formData)
         await create(formData)
-        
-
        } catch {
-        errorCheck = true
-        errorMessage="Failed - Try Again"
+        setError("Failed - Try Again")
        }
      }
-
-    //  const clear = (evt) => {
-    //       setListingData({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
-    //       evt.target.reset();
-    //     };
-
-       
 
     return(
      
@@ -77,7 +66,7 @@ export default function NewListingForm  (){
 
          <form  onSubmit={handleSubmit}>
 
-          <fieldset >
+
           <div className = " create-form, form-container">
           <legend>Create New Listing</legend>
          
@@ -151,10 +140,10 @@ export default function NewListingForm  (){
             <button type="submit">Create Listing</button>
         
 
-            {errorCheck  && <p className="error-message">&#160;{errorMessage}</p>}
+          
             </div>
-          </fieldset>
-       
+            <p className="error-message">&nbsp;{error}</p>
+
           
           
         </form>

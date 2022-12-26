@@ -78,8 +78,9 @@ async function createListing (req,res){
     console.log(req.body.available)
     req.body.available  = req.body.available === "on"? true : false;
     
-    console.log('req.body.selectedFiles', req.body.selectedFiles);
-    // req.body.selectedFiles
+    console.log('req.body')
+    console.log( req.body);
+
     await Listing.create(req.body)
     res.redirect('/principal')
 
