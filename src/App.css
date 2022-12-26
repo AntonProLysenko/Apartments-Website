@@ -39,14 +39,19 @@
 
 /* CSS Custom Properties */
 :root {
-  --white: #FFFFFF;
-  --tan-1: #FBF9F6;
+  --white:rgb(204, 204, 228);
+ 
   --tan-2: #E7E2DD;
   --tan-3: #E2D9D1;
   --tan-4: #D3C1AE;
   --orange: #F67F00;
   --text-light: #968c84;
-  --text-dark: #615954;
+  --text-dark: #0a076488;
+
+
+  
+   
+  
 }
 
 *, *:before, *:after {
@@ -69,6 +74,15 @@ body {
   height: 100vh;
 }
 
+
+
+
+
+
+
+
+
+
 @media screen and (max-width : 819px) {
  body{ 
   padding-top: 120px;
@@ -78,6 +92,7 @@ body {
  .navBar{
   flex-direction: column;
   align-items: center;
+ 
  }
 }
 
@@ -86,6 +101,22 @@ body {
    padding-top: 150px;
   }
  }
+
+ /* @media screen and (max-width : 1233px) {
+  .prices{ 
+    flex-wrap: wrap;
+    justify-content: center;
+   
+  }
+ } */
+
+
+
+
+
+
+
+
 
 a{
   text-decoration: none;
@@ -276,30 +307,49 @@ ul {
   text-align: center;
   font-size: 2vmin;
 }
+*/
 
 .form-container {
+  margin-top: 30%;
+  position:absolute;
+  left:50%;
+
+  transform: translate(-50%,-50%);
+
+  width: 40vw;
   padding: 3vmin;
-  background-color: var(--tan-1);
+  background-color: var(--white);
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
+
 }
 
+
+  /*
 p.error-message {
   color: var(--orange);
   text-align: center;
 }
-
+*/
 form {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   grid-template-columns: 1fr 3fr;
   gap: 1.25vmin;
-  color: var(--text-light);
+  color: var(--text-light); 
+}
+
+legend{
+  font-weight: bold;
+  color:#0a076488
 }
 
 label {
   font-size: 2vmin;
+  color:#0a076488;
+
   display: flex;
-  align-items: center;
+  align-self: center;
 }
 
 input {
@@ -308,14 +358,67 @@ input {
   border: .1vmin solid var(--tan-3);
   border-radius: .5vmin;
   color: var(--text-dark);
-  background-image: none !important; /* prevent lastpass 
+  background-image: none !important; /* prevent lastpass */
   outline: none;
+
+  display: flex;
+  align-self: center;
 }
 
 input:focus {
   border-color: var(--orange);
 }
 
+
+textarea {
+  width: 100%;
+  height: 100px;
+  font-size: 2vmin;
+
+  border: .1vmin solid var(--tan-3);
+  border-radius: .5vmin;
+  color: var(--text-dark);
+  background-image: none !important; /* prevent lastpass */
+  outline: none;
+}
+textarea:focus {
+  border-color: var(--orange);
+}
+
+.form-title{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.form-title>input{
+  width: 90%;
+}
+
+.prices{
+  width:90%;
+  display: flex;
+  flex-wrap: wrap;
+  
+  justify-content: space-between;
+  margin-left: 22px;
+  margin-bottom: 20px;
+}
+
+.small-textarea{
+  height: 50px;
+}
+
+
+button[type="submit"] {
+  grid-column: span 2;
+  margin: 1vmin 0 0;
+  width:20vw;
+  align-self: center;
+
+} 
+
+
+/*
 button, a.button {
   margin: 1vmin;
   padding: 1vmin;
@@ -345,8 +448,86 @@ button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
   background-color: var(--tan-4);
 }
+*/
 
-button[type="submit"] {
-  grid-column: span 2;
-  margin: 1vmin 0 0;
+
+
+
+
+
+
+.checkr{
+  display: flex;
+  justify-content: center;
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.available{
+  position: relative;
+  display: inline-block;
+
+}
+  
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(117, 117, 117);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--text-dark);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  
+}
+
+/* Rounded sliders */
+/* .slider.round {
+ 
 } */
+
+

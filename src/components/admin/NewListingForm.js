@@ -1,9 +1,10 @@
 import { Routes, Route, Link, useNavigate } from 'react-router-dom'
-import { Component,useState, useEffect  } from "react";
+import { useState, useEffect  } from "react";
 import FileBase from 'react-file-base64';
 
 
 import { create } from "../../utilities/listings-service";
+
 
 import OrderHistoryPage from "../../pages/OrderHistoryPage"
 import AdminHome from '../../pages/admin/AdminHome';
@@ -12,6 +13,8 @@ export default function NewListingForm  (){
  
   const [listingData, setListingData] = useState({ title: '', description: '', photo: '', available: false,  selectedFile: '' });
   const navigation = useNavigate();
+  //Autosize textarea
+  
 
    
 
@@ -26,10 +29,10 @@ export default function NewListingForm  (){
         
        try {
         errorCheck = false
-        delete formData.error;
+       
         navigation("/principal");
         await create(formData)
-        delete formData.error;
+        
 
        } catch {
         errorCheck = true
@@ -45,35 +48,93 @@ export default function NewListingForm  (){
        
 
     return(
-      <>
-         <form  autoComplete="off" onSubmit={handleSubmit}>
-          <fieldset>
-            <legend>Create New Listing</legend>
+     
+      <div>
 
-            <label>Title<input type="text" name="title" placeholder="Enter Title" required onChange={(e) => setListingData({ ...listingData, title: e.target.value })}/></label>
 
-            <label>Description:<input type="text" name="description" placeholder="Enter Description" required  onChange={(e) => setListingData({ ...listingData, description: e.target.value })}/> </label>
+         <form  onSubmit={handleSubmit}>
 
-            {/* <label>Photo link<input type="text" name="photo" required onChange={(e) => setListingData({ ...listingData, photo: e.target.value })}/> </label> */}
+          <fieldset >
+          <div className = " create-form, form-container">
+          <legend>Create New Listing</legend>
+         
+         <div className='form-title'>
+          <label htmlFor = "title">Title:</label>
+          <input type="text" name="title" id = "title" placeholder="Title" required onChange={(e) => setListingData({ ...listingData, title: e.target.value })}/>
+         </div>
+          
+          
+          <div className='prices'>
+            <div>
+            <label>Rent:</label>
+            <input type="text" name="rent" placeholder="Monthly Rent Price" required onChange={(e) => setListingData({ ...listingData, rent: e.target.value })}/>
+            </div>
+            <div>
+            <label>Security Deposit:</label>
+            <input type="text" name="securityDeposit" placeholder="Security Deposit Price" required onChange={(e) => setListingData({ ...listingData, securityDeposit: e.target.value })}/>
+            </div>          
+          </div>
 
-            <label>Available :<input type="checkbox" name="available" onChange={(e) => setListingData({ ...listingData, available: e.target.value })} /> </label>
+          <label>Utilities:</label>
+          <textarea className='small-textarea' name="utilities" placeholder="Enter utilities policy" onChange={(e) => setListingData({ ...listingData, utilities: e.target.value })}/> 
+             
 
+            
+            <label>Description Paragraph 1:</label>
+            <textarea className='description'  name="description1" placeholder="Description" required onChange={(e) => setListingData({ ...listingData, description1: e.target.value })}/>
+            
+            <label>Description Paragraph 2:</label>
+            <textarea className='description' name="description2" placeholder="Description" onChange={(e) => setListingData({ ...listingData, description2: e.target.value })}/> 
+            
+
+            <label>Pets:</label>
+            <textarea className='small-textarea' name="pets" placeholder="Enter pet policy" onChange={(e) => setListingData({ ...listingData, pets: e.target.value })}/> 
+              
+              
+              
+    
+
+
+            <label>Qualifications: </label>
+            <textarea  name="qualifications" placeholder="Enter Minimum Qualifications for Residents" required onChange={(e) => setListingData({ ...listingData, description1: e.target.value })}/>
+
+
+            <div className = "checkr">
+              <label className='available'>Available: &nbsp;</label>
+              <label className="switch">
+                <input type="checkbox" name="available" onChange={(e) => setListingData({ ...listingData, available: e.target.value })} />
+                <span className="slider"></span>
+              </label>
+             </div>
+
+
+
+           
+
+             
+          
             <div ><FileBase type="file" multiple={true} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile: base64 })} /></div>
          
+
+
+
+
             <button type="submit">Create Listing</button>
-            {/* <button onClick={clear}>Clear</button> */}
+        
 
             {errorCheck  && <p className="error-message">&#160;{errorMessage}</p>}
+            </div>
           </fieldset>
        
           
           
         </form>
+ 
         {/* <Routes>
            <Route to = '/principal' element = {<AdminHome/>}>
          </Route>
         </Routes> */}
-        </>
+        </div>
     )
 }
 
