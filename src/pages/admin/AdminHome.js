@@ -14,7 +14,7 @@ export default function AdminHome({listings}) {
 
 
 
-console.log(listings);
+// console.log(listings);
 
 
 
@@ -23,7 +23,7 @@ console.log(listings);
     return(
       <ul className='listings-ul'>
       {listings.map((listing, idx)=>{
-        console.log(listing)
+        // console.log(listing)
        
 
         let lastUpdate = moment(listing.updatedAt).fromNow();
@@ -31,7 +31,7 @@ console.log(listings);
           return(
                   <li key = {idx}>
                       <Link to= {`/principal/${listing._id}`}>
-                        <div className='listing-ad ad'>
+                        <div className='listing-ad'>
 
                           <div className='listing-ad-img'>
                             <img src = {listing.selectedFile1}/>
@@ -61,22 +61,22 @@ console.log(listings);
 
   function loading (){
     return(
-<div class="loader">
-  <div class="loader-inner">
-    <div class="loader-line-wrap">
-      <div class="loader-line"></div>
+<div className="loader">
+  <div className="loader-inner">
+    <div className="loader-line-wrap">
+      <div className="loader-line"></div>
     </div>
-    <div class="loader-line-wrap">
-      <div class="loader-line"></div>
+    <div className="loader-line-wrap">
+      <div className="loader-line"></div>
     </div>
-    <div class="loader-line-wrap">
-      <div class="loader-line"></div>
+    <div className="loader-line-wrap">
+      <div className="loader-line"></div>
     </div>
-    <div class="loader-line-wrap">
-      <div class="loader-line"></div>
+    <div className="loader-line-wrap">
+      <div className="loader-line"></div>
     </div>
-    <div class="loader-line-wrap">
-      <div class="loader-line"></div>
+    <div className="loader-line-wrap">
+      <div className="loader-line"></div>
     </div>
   </div>
 </div>

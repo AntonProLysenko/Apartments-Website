@@ -58,9 +58,6 @@ async function editListing(req,res){
     console.log('req.body');
     console.log(req.body);
     
-    
-    
-    
     const id = req.params.id;
     req.body.available  = req.body.available === "on"? true : false;
     
