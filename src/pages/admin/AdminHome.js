@@ -6,17 +6,22 @@ import moment from 'moment';
 
 // import NewListingForm from '../../components/admin/NewListingForm';
 import ListingDetailsPage from './ListingDetailsPage';
+import * as listingsAPI from "../../utilities/listings-api"
+import loading from '../../components/loading';
 
 
-export default function AdminHome({listings}) {
+export default function AdminHome() {
 // const listingsArr = Object.values(listings);//converting object props to array props
+const [listings, setListings] = useState();//getting all listings from db
 
+async function getListings() {
+  const listings = await listingsAPI.getAll();
+  setListings(listings);
+}
 
-
-
-// console.log(listings);
-
-
+useEffect(()=>{
+  getListings()
+},[setListings])
 
 
   function loaded (){
@@ -39,8 +44,9 @@ export default function AdminHome({listings}) {
 
              
                             <div className = "listing-title">
-                              <div className='lastUpdate'> updated: {lastUpdate}</div>
-                              <h3>{listing.title}</h3>
+                              <div className='lastUpdate'> updated: {lastUpdate} </div>
+                             { listing.available===true?  <h3> <span className="dot-online"></span> {listing.title}  </h3> : <h3> <span className="dot-offline"></span> {listing.title}  </h3> }
+                             
                               <h4 className='price'><span className='rent'>Rent:</span> {listing.rent}/mo</h4>
                             </div>
                           
@@ -58,40 +64,13 @@ export default function AdminHome({listings}) {
     )
   }
 
-
-  function loading (){
-    return(
-<div className="loader">
-  <div className="loader-inner">
-    <div className="loader-line-wrap">
-      <div className="loader-line"></div>
-    </div>
-    <div className="loader-line-wrap">
-      <div className="loader-line"></div>
-    </div>
-    <div className="loader-line-wrap">
-      <div className="loader-line"></div>
-    </div>
-    <div className="loader-line-wrap">
-      <div className="loader-line"></div>
-    </div>
-    <div className="loader-line-wrap">
-      <div className="loader-line"></div>
-    </div>
-  </div>
-</div>
-    )
-    
-  }
-
-  
   return (
     <>  
     {/* <NewListingForm/> */}
       <h1>Listings</h1> 
       <Link to = "/principal/new"><button className='create-btn'>Create new</button></Link>
 
-   {   listings.length>0? loaded():loading()}
+   {   listings? loaded():loading()}
     </>
      
   )

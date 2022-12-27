@@ -76,6 +76,14 @@ body {
   }
  }
 
+ @media screen and (max-width : 430px) {
+  .bottom-buttons{ 
+   flex-direction: column;
+   align-items: center;
+  }
+ }
+
+
  @media screen and (max-width : 1300px) {
  .listing-title{
   white-space:wrap
@@ -842,8 +850,35 @@ button:disabled, form:invalid button[type="submit"] {
 
 
 
+/*Availability idicator*/
+.dot-online {
+  
+  height: 15px;
+  width: 15px;
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+.dot-offline {
+  height: 15px;
+  width: 15px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
 
-
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
 
 /* Switch CheckBox*/
 .checkr{

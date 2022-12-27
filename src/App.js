@@ -6,9 +6,10 @@ import { getUser } from './utilities/users-service';
 import * as listingsAPI from "./utilities/listings-api"
 
 import HomePage from './pages/HomePage';
-import AvailabilitiesPage from './pages/AvailabilitiesPage'
 import AboutUsPage from './pages/AboutUsPage'
 import ContactUsPage from './pages/ContactUsPage'
+import AvailabilitiesPage from './pages/AvailabilitiesPage'
+import ListingShowPage from './pages/ListingShowPage';
 
 import AuthPage from './pages/admin/AuthPage';
 import AdminHome from './pages/admin/AdminHome';
@@ -44,9 +45,10 @@ function App() {
 
           <Routes>
             <Route path ="/" element = {<HomePage listings = {listings}/>} />
-            <Route path="/available" element={<AvailabilitiesPage />} />
             <Route path="/about" element={<AboutUsPage />} />
             <Route path="/contact" element={<ContactUsPage />} />
+            <Route path="/available/" element={<AvailabilitiesPage />} />
+            <Route path="/available/:id" element={<ListingShowPage />} />
 
             {/* <Route path="/orders" element={<OrderHistoryPage />} /> */}
             <Route path ="/principal" element = {<AdminHome listings = {listings}/>} />
@@ -63,9 +65,10 @@ function App() {
             <Route path ="/principal" element = {<AuthPage setUser={setUser}/> } />
            
             <Route path ="/" element = {<HomePage listings = {listings}/>} />
-            <Route path="/available" element={<AvailabilitiesPage />} />
             <Route path="/about" element={<AboutUsPage />} />
             <Route path="/contact" element={<ContactUsPage />} />
+            <Route path="/available/" element={<AvailabilitiesPage />} />
+            <Route path="/available/:id" element={<ListingShowPage />} />
           </Routes>
         </>
    
