@@ -11,18 +11,14 @@ import EditListingpage from "./EditListingpage";
 export default function ListingDetailsPage({ listings }) {
   const [listing, setListing] = useState(); //getting all listings from db
 
-  const [slide, setSlide] = useState(false);
+  const [slide, setSlide] = useState(false);//for slide show
   const { id } = useParams();
   const navigation = useNavigate();
 
-  const thisListing = listings.find((element) => {
-    return element._id === id;
-  });
 
   async function getListing() {
     const listing = await listingsAPI.getById(id);
     setListing(listing);
-    console.log(listing);
   }
 
   useEffect(() => {
@@ -33,13 +29,12 @@ export default function ListingDetailsPage({ listings }) {
     // evt.preventdefault()
     try {
       navigation("/principal");
-      await deleteListing(thisListing);
+      await deleteListing(listing);
     } catch {}
   };
 
   function loaded() {
     let quals = listing.qualifications.split(".");
-    console.log(quals);
     return (
       <>
         <h1 className="title">{listing.title}</h1>
@@ -63,7 +58,7 @@ export default function ListingDetailsPage({ listings }) {
                 src="https://www.google.com/maps/embed?pb=!4v1672167750164!6m8!1m7!1sCAoSLEFGMVFpcE42WkZhcWhydG5waWxKVF9WYmhhUGdQdEg4bkNHTmRPb3FWaExu!2m2!1d39.7746093!2d-84.21754469999999!3f192.34562104242204!4f-14.765138178736677!5f0.4000000000000002"
                 width="900"
                 height="550"
-                allowfullscreen=""
+                allowFullScreen=""
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
               ></iframe>,
