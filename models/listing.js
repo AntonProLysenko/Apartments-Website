@@ -20,8 +20,7 @@ const listingSchema = new Schema({
     selectedFile6: {type:String},
     selectedFile7: {type:String},
     selectedFile8: {type:String},
-    selectedFile9: {type:String},
-    selectedFile10: {type:String} 
+
   },
   {timestamps:true
 }

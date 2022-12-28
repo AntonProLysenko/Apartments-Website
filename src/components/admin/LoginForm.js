@@ -31,7 +31,7 @@ async function handleSubmit(evt) {
 
 return (
   <div>
-    <div className="form-container" onSubmit={handleSubmit}>
+    <div className="auth-form" onSubmit={handleSubmit}>
       <form autoComplete="off" >
         <label>Email</label>
         <input type="text" name="email" value={credentials.email} onChange={handleChange} required />

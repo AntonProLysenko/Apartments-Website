@@ -37,8 +37,19 @@ export default function ListingDetailsPage({ listings }) {
     let quals = listing.qualifications.split(".");
     return (
       <>
-        <h1 className="title">{listing.title}</h1>
+        <div className="return">
 
+          <div className="back">
+            <Link to="/principal" >
+              <h2 className="arrow left title"><i ></i> Back  </h2>
+            </Link>
+          </div>
+
+          <h1 className="title">{listing.title}</h1>
+        </div>
+
+
+  
         <div className="main-info">
           <div className="stack-container">
             <div onClick={() => setSlide(!slide)} className="stack">
@@ -62,12 +73,14 @@ export default function ListingDetailsPage({ listings }) {
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
               ></iframe>,
+
               listing.selectedFile2,
               listing.selectedFile3,
               listing.selectedFile4,
               listing.selectedFile5,
+              listing.selectedFile6,
               listing.selectedFile7,
-              listing.selectedFile9,
+              listing.selectedFile8,
             ]}
           />
 
@@ -112,11 +125,15 @@ export default function ListingDetailsPage({ listings }) {
 
         <div className="bottom-buttons">
           <Link to={`/principal/${listing._id}/edit`}>
-            <button className="create-btn">Edit</button>
+            <button className="create-btn">
+       
+Edit</button>
           </Link>
 
-          <form onSubmit={handleDelete}>
-            <input className="delete-btn" type="submit"  value="Delete" />
+          <form >
+            <button onClick={handleDelete} className="delete-btn">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+               &nbsp; Delete</button>
           </form>
         </div>
       </>

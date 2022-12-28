@@ -62,7 +62,7 @@ async function editListing(req,res){
     req.body.available  = req.body.available === "on"? true : false;
     
     await Listing.findByIdAndUpdate(id, req.body)
-    res.redirect(`/principal/${id}`)
+    // res.redirect(`/principal/${id}`)
   } catch (e) {
     console.log("here"+req.params);
     res.status(400).json({msg:e.message})

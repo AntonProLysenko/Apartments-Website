@@ -8,16 +8,19 @@ const listingsCtrl = require('../../controllers/api/listings');
 // GET /api/items
 router.get('/', listingsCtrl.indexListing);
 //NEW
-// router.get('/listings/new', listingsCtrl.newListing)
+// router.get('/new', listingsCtrl.newListing)
 //DELETE
 router.delete('/:id', listingsCtrl.deleteListing)
+//UPDATE
+router.put('/:id', listingsCtrl.editListing);
 //CREATE
 router.post('/new', listingsCtrl.createListing)
+//EDIT
+router.get("/:id/edit",listingsCtrl.indexListing)
 //SHOW
 // GET /api/items/:id
 router.get('/:id', listingsCtrl.showListing);
 
-router.put('/:id', listingsCtrl.editListing);
 
 
 module.exports = router;

@@ -12,31 +12,7 @@ export default function EditListingpage (){
     const [listing, setListing] = useState(); //getting all listings from db
     const {id} = useParams()
     const navigation = useNavigate();
-    const [listingData, setListingData] = useState(
-    //     {   
-
-    //     title: '',
-    //     rent: '',
-    //     securityDeposit: '',
-    //     utilities: '',
-    //     description1: '',
-    //     description2: '',
-    //     pets: '',
-    //     qualifications: '',
-    //     available: false,
-    //     selectedFile1: '',
-    //     selectedFile2: '',
-    //     selectedFile3: '',
-    //     selectedFile4: '',
-    //     selectedFile5: '',
-    //     selectedFile6: '',
-    //     selectedFile7: '',
-    //     selectedFile8: '',
-    //     selectedFile9: '',
-    //     selectedFile10: '', 
-    //   }
-    listing
-      );
+   
 
     async function getListing() {
     const listing = await listingsAPI.getById(id);
@@ -50,28 +26,13 @@ export default function EditListingpage (){
     getListing();
     }, [setListing]);
 
-  
-
-    const formData = {...listingData}
-
-    // const handleChange = (evt) => {
-    //     setListing({
-    //       [evt.target.name]: evt.target.value,
-    //       error: ''
-    //     });
-    //   };
- 
-
     const  handleUpdate = async (evt) => {
         evt.preventDefault()
       try {
-        // console.log("trying");
-        // console.log(listing._id);
-    //    errorCheck = false
-       delete formData.error;
-       navigation(`/principal/${listing._id}`);
+        navigation(`/principal/${listing._id}`);
        await update(listing, listing._id)
-       delete formData.error;
+      
+    //    delete formData.error;
 
       } catch {
     //    errorCheck = true
@@ -102,24 +63,24 @@ export default function EditListingpage (){
             </div>
             <div>
             <label>Security Deposit:</label>
-            <input type="text" name="securityDeposit" value = {listing.securityDeposit} placeholder="Security Deposit Price"  onChange={(e) => setListing({...listing, securityDeposit: e.target.value })}/>
+            <input type="text" name="securityDeposit" placeholder="Security Deposit Price"  onChange={(e) => setListing({...listing, securityDeposit: e.target.value })} value ={listing.securityDeposit}/>
             </div>          
           </div>
 
           <label>Utilities:</label>
-          <textarea className='small-textarea' value={listing.utilities} name="utilities" placeholder="Enter utilities policy" onChange={(e) => setListing({ ...listing, utilities: e.target.value })}/> 
+          <textarea className='small-textarea' name="utilities" placeholder="Enter utilities policy" onChange={(e) => setListing({ ...listing, utilities: e.target.value })} value ={listing.utilities}/> 
              
 
             
             <label>Description Paragraph 1:</label>
-            <textarea className='description'  name="description1" placeholder="Description"  onChange={(e) => setListing({ ...listing, description1: e.target.value })}/>
+            <textarea className='description'  name="description1" placeholder="Description"  onChange={(e) => setListing({ ...listing, description1: e.target.value })} value ={listing.description1}/>
             
             <label>Description Paragraph 2:</label>
-            <textarea className='description' name="description2" placeholder="Description" onChange={(e) => setListing({ ...listing, description2: e.target.value })}/> 
+            <textarea className='description' name="description2" placeholder="Description" onChange={(e) => setListing({ ...listing, description2: e.target.value })} value ={listing.description2}/> 
             
 
             <label>Pets:</label>
-            <textarea className='small-textarea' name="pets" placeholder="Enter pet policy" onChange={(e) => setListing({ ...listing, pets: e.target.value })}/> 
+            <textarea className='small-textarea' name="pets" placeholder="Enter pet policy" onChange={(e) => setListing({ ...listing, pets: e.target.value })} value ={listing.pets}/> 
               
               
               
@@ -127,25 +88,19 @@ export default function EditListingpage (){
 
 
             <label>Qualifications: </label>
-            <textarea  name="qualifications" placeholder="Enter Minimum Qualifications for Residents"  onChange={(e) => setListing({ ...listing, qualifications: e.target.value })}/>
+            <textarea  name="qualifications" placeholder="Enter Minimum Qualifications for Residents"  onChange={(e) => setListing({ ...listing, qualifications: e.target.value })} value ={listing.qualifications}/>
 
-           {listing.available?
-            <div className = "checkr">
-              <label className='available'>Available: &nbsp;</label>
-              <label className="switch">
-                <input type="checkbox" checked={true} name="available" onChange={(e) => setListing({ ...listing, available: e.target.value })} />
-                <span className="slider"></span>
-              </label>
-             </div>
-            :
-            <div className = "checkr">
-              <label className='available'>Available: &nbsp;</label>
-              <label className="switch">
-                <input type="checkbox" name="available" onChange={(e) => setListing({ ...listing, available: e.target.value })} />
-                <span className="slider"></span>
-              </label>
-             </div>
-}
+           
+              
+                <div className = "checkr">
+                <label className='available'>Available: &nbsp;</label>
+                <label className="switch">
+                    <input type="checkbox" name="available"  onChange={(e) => setListing({ ...listing, available: e.target.value })}  />
+                    <span className="slider"></span>
+                </label>
+                </div>
+
+
 
            
 
@@ -159,8 +114,6 @@ export default function EditListingpage (){
               <div><FileBase type="file" name = "selectedFile6" multiple={false} onDone={({ base64 }) => setListing({ ...listing, selectedFile6: base64 })} /></div>
               <div><FileBase type="file" name = "selectedFile7" multiple={false} onDone={({ base64 }) => setListing({ ...listing, selectedFile7: base64 })} /></div>
               <div><FileBase type="file" name = "selectedFile8" multiple={false} onDone={({ base64 }) => setListing({ ...listing, selectedFile8: base64 })} /></div>
-              <div><FileBase type="file" name = "selectedFile9" multiple={false} onDone={({ base64 }) => setListing({ ...listing, selectedFile9: base64 })} /></div>
-              <div><FileBase type="file" name = "selectedFile10" multiple={false} onDone={({ base64 }) => setListing({ ...listing, selectedFile10: base64 })} /></div>
             </div>
 
             <button type="submit">Edit Listing</button>

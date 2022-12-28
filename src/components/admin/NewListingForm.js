@@ -31,8 +31,6 @@ export default function NewListingForm  (){
     selectedFile6: '',
     selectedFile7: '',
     selectedFile8: '',
-    selectedFile9: '',
-    selectedFile10: '', 
   });
 
 
@@ -51,11 +49,13 @@ export default function NewListingForm  (){
          evt.preventDefault()
         
        try {
+       
         navigation("/principal");
         setListingData(formData)
         await create(formData)
+       
        } catch {
-        setError("Failed - Try Again")
+        alert("Failed - Try Again")
        }
      }
 
@@ -133,8 +133,6 @@ export default function NewListingForm  (){
               <div><FileBase type="file" name = "selectedFile6" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile6: base64 })} /></div>
               <div><FileBase type="file" name = "selectedFile7" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile7: base64 })} /></div>
               <div><FileBase type="file" name = "selectedFile8" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile8: base64 })} /></div>
-              <div><FileBase type="file" name = "selectedFile9" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile9: base64 })} /></div>
-              <div><FileBase type="file" name = "selectedFile10" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile10: base64 })} /></div>
             </div>
 
             <button type="submit">Create Listing</button>

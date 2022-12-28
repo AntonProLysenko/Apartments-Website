@@ -33,7 +33,7 @@ export default function ListingShowPage({ listings }) {
     try {
       navigation("/principal");
       await deleteListing(listing);
-    } catch {}
+    } catch { }
   };
 
   function loaded() {
@@ -41,7 +41,17 @@ export default function ListingShowPage({ listings }) {
     console.log(quals);
     return (
       <>
-        <h1 className="title">{listing.title}</h1>
+        <div className="return">
+
+          <div className="back">
+            <Link to="/available" >
+              <h2 className="arrow left title"><i ></i> Back  </h2>
+            </Link>
+          </div>
+
+          <h1 className="title">{listing.title}</h1>
+        </div>
+
 
         <div className="main-info">
           <div className="stack-container">
@@ -70,8 +80,9 @@ export default function ListingShowPage({ listings }) {
               listing.selectedFile3,
               listing.selectedFile4,
               listing.selectedFile5,
+              listing.selectedFile6,
               listing.selectedFile7,
-              listing.selectedFile9,
+              listing.selectedFile8,
             ]}
           />
 
@@ -84,7 +95,7 @@ export default function ListingShowPage({ listings }) {
 
             <h3 className="info-title">
               Rent: <span className="price">{listing.rent}</span>
-             
+
             </h3>
             <h3 className="info-title">
               Security Deposit:{" "}
@@ -98,30 +109,30 @@ export default function ListingShowPage({ listings }) {
 
             <p>{listing.description1}</p>
             <p>{listing.description2}</p>
-      
+
 
             <p>
               <span className="info-title sub-title">Pets: </span>
               {listing.pets}
             </p>
             <div className="bottom-buttons">
-            <a href="sms:+18664504185?&body=Hello! I'm interested in Salem Crown Apartments">
-              <button className="create-btn">
-              <i class="fa fa-comments" aria-hidden="true"></i>
-              &nbsp; Text Us</button>
-            </a>
+              <a href="sms:+18664504185?&body=Hello! I'm interested in Salem Crown Apartments">
+                <button className="create-btn">
+                  <i class="fa fa-comments" aria-hidden="true"></i>
+                  &nbsp; Text Us</button>
+              </a>
 
-            <a
-              href="mailto:john@example.com? subject: Mail from Our Site &body: Hello! I'm interested in Salem Crown Apartments"
-              target="_blank"
-            >
-              <button className="create-btn">
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              &nbsp; Email Us</button>
-            </a>
+              <a
+                href="mailto:john@example.com? subject: Mail from Our Site &body: Hello! I'm interested in Salem Crown Apartments"
+                target="_blank"
+              >
+                <button className="create-btn">
+                  <i class="fa fa-envelope" aria-hidden="true"></i>
+                  &nbsp; Email Us</button>
+              </a>
+            </div>
           </div>
-          </div>
-       
+
         </div>
 
         <div className="quals">
