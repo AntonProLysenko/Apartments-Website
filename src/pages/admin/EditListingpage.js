@@ -116,7 +116,9 @@ export default function EditListingpage (){
               <div><FileBase type="file" name = "selectedFile8" multiple={false} onDone={({ base64 }) => setListing({ ...listing, selectedFile8: base64 })} /></div>
             </div>
 
-            <button type="submit">Edit Listing</button>
+            <button type="submit"> 
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+           &nbsp; Edit Listing</button>
         
 
           

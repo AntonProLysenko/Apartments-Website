@@ -14,19 +14,15 @@ export default function ListingShowPage({ listings }) {
   const { id } = useParams();
   const navigation = useNavigate();
 
-  // const thisListing = listings.find((element) => {
-  //   return element._id === id;
-  // });
 
   async function getListing() {
     const listing = await listingsAPI.getById(id);
     setListing(listing);
-    console.log(listing);
   }
 
   useEffect(() => {
     getListing();
-  }, [setListing]);
+  }, []);
 
   const handleDelete = async (evt) => {
     // evt.preventdefault()
@@ -145,7 +141,9 @@ export default function ListingShowPage({ listings }) {
               href="https://day.managebuilding.com/Resident/rental-application/new/apply"
               target="_blank"
             >
-              <button className="create-btn">Apply Now</button>
+              <button className="create-btn">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+               &nbsp; Apply Now</button>
             </a>
           </div>
         </div>

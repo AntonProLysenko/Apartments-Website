@@ -11,10 +11,9 @@ import EditListingpage from "./EditListingpage";
 export default function ListingDetailsPage({ listings }) {
   const [listing, setListing] = useState(); //getting all listings from db
 
-  const [slide, setSlide] = useState(false);//for slide show
+  const [slide, setSlide] = useState(false); //for slide show
   const { id } = useParams();
   const navigation = useNavigate();
-
 
   async function getListing() {
     const listing = await listingsAPI.getById(id);
@@ -38,18 +37,17 @@ export default function ListingDetailsPage({ listings }) {
     return (
       <>
         <div className="return">
-
           <div className="back">
-            <Link to="/principal" >
-              <h2 className="arrow left title"><i ></i> Back  </h2>
+            <Link to="/principal">
+              <h2 className="arrow left title">
+                <i></i> Back{" "}
+              </h2>
             </Link>
           </div>
 
           <h1 className="title">{listing.title}</h1>
         </div>
 
-
-  
         <div className="main-info">
           <div className="stack-container">
             <div onClick={() => setSlide(!slide)} className="stack">
@@ -126,14 +124,15 @@ export default function ListingDetailsPage({ listings }) {
         <div className="bottom-buttons">
           <Link to={`/principal/${listing._id}/edit`}>
             <button className="create-btn">
-       
-Edit</button>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+              &nbsp; Edit</button>
           </Link>
 
-          <form >
+          <form>
             <button onClick={handleDelete} className="delete-btn">
-            <i class="fa fa-trash" aria-hidden="true"></i>
-               &nbsp; Delete</button>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+              &nbsp; Delete
+            </button>
           </form>
         </div>
       </>

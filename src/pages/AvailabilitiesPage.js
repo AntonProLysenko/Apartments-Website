@@ -32,6 +32,7 @@ export default function AvailabilitiesPage(props) {
 
   if (availableListings.length>0){
     return (
+      
       <ul className="listings-ul">
         {availableListings.map((listing, idx) => {
           // console.log(listing)
@@ -67,12 +68,12 @@ export default function AvailabilitiesPage(props) {
   }else{
     return(
     <>
-    <h3>Sorry...</h3>
+    <h3 className="title">Sorry...</h3>
 
-         <h4> We do't have any apartments available right now</h4>
-         <h5>
+         <h4 className="title"> We do't have any apartments available right now</h4>
+         <h5 className="title">
            Please check out our sister property{" "}
-           <a href="#">Green Forest Apartments</a>
+           <a href="https://greenforestapts.business.site/" target="_blank">Green Forest Apartments</a>
          </h5>
        </>)
   }

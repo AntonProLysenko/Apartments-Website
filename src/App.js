@@ -23,17 +23,17 @@ function App() {
 
   
   const [user, setUser] = useState(getUser())//we need this state to be sure wether user is logged in
-  const [listings, setListings] = useState([]);//getting all listings from db
+  // const [listings, setListings] = useState([]);//getting all listings from db
 
-  async function getListings() {
-    const listings = await listingsAPI.getAll();
-    setListings(listings);
-  }
+  // async function getListings() {
+  //   const listings = await listingsAPI.getAll();
+  //   setListings(listings);
+  // }
 
-  useEffect(()=>{
-    getListings()
-  },[setListings])
-  // console.log(listings)
+  // useEffect(()=>{
+  //   getListings()
+  // },[setListings])
+  // // console.log(listings)
 
   return (
     <main className="App">
@@ -44,17 +44,17 @@ function App() {
           <NavBar name={user.name} setUser={setUser} />
 
           <Routes>
-            <Route path ="/" element = {<HomePage listings = {listings}/>} />
+            <Route path ="/" element = {<HomePage/>} />
             <Route path="/about" element={<AboutUsPage />} />
             <Route path="/contact" element={<ContactUsPage />} />
             <Route path="/available/" element={<AvailabilitiesPage />} />
             <Route path="/available/:id" element={<ListingShowPage />} />
 
             {/* <Route path="/orders" element={<OrderHistoryPage />} /> */}
-            <Route path ="/principal" element = {<AdminHome listings = {listings}/>} />
+            <Route path ="/principal" element = {<AdminHome/>} />
             <Route path ="/principal/new" element = {<NewListingPage/>} />
-            <Route path ="/principal/:id" element = {<ListingDetailsPage listings = {listings}/>} />
-            <Route path ="/principal/:id/edit" element = {<EditListingpage listings = {listings}/>} />
+            <Route path ="/principal/:id" element = {<ListingDetailsPage/>} />
+            <Route path ="/principal/:id/edit" element = {<EditListingpage/>} />
           </Routes>
         </>
         : 
@@ -64,7 +64,7 @@ function App() {
           <Routes>
             <Route path ="/principal" element = {<AuthPage setUser={setUser}/> } />
            
-            <Route path ="/" element = {<HomePage listings = {listings}/>} />
+            <Route path ="/" element = {<HomePage/>} />
             <Route path="/about" element={<AboutUsPage />} />
             <Route path="/contact" element={<ContactUsPage />} />
             <Route path="/available/" element={<AvailabilitiesPage />} />

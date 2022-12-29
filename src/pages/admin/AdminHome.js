@@ -67,7 +67,7 @@ useEffect(()=>{
   return (
     <>  
     {/* <NewListingForm/> */}
-      <h1>Listings</h1> 
+      <h1 className='title'>Listings</h1> 
       <Link to = "/principal/new"><button className='create-btn'>Create new</button></Link>
 
    {   listings? loaded():loading()}
