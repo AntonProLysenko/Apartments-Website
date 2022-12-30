@@ -7,12 +7,15 @@ import * as listingsAPI from "../utilities/listings-api";
 import loading from "../components/loading";
 import { deleteListing } from "../utilities/listings-service";
 
+
+
+
 export default function ListingShowPage({ listings }) {
   const [listing, setListing] = useState(); //getting all listings from db
 
   const [slide, setSlide] = useState(false);
   const { id } = useParams();
-  const navigation = useNavigate();
+ 
 
 
   async function getListing() {
@@ -24,14 +27,7 @@ export default function ListingShowPage({ listings }) {
     getListing();
   }, []);
 
-  const handleDelete = async (evt) => {
-    // evt.preventdefault()
-    try {
-      navigation("/principal");
-      await deleteListing(listing);
-    } catch { }
-  };
-
+  
   function loaded() {
     let quals = listing.qualifications.split(".");
     console.log(quals);
@@ -83,11 +79,6 @@ export default function ListingShowPage({ listings }) {
           />
 
           <div className="info">
-            {/* {listing.available ? (
-              <h5 className="available">Available</h5>
-            ) : (
-              <h3 className="not-available">Not Available</h3>
-            )} */}
 
             <h3 className="info-title">
               Rent: <span className="price">{listing.rent}</span>
@@ -147,16 +138,6 @@ export default function ListingShowPage({ listings }) {
             </a>
           </div>
         </div>
-        {/* 
-        <div className="bottom-buttons">
-          <Link to={`/principal/${listing._id}/edit`}>
-            <button className="create-btn">Edit</button>
-          </Link>
-
-          <form onSubmit={handleDelete}>
-            <input className="delete-btn" type="submit"  value="Delete" />
-          </form>
-        </div> */}
       </>
     );
   }
@@ -164,16 +145,6 @@ export default function ListingShowPage({ listings }) {
   return (
     <>
       {listing ? loaded() : loading()}
-
-      {/* <div className='galery'>
-        <img onClick={() => setSlide(!slide)} className='galery-pic1' src = {thisListing.selectedFile1}  />
-        <img  onClick={() => setSlide(!slide)}className='galery-pic2' src = {thisListing.selectedFile2}/>
-        <img onClick={() => setSlide(!slide)} className='galery-pic3' src = {thisListing.selectedFile3}/>
-        <img onClick={() => setSlide(!slide)} className='galery-pic4' src = {thisListing.selectedFile4}/>
-        <img onClick={() => setSlide(!slide)} className='galery-pic5' src = {thisListing.selectedFile5}/>
-        <img onClick={() => setSlide(!slide)} className='galery-pic6' src = {thisListing.selectedFile7}/>
-        <img  onClick={() => setSlide(!slide)} className='galery-pic7' src = {thisListing.selectedFile9}/>
-      </div> */}
     </>
   );
 }
