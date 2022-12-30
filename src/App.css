@@ -860,6 +860,48 @@ button[type="submit"]:active {
 }
 
 /*About Us Page*/
+.aboutUs-container{
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+/*About*/
+.about{
+  width:80%;
+  padding: 10px;
+
+  color:var(--text-black);
+  font-size: larger;
+
+
+  border-radius: 15px;
+  background-color: #c4c1ee;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+  rgba(94, 87, 87, 0.3) 0px 18px 36px -18px inset;
+
+}
+/*Reviews*/
+.reviews-container{
+  border: 2px solid black;
+  display: flex;
+  /* flex-direction: column;
+  align-items: center; */
+  width:100vw
+}
+.reviews{
+  /* margin-left: auto;
+  margin-right:auto ; */
+  display: flex;
+  color: var(--text-dark);
+  border-radius: 15px;
+  padding: 40px 10px 0 10px ;
+  background-color: #c4c1ee;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+  rgba(94, 87, 87, 0.3) 0px 18px 36px -18px inset;
+width: 90%;
+
+}
 /*Galery*/
 .container {
   width: 90%;
@@ -955,6 +997,11 @@ button[type="submit"]:active {
   grid-column-end: 9;
   grid-row-start: 11;
   grid-row-end: 12;
+}
+
+.map{
+  width:50%;
+  height:300px
 }
 /*
 button, a.button {
