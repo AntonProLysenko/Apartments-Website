@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import "animate.css";
+// import "animate.css";
 
 import * as listingsAPI from "../utilities/listings-api";
 

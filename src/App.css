@@ -54,6 +54,15 @@ body {
   .main-info {
     flex-direction: column;
   }
+  .contactUs-page{
+    flex-direction: column;
+  }
+
+  .contactUs-img>img{
+    margin-left: 10px;
+    width: 90vw;
+    border-radius: 10px;
+  }
 }
 @media screen and (max-width: 702px) {
   .add-container {
@@ -121,7 +130,20 @@ ul {
 #root {
   height: 100%;
 }
-
+.hidden{
+  display: none;
+}
+.shown{
+  display:block;
+}
+.text{
+  font-size: larger;
+  color:var(--text-black);
+  text-align: left;
+}
+.center{
+  text-align: center;
+}
 /*NAVBAR*/
 .navBar {
   padding: 5px 40px;
@@ -487,7 +509,6 @@ input {
   color: var(--text-dark);
   background-image: none !important; /* prevent lastpass */
   outline: none;
-
   display: flex;
   align-self: center;
 }
@@ -1003,6 +1024,56 @@ width: 90%;
   width:50%;
   height:300px
 }
+
+
+/*Contact Us Page*/
+.contactUs-page{
+  display: flex;
+}
+
+.contactUs-text{
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.contactUs-img>img{
+  margin-left: 10px;
+  width: 40vw;
+  border-radius: 10px;
+}
+
+.email-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.emailUs-form{
+  display: flex;
+  flex-direction: column;
+
+  width: 50%;
+  background-color: var(--white);
+  border-radius: 1vmin;
+  margin-bottom: 50px;
+  margin-top: 0px;
+}
+
+.emailUs-form>input{
+  width:80%;
+  /* align-self:flex-start; */
+  margin-bottom: 10px;
+}
+
+.emailUs-form>textarea{
+  width:80%;
+  margin-bottom: 10px;
+  align-self: center;
+}
+
+/* .emailUs-form>button{
+  align-self: flex-start;
+} */
 /*
 button, a.button {
   margin: 1vmin;

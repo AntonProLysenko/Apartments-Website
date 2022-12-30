@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import { Routes, Route,} from 'react-router-dom'
 
 import { getUser } from './utilities/users-service';
-import * as listingsAPI from "./utilities/listings-api"
 
 import HomePage from './pages/HomePage';
 import AboutUsPage from './pages/AboutUsPage'
@@ -21,7 +20,6 @@ import NavBar from './components/NavBar';
 
 function App() {
 
-  
   const [user, setUser] = useState(getUser())//we need this state to be sure wether user is logged in
   // const [listings, setListings] = useState([]);//getting all listings from db
 

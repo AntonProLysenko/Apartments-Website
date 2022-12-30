@@ -85,7 +85,7 @@ export default function ListingShowPage({ listings }) {
 
             </h3>
             <h3 className="info-title">
-              Security Deposit:{" "}
+              Security Deposit:
               <span className="price">{listing.securityDeposit} </span>
             </h3>
 
@@ -105,7 +105,7 @@ export default function ListingShowPage({ listings }) {
             <div className="bottom-buttons">
               <a href="sms:+18664504185?&body=Hello! I'm interested in Salem Crown Apartments">
                 <button className="create-btn">
-                  <i class="fa fa-comments" aria-hidden="true"></i>
+                  <i className="fa fa-comments" aria-hidden="true"></i>
                   &nbsp; Text Us</button>
               </a>
 
@@ -114,7 +114,7 @@ export default function ListingShowPage({ listings }) {
                 target="_blank"
               >
                 <button className="create-btn">
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
+                  <i className="fa fa-envelope" aria-hidden="true"></i>
                   &nbsp; Email Us</button>
               </a>
             </div>
@@ -133,7 +133,7 @@ export default function ListingShowPage({ listings }) {
               target="_blank"
             >
               <button className="create-btn">
-              <i class="fa fa-pencil" aria-hidden="true"></i>
+              <i className="fa fa-pencil" aria-hidden="true"></i>
                &nbsp; Apply Now</button>
             </a>
           </div>
