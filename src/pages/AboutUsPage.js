@@ -81,7 +81,7 @@ export default function AboutUsPage() {
         <h1  data-aos="zoom-in"data-aos-duration="1500"className="title">Gallery</h1>
 
         <div className="gallery" onClick={() => setSlide(!slide)}> 
-          <figure  data-aos="fade-down-right"data-aos-duration="1000"data-aos-delay="100"className="gallery__item gallery__item--1">
+          <figure  data-aos="fade-down-right"data-aos-duration="1000"className="gallery__item gallery__item--1">
             <img
               src="https://i.imgur.com/ILzD0HZ.jpg"
               className="gallery__img"
