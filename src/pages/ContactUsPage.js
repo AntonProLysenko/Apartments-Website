@@ -41,11 +41,11 @@ export default function ContactUs() {
       <h1  data-aos="zoom-in"data-aos-duration="1500" className='title'>Contact Salem Crown Apartments</h1>
       <div className='contactUs-page'>
     
-        <div  data-aos="fade-right"data-aos-duration="2000"className='contactUs-img'>
+        <div  data-aos="fade-right"data-aos-duration="2000"data-aos-delay="600"className='contactUs-img'>
           <img src = "https://i.imgur.com/U1Mtm2b.jpg" />
         </div>
 
-        <div  data-aos="fade-left"data-aos-duration="2000" className='contactUs-text'>
+        <div  data-aos="fade-left"data-aos-duration="2000"data-aos-delay="400" className='contactUs-text'>
         <p className='text'>Thank you for inquiring about our apartments for rent in Dayton. Feel free to contact us with any further questions and we will be happy to assist you.</p>
         <address className='text single-direction'><span className='text'>Address:</span> <a href='https://www.google.com/maps/dir//SALEM+CROWN+APARTMENTS,+1102+Salem+Ave,+Dayton,+OH+45406/@39.7747335,-84.2174326,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x884081c5961332e7:0xe38cbd36b306e837!2m2!1d-84.2174326!2d39.7747335?hl=en-US'>1102 Salem Ave, Dayton, OH 45406</a> </address>
 
@@ -61,9 +61,9 @@ export default function ContactUs() {
         </div>
       </div>
 
-      <h1  data-aos="zoom-in"data-aos-duration="2000"className='title'>Email Us</h1>
+      <h1  data-aos="zoom-in"data-aos-duration="2000"data-aos-delay="700"className='title'>Email Us</h1>
 
-      <div data-aos="fade-up"data-aos-duration="2000" className='email-container'>
+      <div data-aos="fade-up"data-aos-duration="2000"data-aos-delay="700" className='email-container'>
 
         <h3 className={isSent? "shown title":"hidden"}>Thank you for contacting Salem Crown Apartments!</h3>
         <h3 className={isSent? "shown title":"hidden"}> We'll email you shortly</h3>

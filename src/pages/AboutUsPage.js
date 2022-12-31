@@ -81,7 +81,7 @@ export default function AboutUsPage() {
         <h1  data-aos="zoom-in"data-aos-duration="1500"className="title">Gallery</h1>
 
         <div className="gallery" onClick={() => setSlide(!slide)}> 
-          <figure  data-aos="fade-down-right"data-aos-duration="1000"data-aos-delay="900"className="gallery__item gallery__item--1">
+          <figure  data-aos="fade-down-right"data-aos-duration="1000"data-aos-delay="100"className="gallery__item gallery__item--1">
             <img
               src="https://i.imgur.com/ILzD0HZ.jpg"
               className="gallery__img"
@@ -89,7 +89,7 @@ export default function AboutUsPage() {
             />
           </figure>
 
-          <figure  data-aos="fade-right"data-aos-delay="700"data-aos-duration="1200"className="gallery__item gallery__item--2">
+          <figure  data-aos="fade-right"data-aos-delay="200"data-aos-duration="1200"className="gallery__item gallery__item--2">
             <img
               src="https://i.imgur.com/R16jAox.jpg"
               className="gallery__img"
@@ -97,7 +97,7 @@ export default function AboutUsPage() {
             />
           </figure>
 
-          <figure  data-aos="fade-down-left"data-aos-delay="500"data-aos-duration="1200" className="gallery__item gallery__item--3">
+          <figure  data-aos="fade-down-left"data-aos-delay="300"data-aos-duration="1200" className="gallery__item gallery__item--3">
             <img
             
               src="https://i.imgur.com/MFPbkjh.jpg"
@@ -114,7 +114,7 @@ export default function AboutUsPage() {
             />
           </figure>
 
-          <figure data-aos="fade-right"data-aos-delay="600"data-aos-duration="1600"className="gallery__item gallery__item--5">
+          <figure data-aos="fade-right"data-aos-delay="500"data-aos-duration="1600"className="gallery__item gallery__item--5">
             <img
               src="https://i.imgur.com/9Pc0exQ.jpg"
               className="gallery__img"
@@ -122,7 +122,7 @@ export default function AboutUsPage() {
             />
           </figure>
 
-          <figure  data-aos="fade-left"data-aos-delay="500" data-aos-duration="1700"className="gallery__item gallery__item--6">
+          <figure  data-aos="fade-left"data-aos-delay="600" data-aos-duration="1700"className="gallery__item gallery__item--6">
             <img
               src="https://i.imgur.com/YUamIMj.jpg"
               className="gallery__img"
@@ -130,7 +130,7 @@ export default function AboutUsPage() {
             />
           </figure>
 
-          <figure  data-aos="fade-up-right"data-aos-delay="500" data-aos-duration="1300"className="gallery__item gallery__item--7">
+          <figure  data-aos="fade-up-right"data-aos-delay="700" data-aos-duration="1300"className="gallery__item gallery__item--7">
             <img
               src="https://i.imgur.com/U1Mtm2b.jpg"
               className="gallery__img"
@@ -138,7 +138,7 @@ export default function AboutUsPage() {
             />
           </figure>
 
-          <figure data-aos="fade-up-left"data-aos-delay="700" data-aos-duration="1500"className="gallery__item gallery__item--8">
+          <figure data-aos="fade-up-left"data-aos-delay="800" data-aos-duration="1500"className="gallery__item gallery__item--8">
             <img
               src="https://i.imgur.com/CwSBvsh.jpg"
               className="gallery__img"
@@ -151,7 +151,7 @@ export default function AboutUsPage() {
 
 
         </div>
-        <iframe  data-aos="fade-up"data-aos-delay="500"data-aos-duration="1500"className = "map"src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3066.4376179754076!2d-84.2196212846235!3d39.77473347944482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884081c5961332e7%3A0xe38cbd36b306e837!2sSALEM%20CROWN%20APARTMENTS!5e0!3m2!1sen!2sus!4v1672364214381!5m2!1sen!2sus"   allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+        <iframe  data-aos="fade-up"data-aos-delay="900"data-aos-duration="1500"className = "map"src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3066.4376179754076!2d-84.2196212846235!3d39.77473347944482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884081c5961332e7%3A0xe38cbd36b306e837!2sSALEM%20CROWN%20APARTMENTS!5e0!3m2!1sen!2sus!4v1672364214381!5m2!1sen!2sus"   allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
       </div>
 
 
