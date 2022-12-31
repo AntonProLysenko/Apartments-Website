@@ -2,10 +2,9 @@ import { useState, useEffect} from 'react';
 
 // import * as listingsAPI from "../../utilities/listings-api"
 import {Link} from "react-router-dom"
-import moment from 'moment';
+import moment from 'moment';//for calculating dataof change from now
 
 // import NewListingForm from '../../components/admin/NewListingForm';
-import ListingDetailsPage from './ListingDetailsPage';
 import * as listingsAPI from "../../utilities/listings-api"
 import loading from '../../components/loading';
 
@@ -25,9 +24,19 @@ useEffect(()=>{
 
 
   function loaded (){
+    //sorting, available listing goes first
+    const sorted=[]
+    listings.map((listing,idx)=>{
+      if(listing.available === true){
+        sorted.unshift(listing)
+      }else{
+        sorted.push(listing)
+      }
+    })
     return(
+ 
       <ul className='listings-ul'>
-      {listings.map((listing, idx)=>{
+      {sorted.map((listing, idx)=>{
         // console.log(listing)
        
 
@@ -50,11 +59,6 @@ useEffect(()=>{
                               <h4 className='price'><span className='rent'>Rent:</span> {listing.rent}/mo</h4>
                             </div>
                           
-                    
-                       
-                         
-                          
-                          {listing.available}
                         </div>
                       </Link>    
                   </li>

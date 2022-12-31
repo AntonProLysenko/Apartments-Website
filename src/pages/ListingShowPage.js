@@ -10,7 +10,7 @@ import { deleteListing } from "../utilities/listings-service";
 
 
 
-export default function ListingShowPage({ listings }) {
+export default function ListingShowPage() {
   const [listing, setListing] = useState(); //getting all listings from db
 
   const [slide, setSlide] = useState(false);

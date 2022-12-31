@@ -10,6 +10,7 @@ import loading from '../../components/loading';
 
 export default function EditListingpage (){
     const [listing, setListing] = useState(); //getting all listings from db
+    const [error, setError] = useState('');
     const {id} = useParams()
     const navigation = useNavigate();
    
@@ -17,9 +18,6 @@ export default function EditListingpage (){
     async function getListing() {
     const listing = await listingsAPI.getById(id);
     setListing(listing);
-  
-    console.log('listing', listing);
-    
     }
 
     useEffect(() => {
@@ -32,17 +30,14 @@ export default function EditListingpage (){
         navigation(`/principal/${listing._id}`);
        await update(listing, listing._id)
       
-    //    delete formData.error;
+
 
       } catch {
-    //    errorCheck = true
-    //    errorMessage="Failed - Try Again"
+        setError("Failed - Try Again")
       }
     }
 
 
-
-    //value={listing.title}
     function loaded(){
     return(
         <>
@@ -116,6 +111,8 @@ export default function EditListingpage (){
               <div><FileBase type="file" name = "selectedFile8" multiple={false} onDone={({ base64 }) => setListing({ ...listing, selectedFile8: base64 })} /></div>
             </div>
 
+            <p className="error-message">&nbsp;{error}</p>
+
             <button type="submit"> 
             <i class="fa fa-pencil" aria-hidden="true"></i>
            &nbsp; Edit Listing</button>
@@ -123,13 +120,11 @@ export default function EditListingpage (){
 
           
             </div>
-            {/* <p className="error-message">&nbsp;{error}</p> */}
-       
-       
-          
-          
             </form>
         </>
   )}
+
+
+
   return  listing ? loaded() : loading()
 }

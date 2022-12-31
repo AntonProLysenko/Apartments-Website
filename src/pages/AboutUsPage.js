@@ -45,7 +45,7 @@ export default function AboutUsPage() {
         <h1  data-aos="zoom-in"data-aos-duration="1500"className="title">Gallery</h1>
 
         <div className="gallery" onClick={() => setSlide(!slide)}> 
-          <figure  data-aos="fade-down-right"data-aos-duration="1000"className="gallery__item gallery__item--1">
+          <figure  data-aos="fade-down-right"data-aos-duration="1000"data-aos-delay="900"className="gallery__item gallery__item--1">
             <img
               src="https://i.imgur.com/ILzD0HZ.jpg"
               class="gallery__img"
@@ -53,7 +53,7 @@ export default function AboutUsPage() {
             />
           </figure>
 
-          <figure  data-aos="fade-right"data-aos-delay="300"className="gallery__item gallery__item--2">
+          <figure  data-aos="fade-right"data-aos-delay="700"className="gallery__item gallery__item--2">
             <img
               src="https://i.imgur.com/R16jAox.jpg"
               className="gallery__img"
@@ -70,7 +70,7 @@ export default function AboutUsPage() {
             />
           </figure>
 
-          <figure  data-aos="fade-right"data-aos-delay="300"className="gallery__item gallery__item--4">
+          <figure  data-aos="fade-right"data-aos-delay="400"className="gallery__item gallery__item--4">
             <img
               src="https://i.imgur.com/J4xLkW4.jpg"
               className="gallery__img"
@@ -78,7 +78,7 @@ export default function AboutUsPage() {
             />
           </figure>
 
-          <figure data-aos="fade-right"data-aos-delay="300"className="gallery__item gallery__item--5">
+          <figure data-aos="fade-right"data-aos-delay="600"className="gallery__item gallery__item--5">
             <img
               src="https://i.imgur.com/9Pc0exQ.jpg"
               className="gallery__img"
@@ -94,7 +94,7 @@ export default function AboutUsPage() {
             />
           </figure>
 
-          <figure  data-aos="fade-up-right"data-aos-delay="300"className="gallery__item gallery__item--7">
+          <figure  data-aos="fade-up-right"data-aos-delay="500"className="gallery__item gallery__item--7">
             <img
               src="https://i.imgur.com/U1Mtm2b.jpg"
               className="gallery__img"
@@ -102,7 +102,7 @@ export default function AboutUsPage() {
             />
           </figure>
 
-          <figure data-aos="fade-up-left"data-aos-delay="500" className="gallery__item gallery__item--8">
+          <figure data-aos="fade-up-left"data-aos-delay="700" className="gallery__item gallery__item--8">
             <img
               src="https://i.imgur.com/CwSBvsh.jpg"
               className="gallery__img"

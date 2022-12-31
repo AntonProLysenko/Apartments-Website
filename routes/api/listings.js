@@ -12,7 +12,7 @@ router.get('/', listingsCtrl.indexListing);
 //DELETE
 router.delete('/:id', listingsCtrl.deleteListing)
 //UPDATE
-router.put('/:id', listingsCtrl.editListing);
+router.put('/:id', listingsCtrl.updateListing);
 //CREATE
 router.post('/new', listingsCtrl.createListing)
 //EDIT

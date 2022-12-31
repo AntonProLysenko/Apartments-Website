@@ -1,17 +1,15 @@
 const express = require("express")
 const Listing = require("../../models/listing")
-const router = express.Router()
 
 
 module.exports = {
-
-     indexListing,
-     newListing,
-     deleteListing,
-    // update,
+    indexListing,
+    newListing,
+    deleteListing,
+    updateListing,
     createListing,
-    editListing,
-     showListing
+    //edit
+    showListing
   };
 
 //INDUCES
@@ -50,14 +48,8 @@ async function deleteListing(req,res){
   }
 }
 //UPDATE
-async function editListing(req,res){
+async function updateListing(req,res){
   try {
-
-    console.log("in editListing /controllers");
-    console.log(req.params);
-    console.log('req.body');
-    console.log(req.body);
-    
     const id = req.params.id;
     req.body.available  = req.body.available === "on"? true : false;
     
@@ -72,12 +64,7 @@ async function editListing(req,res){
 //CREATE
 async function createListing (req,res){
   try{
-    console.log(req.body.available)
     req.body.available  = req.body.available === "on"? true : false;
-    
-    console.log('req.body')
-    console.log( req.body);
-
     await Listing.create(req.body)
     res.redirect('/principal')
 
@@ -87,6 +74,7 @@ async function createListing (req,res){
 }
 
 //EDIT
+
 //SHOW
 async function showListing(req, res) {
   try{

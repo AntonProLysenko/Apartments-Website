@@ -5,8 +5,9 @@ import FsLightbox from "fslightbox-react";
 
 import * as listingsAPI from "../../utilities/listings-api";
 import { deleteListing } from "../../utilities/listings-service";
+import loading from "../../components/loading";
 
-import EditListingpage from "./EditListingpage";
+
 
 export default function ListingDetailsPage({ listings }) {
   const [listing, setListing] = useState(); //getting all listings from db
@@ -139,43 +140,9 @@ export default function ListingDetailsPage({ listings }) {
     );
   }
 
-  function loading() {
-    return (
-      <div className="loader">
-        <div className="loader-inner">
-          <div className="loader-line-wrap">
-            <div className="loader-line"></div>
-          </div>
-          <div className="loader-line-wrap">
-            <div className="loader-line"></div>
-          </div>
-          <div className="loader-line-wrap">
-            <div className="loader-line"></div>
-          </div>
-          <div className="loader-line-wrap">
-            <div className="loader-line"></div>
-          </div>
-          <div className="loader-line-wrap">
-            <div className="loader-line"></div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <>
       {listing ? loaded() : loading()}
-
-      {/* <div className='galery'>
-        <img onClick={() => setSlide(!slide)} className='galery-pic1' src = {thisListing.selectedFile1}  />
-        <img  onClick={() => setSlide(!slide)}className='galery-pic2' src = {thisListing.selectedFile2}/>
-        <img onClick={() => setSlide(!slide)} className='galery-pic3' src = {thisListing.selectedFile3}/>
-        <img onClick={() => setSlide(!slide)} className='galery-pic4' src = {thisListing.selectedFile4}/>
-        <img onClick={() => setSlide(!slide)} className='galery-pic5' src = {thisListing.selectedFile5}/>
-        <img onClick={() => setSlide(!slide)} className='galery-pic6' src = {thisListing.selectedFile7}/>
-        <img  onClick={() => setSlide(!slide)} className='galery-pic7' src = {thisListing.selectedFile9}/>
-      </div> */}
     </>
   );
 }
