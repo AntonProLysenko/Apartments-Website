@@ -35,14 +35,14 @@ export default function HomePage() {
         return availableListings.push(listing);
       }
     });
-    console.log("in loaded");
+    // console.log("in loaded");
 
-    console.log(availableListings);
+    // console.log(availableListings);
 
     function MultipleAvailable() {
-      console.log("in multiple");
+      // console.log("in multiple");
 
-      console.log(availableListings);
+      // console.log(availableListings);
 
       return (
         <div className="add-container">

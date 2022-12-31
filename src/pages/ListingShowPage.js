@@ -30,7 +30,7 @@ export default function ListingShowPage() {
   
   function loaded() {
     let quals = listing.qualifications.split(".");
-    console.log(quals);
+    // console.log(quals);
     return (
       <>
         <div className="return">
@@ -41,13 +41,13 @@ export default function ListingShowPage() {
             </Link>
           </div>
 
-          <h1 className="title">{listing.title}</h1>
+          <h1  data-aos="zoom-in"data-aos-duration="1200" className="title">{listing.title}</h1>
         </div>
 
 
-        <div className="main-info">
+        <div  data-aos="fade-left"data-aos-delay="300"data-aos-duration="1200" className="main-info">
           <div className="stack-container">
-            <div onClick={() => setSlide(!slide)} className="stack">
+            <div  data-aos="fade-right"data-aos-delay="700"data-aos-duration="1500" onClick={() => setSlide(!slide)} className="stack">
               <img src={listing.selectedFile1} width="250" height="180" />
               <span>
                 Click to See All Photos and <br />
@@ -64,9 +64,9 @@ export default function ListingShowPage() {
                 src="https://www.google.com/maps/embed?pb=!4v1672167750164!6m8!1m7!1sCAoSLEFGMVFpcE42WkZhcWhydG5waWxKVF9WYmhhUGdQdEg4bkNHTmRPb3FWaExu!2m2!1d39.7746093!2d-84.21754469999999!3f192.34562104242204!4f-14.765138178736677!5f0.4000000000000002"
                 width="900"
                 height="550"
-                allowfullscreen=""
+                allowFullScreen=""
                 loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
+                referrerPolicy="no-referrer-when-downgrade"
               ></iframe>,
               listing.selectedFile2,
               listing.selectedFile3,
@@ -122,7 +122,7 @@ export default function ListingShowPage() {
 
         </div>
 
-        <div className="quals">
+        <div  data-aos="fade-up"data-aos-delay="900"data-aos-duration="1200" className="quals">
           <h2>Qualifications:</h2>
           <div>
             {quals.map((pa, idx) => {

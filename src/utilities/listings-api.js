@@ -21,7 +21,7 @@ export function getById(id) {
 }
 
 export function update(listingData, id) {
-  console.log("in listings-api");
-  console.log(listingData, id);
+  // console.log("in listings-api");
+  // console.log(listingData, id);
   return sendRequest(`${BASE_URL}/${id}`,'PUT', listingData);
 }

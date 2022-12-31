@@ -114,7 +114,7 @@ export default function EditListingpage (){
             <p className="error-message">&nbsp;{error}</p>
 
             <button type="submit"> 
-            <i class="fa fa-pencil" aria-hidden="true"></i>
+            <i className="fa fa-pencil" aria-hidden="true"></i>
            &nbsp; Edit Listing</button>
         
 

@@ -40,7 +40,7 @@ export default function AvailabilitiesPage(props) {
           let lastUpdate = moment(listing.updatedAt).fromNow();
 
           return (
-            <li key={idx}>
+            <li  data-aos="zoom-in"data-aos-duration="1500" key={idx}>
               <Link to={`/available/${listing._id}`}>
                 <div className="listing-ad">
                   <div className="listing-ad-img">

@@ -38,7 +38,7 @@ async function newListing (req,res) {
 //DELETE
 async function deleteListing(req,res){
   try {
-    console.log(req.body)
+    // console.log(req.body)
     // res.redirect("/principal")
     const deletedListing = await Listing.findByIdAndDelete(req.body._id)
     res.status(200).json(deletedListing)
@@ -56,7 +56,7 @@ async function updateListing(req,res){
     await Listing.findByIdAndUpdate(id, req.body)
     // res.redirect(`/principal/${id}`)
   } catch (e) {
-    console.log("here"+req.params);
+    // console.log("here"+req.params);
     res.status(400).json({msg:e.message})
   }
 }

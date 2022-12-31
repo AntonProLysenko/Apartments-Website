@@ -125,13 +125,13 @@ export default function ListingDetailsPage({ listings }) {
         <div className="bottom-buttons">
           <Link to={`/principal/${listing._id}/edit`}>
             <button className="create-btn">
-            <i class="fa fa-pencil" aria-hidden="true"></i>
+            <i className="fa fa-pencil" aria-hidden="true"></i>
               &nbsp; Edit</button>
           </Link>
 
           <form>
             <button onClick={handleDelete} className="delete-btn">
-              <i class="fa fa-trash" aria-hidden="true"></i>
+              <i className="fa fa-trash" aria-hidden="true"></i>
               &nbsp; Delete
             </button>
           </form>
