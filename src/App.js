@@ -18,6 +18,7 @@ import EditListingpage from './pages/admin/EditListingpage';
 
 import NavBar from './components/NavBar';
 
+
 function App() {
 
   const [user, setUser] = useState(getUser())//we need this state to be sure wether user is logged in
@@ -54,6 +55,8 @@ function App() {
             <Route path ="/principal/:id" element = {<ListingDetailsPage/>} />
             <Route path ="/principal/:id/edit" element = {<EditListingpage/>} />
           </Routes>
+
+
         </>
         : 
         <>
@@ -68,6 +71,8 @@ function App() {
             <Route path="/available/" element={<AvailabilitiesPage />} />
             <Route path="/available/:id" element={<ListingShowPage />} />
           </Routes>
+
+          
         </>
    
       }

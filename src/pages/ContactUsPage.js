@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { send } from 'emailjs-com';
 
+import Footer from '../components/Footer';
+
 export default function ContactUs() {
   const [toSend, setToSend] = useState({
     from_name: '',
@@ -42,7 +44,7 @@ export default function ContactUs() {
       <div className='contactUs-page'>
     
         <div  data-aos="fade-right"data-aos-duration="2000"data-aos-delay="600"className='contactUs-img'>
-          <img src = "https://i.imgur.com/U1Mtm2b.jpg" />
+          <img  src="https://i.imgur.com/BCQ72z5.jpg" />
         </div>
 
         <div  data-aos="fade-left"data-aos-duration="2000"data-aos-delay="400" className='contactUs-text'>
@@ -101,7 +103,7 @@ export default function ContactUs() {
    
        </div>
     
-  
+    <Footer/>
     </>
   )
 }

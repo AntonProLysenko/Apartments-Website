@@ -5,7 +5,9 @@ import FsLightbox from "fslightbox-react";
 
 import * as listingsAPI from "../utilities/listings-api";
 import loading from "../components/loading";
-import { deleteListing } from "../utilities/listings-service";
+
+
+import Footer from "../components/Footer";
 
 
 
@@ -145,6 +147,9 @@ export default function ListingShowPage() {
   return (
     <>
       {listing ? loaded() : loading()}
+      <br/>
+      <br/>
+      <Footer/>
     </>
   );
 }

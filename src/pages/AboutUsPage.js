@@ -2,6 +2,8 @@ import { useState, useRef } from "react";
 
 import FsLightbox from "fslightbox-react";
 
+import Footer from '../components/Footer'
+
 
 
 export default function AboutUsPage() {
@@ -146,6 +148,22 @@ export default function AboutUsPage() {
             />
           </figure>
 
+          <figure data-aos="fade-up-left"data-aos-delay="900" data-aos-duration="1400"className="gallery__item gallery__item--9">
+            <img
+              src="https://i.imgur.com/a880IHY.jpg"
+              className="gallery__img"
+              alt="Outside Winter"
+            />
+          </figure>
+
+          <figure data-aos="fade-up-right"data-aos-delay="600" data-aos-duration="1500"className="gallery__item gallery__item--10">
+            <img
+              src="https://i.imgur.com/BCQ72z5.jpg"
+              className="gallery__img"
+              alt="Outside Summer"
+            />
+          </figure>
+
 
 
 
@@ -167,11 +185,15 @@ export default function AboutUsPage() {
 "https://i.imgur.com/9Pc0exQ.jpg",
 "https://i.imgur.com/YUamIMj.jpg",
 "https://i.imgur.com/CwSBvsh.jpg",
-"https://i.imgur.com/U1Mtm2b.jpg"
+"https://i.imgur.com/U1Mtm2b.jpg",
+"https://i.imgur.com/a880IHY.jpg",
+"https://i.imgur.com/BCQ72z5.jpg"
+
             
             ]}
          />
           </div>
+          <Footer/>
     </>
   );
 

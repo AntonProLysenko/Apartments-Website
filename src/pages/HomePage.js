@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 
 import * as listingsAPI from "../utilities/listings-api";
 
+import Footer from "../components/Footer";
+
 export default function HomePage() {
   const [listings, setListings] = useState();
   const [isHovering, setIsHovering] = useState(false);
@@ -66,7 +68,7 @@ export default function HomePage() {
               href="https://www.google.com/maps/dir//1102+Salem+Ave,+Dayton,+OH+45406/@39.7746572,-84.2196603,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x88408122b505a61d:0xc35c5f962acf2cf5!2m2!1d-84.2174716!2d39.7746572"
               target="_blank"
             >
-              <span>1102 Salem AveDayton, OH 45406</span>
+              <span>1102 Salem Ave. Dayton, OH 45406</span>
             </a>
           </div>
         </div>
@@ -96,7 +98,7 @@ export default function HomePage() {
               href="https://www.google.com/maps/dir//1102+Salem+Ave,+Dayton,+OH+45406/@39.7746572,-84.2196603,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x88408122b505a61d:0xc35c5f962acf2cf5!2m2!1d-84.2174716!2d39.7746572"
               target="_blank"
             >
-              <span>1102 Salem AveDayton, OH 45406</span>
+              <span>1102 Salem Ave. Dayton, OH 45406</span>
             </a>
           </div>
         </div>
@@ -121,7 +123,7 @@ export default function HomePage() {
           href="https://www.google.com/maps/dir//1102+Salem+Ave,+Dayton,+OH+45406/@39.7746572,-84.2196603,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x88408122b505a61d:0xc35c5f962acf2cf5!2m2!1d-84.2174716!2d39.7746572"
           target="_blank"
         >
-          <span>1102 Salem AveDayton, OH 45406</span>
+          <span>1102 Salem Ave. Dayton, OH 45406</span>
         </a>
       </div>
     );
@@ -157,6 +159,10 @@ export default function HomePage() {
           
         </div>
       </div>
+      <br/>
+      <br/>
+      
+      <Footer/>
     </div>
   );
 }

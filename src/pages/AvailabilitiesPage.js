@@ -5,6 +5,8 @@ import moment from "moment";
 import * as listingsAPI from "../utilities/listings-api";
 import loading from "../components/loading";
 
+import Footer from '../components/Footer';
+
 export default function AvailabilitiesPage(props) {
   const [listings, setListings] = useState(); //getting all listings from db
 
@@ -32,13 +34,14 @@ export default function AvailabilitiesPage(props) {
 
   if (availableListings.length>0){
     return (
+      <>
       
       <ul className="listings-ul">
         {availableListings.map((listing, idx) => {
           // console.log(listing)
-
+          
           let lastUpdate = moment(listing.updatedAt).fromNow();
-
+          
           return (
             <li  data-aos="zoom-in"data-aos-duration="1500" key={idx}>
               <Link to={`/available/${listing._id}`}>
@@ -64,6 +67,8 @@ export default function AvailabilitiesPage(props) {
           );
         })}
       </ul>
+      <Footer/>
+        </>
     );
   }else{
     return(
@@ -75,6 +80,8 @@ export default function AvailabilitiesPage(props) {
            Please check out our sister property{" "}
            <a href="https://greenforestapts.business.site/" target="_blank">Green Forest Apartments</a>
          </h5>
+
+         <Footer/>
        </>)
   }
     
