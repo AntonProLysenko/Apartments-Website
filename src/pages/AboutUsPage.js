@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 
 import FsLightbox from "fslightbox-react";
 
@@ -35,7 +35,7 @@ export default function AboutUsPage() {
     <br/>
     <br/>
 
-    <h1 data-aos="zoom-in"data-aos-delay="600"data-aos-duration="1500"className="title">Testimonials</h1>
+    <h1 data-aos="zoom-in"data-aos-delay="500"data-aos-duration="1500"className="title">Testimonials</h1>
     <div  data-aos="zoom-in"data-aos-delay="700"data-aos-duration="1500" className = "reviews-container">
 
 
@@ -57,7 +57,7 @@ export default function AboutUsPage() {
     <br/>
 
      <h1  data-aos="zoom-in"data-aos-duration="2000"className = "title" >Virtual Tour</h1>
-      <iframe  data-aos="zoom-in"data-aos-delay="900"data-aos-duration="1500" className="virtual-tour"
+      <iframe  data-aos="zoom-in"data-aos-delay="300"data-aos-duration="1500" className="virtual-tour"
                 src="https://www.google.com/maps/embed?pb=!4v1672167750164!6m8!1m7!1sCAoSLEFGMVFpcE42WkZhcWhydG5waWxKVF9WYmhhUGdQdEg4bkNHTmRPb3FWaExu!2m2!1d39.7746093!2d-84.21754469999999!3f192.34562104242204!4f-14.765138178736677!5f0.4000000000000002"
                 
                 allowFullScreen=""
@@ -89,7 +89,7 @@ export default function AboutUsPage() {
             />
           </figure>
 
-          <figure  data-aos="fade-right"data-aos-delay="200"data-aos-duration="1200"className="gallery__item gallery__item--2">
+          <figure  data-aos="fade-right"data-aos-delay="500"data-aos-duration="1200"className="gallery__item gallery__item--2">
             <img
               src="https://i.imgur.com/R16jAox.jpg"
               className="gallery__img"

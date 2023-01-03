@@ -122,7 +122,7 @@ export default function ListingShowPage() {
 
         </div>
 
-        <div  data-aos="fade-up"data-aos-delay="900"data-aos-duration="1200" className="quals">
+        <div  data-aos="fade-up"data-aos-delay="200"data-aos-duration="1200" className="quals">
           <h2>Qualifications:</h2>
           <div>
             {quals.map((pa, idx) => {

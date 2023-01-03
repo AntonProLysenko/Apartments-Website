@@ -70,7 +70,7 @@ useEffect(()=>{
 
   return (
     <>  
-    {/* <NewListingForm/> */}
+ 
       <h1 className='title'>Listings</h1> 
       <Link to = "/principal/new"><button className='create-btn'>Create new</button></Link>
 

@@ -13,8 +13,8 @@ require("./config/database");
 
 const app = express();
 
- app.use(bodyParser.json({ limit: '30mb', extended: true }))   //setting the limin for uploading images no more than 30 mb
-app.use(bodyParser.urlencoded({ limin: "30mb", extended: true}))
+ app.use(bodyParser.json({ limit: '10mb', extended: true }))   //setting the limin for uploading images no more than 30 mb
+app.use(bodyParser.urlencoded({ limin: "10mb", extended: true}))
 app.use(cors())
 
 app.use(logger('dev'));

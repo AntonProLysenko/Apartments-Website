@@ -311,7 +311,7 @@ ul {
   padding: 10px;
   /* margin-right: 200px; */
 
-  background-color: #c4c1ee;
+  background-color: rgba(196, 193, 238, .7);
   animation: wiggle 3s linear infinite;
 }
 
@@ -369,9 +369,9 @@ ul {
 
 
 
-.home-pic-text>h1{
+.title-main{
 
-  font-size:6vw;
+  font-size:6vmax;
   width: 98%
 }
 
@@ -406,7 +406,7 @@ ul {
   background-color: #5e3389;
   border: none;
   border-radius: 10px;
-  height: 35px;
+  height: fit-content;
   width: 100px;
   font-size: large;
   font-weight: 600;
@@ -609,7 +609,7 @@ button[type="submit"]:active {
   color: var(--text-dark);
 
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-  background-color: #c4c1ee;
+  background-color: rgba(196, 193, 238, .7);
 }
 
 .listing-ad-img > img {
@@ -806,7 +806,7 @@ button[type="submit"]:active {
   width: 70%;
   text-align: initial;
 
-  background-color: #c4c1ee;
+  background-color: rgba(196, 193, 238, .7);
   border-radius: 10px;
   padding: 10px;
 }
@@ -853,7 +853,7 @@ button[type="submit"]:active {
   padding: 30px 10px;
   color: var(--text-black);
   font-weight: 500;
-  background-color: #c4c1ee;
+  background-color: rgba(196, 193, 238, .7);
   border-radius: 10px;
   width: 70%;
 }
@@ -897,7 +897,7 @@ button[type="submit"]:active {
 
 
   border-radius: 15px;
-  background-color: #c4c1ee;
+  background-color: rgba(196, 193, 238, .7);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
   rgba(94, 87, 87, 0.3) 0px 18px 36px -18px inset;
 
@@ -916,7 +916,7 @@ button[type="submit"]:active {
   color: var(--text-dark);
   border-radius: 15px;
   padding: 40px 10px 0 10px ;
-  background-color: #c4c1ee;
+  background-color: rgba(196, 193, 238, .7);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
   rgba(94, 87, 87, 0.3) 0px 18px 36px -18px inset;
 width: 90%;
