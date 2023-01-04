@@ -130,6 +130,7 @@ export default function HomePage() {
   }
 
   return (
+    <>
     <div className="homepageContainer">
 
       {listings ? loaded() : noneAvailable()}
@@ -159,10 +160,12 @@ export default function HomePage() {
           
         </div>
       </div>
-      <br/>
-      <br/>
+
+
       
-      <Footer/>
+  
     </div>
+        <Footer/>
+        </>
   );
 }
