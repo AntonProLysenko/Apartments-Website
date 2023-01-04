@@ -71,6 +71,23 @@ export default function HomePage() {
               <span>1102 Salem Ave. Dayton, OH 45406</span>
             </a>
           </div>
+
+          {//Pseudo element for aligning items to the very left and even center
+          }
+          <div className="ad-hidden">
+          <div>
+              <i className="fa fa-compass" aria-hidden="true"></i>
+              <span> Directions:</span>
+            </div>
+            <a
+              href="https://www.google.com/maps/dir//1102+Salem+Ave,+Dayton,+OH+45406/@39.7746572,-84.2196603,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x88408122b505a61d:0xc35c5f962acf2cf5!2m2!1d-84.2174716!2d39.7746572"
+              target="_blank"
+            >
+              <span>1102 Salem Ave. Dayton, OH 45406</span>
+            </a>
+            <br />
+          </div>
+
         </div>
       );
     }
@@ -84,7 +101,7 @@ export default function HomePage() {
             We have {availableListings.length} available apartment
             <br />
             <Link to="/available">
-              {" "}
+       
               <button className="btn-add">See more</button>
             </Link>
           </div>
@@ -100,6 +117,12 @@ export default function HomePage() {
             >
               <span>1102 Salem Ave. Dayton, OH 45406</span>
             </a>
+          </div>
+
+          {//Pseudo element for aligning items to the very left and even center
+          }
+          <div className="ad-hidden">
+            <br />
           </div>
         </div>
       );
@@ -165,6 +188,8 @@ export default function HomePage() {
       
   
     </div>
+    <br/>
+    <br/>
         <Footer/>
         </>
   );
