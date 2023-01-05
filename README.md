@@ -43,7 +43,8 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To learn React, check out the [Rea![Screenshot_2022-12-18_at_23 28 25](https://user-images.githubusercontent.com/112988428/210860639-ff6d1cf2-4a2e-46c4-b8db-87f1494b649b.jpg)
+ct documentation](https://reactjs.org/).
 
 ### Code Splitting
 
@@ -58,13 +59,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
 ### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
