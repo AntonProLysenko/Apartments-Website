@@ -10,7 +10,7 @@ export default function Footer() {
         <br/>
       <span className= "copy"> &copy;  Copyright 2023 Salem Crown Apartments. </span>
       &nbsp; &nbsp; &nbsp;
-      <span className="copy"> Designed and Developed by <a target="_blank" href="https://github.com/AntonProLysenko">BoldProEngineering</a></span>
+      <span className="copy"> Designed and Developed by <a target="_blank" href="https://github.com/AntonProLysenko">me</a></span>
 
      
       </div>
