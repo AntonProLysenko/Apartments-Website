@@ -286,6 +286,9 @@ ul {
   width: 140px;
   font-size: large;
   font-weight: 600;
+  white-space: nowrap;
+  height: fit-content;
+  width: fit-content;
 }
 
 .create-btn:hover {
