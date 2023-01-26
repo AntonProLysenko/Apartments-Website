@@ -432,6 +432,7 @@ ul {
   width: 98vw;
   border-radius: 5px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+  object-fit: cover;
 }
 
 .homePic>.home-pic-text{
@@ -467,6 +468,7 @@ ul {
   width: 98vmax;
   border-radius: 5px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+  object-fit: cover;
 }
 
 .homePic-faded>.home-pic-text{
