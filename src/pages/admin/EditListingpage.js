@@ -28,7 +28,7 @@ export default function EditListingpage (){
         evt.preventDefault()
       try {
         navigation(`/principal/${listing._id}`);
-       await update(listing, listing._id)
+        await update(listing, listing._id)
       
 
 
