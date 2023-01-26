@@ -65,6 +65,22 @@ body {
     flex-direction: column;
     align-items: center;
   }
+  .homePic>.home-pic-text{
+
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+
+  .homePic-faded>.home-pic-text{
+
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+  
 
 
   .main-info {
@@ -135,6 +151,24 @@ body {
   }
 
 }
+
+@media screen and (min-width:390px ){
+  .homePic-faded>.home-pic-text{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+  .homePic>.home-pic-text{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+  
+}
+
+
 
 a {
   text-decoration: none;
@@ -440,13 +474,7 @@ ul {
 
   color:rgb(215, 202, 248);
   font-weight: 850;
-
-
   width: 90%;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, 0%);
 }
 
 
@@ -476,13 +504,7 @@ ul {
 .homePic-faded>.home-pic-text{
   color:rgb(215, 202, 248);
   font-weight: 850;
-
-
-  width: 90%;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, 0%);
+  width: 90%
 }
 
 .home-btn{
