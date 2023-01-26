@@ -465,8 +465,8 @@ ul {
 }
 .homePic-faded>img{
   filter: brightness(55%);
-  height: 70vmin;
-  width: 98vmax;
+  height: 70vh;
+  width: 98vw;
   border-radius: 5px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
   object-fit: cover;
