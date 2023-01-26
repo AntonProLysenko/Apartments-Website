@@ -309,6 +309,9 @@ ul {
   font-weight: 600;
 
   margin-top: 10px;
+  white-space: nowrap;
+  height: fit-content;
+  width: fit-content;
 }
 
 .delete-btn {
@@ -322,6 +325,10 @@ ul {
   font-size: large;
   font-weight: 600;
   text-align: center;
+
+  white-space: nowrap;
+  height: fit-content;
+  width: fit-content;
 }
 
 .delete-btn:hover {
@@ -345,6 +352,9 @@ ul {
   font-weight: 600;
 
   margin-top: 10px;
+  white-space: nowrap;
+  height: fit-content;
+  width: fit-content;
 }
 
 
@@ -650,6 +660,10 @@ button[type="submit"] {
   color: white;
   font-size: large;
   font-weight: 600;
+
+  white-space: nowrap;
+  height: fit-content;
+  width: fit-content;
 }
 
 .photos {
@@ -887,6 +901,10 @@ button[type="submit"]:active {
 }
 .bottom-buttons > button {
   height: 100px;
+
+  white-space: nowrap;
+  height: fit-content;
+  width: fit-content;
 }
 
 /*Auth Page*/
