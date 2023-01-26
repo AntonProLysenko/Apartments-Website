@@ -433,6 +433,7 @@ ul {
   border-radius: 5px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
   object-fit: cover;
+  object-position: 28% 0;
 }
 
 .homePic>.home-pic-text{
@@ -469,6 +470,7 @@ ul {
   border-radius: 5px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
   object-fit: cover;
+  object-position: 28% 0;
 }
 
 .homePic-faded>.home-pic-text{
