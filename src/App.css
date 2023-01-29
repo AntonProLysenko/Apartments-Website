@@ -288,7 +288,7 @@ ul {
   font-weight: 600;
   white-space: nowrap;
  
-  width: fit-content;
+  
 }
 
 .create-btn:hover {
@@ -313,8 +313,7 @@ ul {
 
   margin-top: 10px;
   white-space: nowrap;
-  height: fit-content;
-  width: fit-content;
+  
 }
 
 .delete-btn {
@@ -330,8 +329,7 @@ ul {
   text-align: center;
 
   white-space: nowrap;
-  height: fit-content;
-  width: fit-content;
+
 }
 
 .delete-btn:hover {

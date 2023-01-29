@@ -12,12 +12,12 @@ export default function ContactUs() {
   const [isSent, setisSent] = useState(false);
 
   const onSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault();    
     send(
-      'service_xcrcvv3', 
-      'template_g9yxsbq',
+      process.env.REACT_APP_SERVICE_ID, 
+      process.env.REACT_APP_TEMPLATE_ID,
       toSend,
-      'LrjEup1BNVmneRP0C'
+      process.env.REACT_APP_PUBLIC_KEY,
     )
       .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
@@ -29,9 +29,9 @@ export default function ContactUs() {
 
       setisSent(true)
 
-      .catch((err) => {
-        console.log('FAILED...', err);
-      });
+      // .catch((e) => {
+      //   console.log('FAILED...', e);
+      // });
   };
 
   const handleChange = (e) => {
@@ -63,7 +63,7 @@ export default function ContactUs() {
         </div>
       </div>
 
-      <h1  data-aos="zoom-in"data-aos-duration="2000"data-aos-delay="700"className='title'>Email Us</h1>
+      <h1  data-aos="zoom-in"data-aos-duration="2000"data-aos-delay="700"className={isSent? "hidden":"title"}>Email Us</h1>
 
       <div data-aos="fade-up"data-aos-duration="2000"data-aos-delay="700" className='email-container'>
 
