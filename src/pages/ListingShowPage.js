@@ -124,7 +124,7 @@ export default function ListingShowPage() {
               </a>
 
               <a
-                href="mailto:john@example.com?subject=Mail from Our Site&body=Hello! I'm interested in Salem Crown Apartments"
+                href="mailto:salemcrownapts@gmail.com?subject=eMail from Salem Crown Web Site&body=Hello! I'm interested in Salem Crown Apartments"
                 target="_blank"
                 rel="noreferrer"
               >
