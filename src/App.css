@@ -1145,6 +1145,7 @@ width: 90%;
   width: 50%;
   background-color: var(--white);
   border-radius: 1vmin;
+  padding:20px;
   margin-bottom: 50px;
   margin-top: 0px;
 }

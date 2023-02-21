@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 import FsLightbox from "fslightbox-react";
 
@@ -37,7 +37,7 @@ export default function AboutUsPage() {
     <br/>
     <br/>
 
-    <h1 data-aos="zoom-in"data-aos-delay="500"data-aos-duration="1500"className="title">Testimonials</h1>
+    <h1 data-aos="zoom-in"data-aos-delay="200"data-aos-duration="700"className="title">Testimonials</h1>
     <div  data-aos="zoom-in"data-aos-delay="700"data-aos-duration="1500" className = "reviews-container">
 
 
@@ -59,14 +59,14 @@ export default function AboutUsPage() {
     <br/>
 
      <h1  data-aos="zoom-in"data-aos-duration="2000"className = "title" >Virtual Tour</h1>
-      <iframe  data-aos="zoom-in"data-aos-delay="300"data-aos-duration="1500" className="virtual-tour"
+      <iframe title= "vt about" data-aos="zoom-in"data-aos-delay="300"data-aos-duration="1500" className="virtual-tour"
                 src="https://www.google.com/maps/embed?pb=!4v1672167750164!6m8!1m7!1sCAoSLEFGMVFpcE42WkZhcWhydG5waWxKVF9WYmhhUGdQdEg4bkNHTmRPb3FWaExu!2m2!1d39.7746093!2d-84.21754469999999!3f192.34562104242204!4f-14.765138178736677!5f0.4000000000000002"
                 
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>,
-  <br/>
+    <br/>
     <br/>
     <br/>
     <br/>
@@ -80,7 +80,7 @@ export default function AboutUsPage() {
     <br/>
       <div className="container">
        
-        <h1  data-aos="zoom-in"data-aos-duration="1500"className="title">Gallery</h1>
+        <h1  data-aos="zoom-in"data-aos-duration="100"className="title">Gallery</h1>
 
         <div className="gallery" onClick={() => setSlide(!slide)}> 
           <figure  data-aos="fade-down-right"data-aos-duration="1000"className="gallery__item gallery__item--1">
@@ -169,7 +169,7 @@ export default function AboutUsPage() {
 
 
         </div>
-        <iframe  data-aos="fade-up"data-aos-delay="900"data-aos-duration="1500"className = "map"src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3066.4376179754076!2d-84.2196212846235!3d39.77473347944482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884081c5961332e7%3A0xe38cbd36b306e837!2sSALEM%20CROWN%20APARTMENTS!5e0!3m2!1sen!2sus!4v1672364214381!5m2!1sen!2sus"   allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+        <iframe title="maps about"  data-aos="fade-up"data-aos-delay="300"data-aos-duration="1500"className = "map"src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3066.4376179754076!2d-84.2196212846235!3d39.77473347944482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884081c5961332e7%3A0xe38cbd36b306e837!2sSALEM%20CROWN%20APARTMENTS!5e0!3m2!1sen!2sus!4v1672364214381!5m2!1sen!2sus"   allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
       </div>
 
 

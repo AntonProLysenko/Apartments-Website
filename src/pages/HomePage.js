@@ -25,6 +25,7 @@ export default function HomePage({ listings }) {
         // console.log(listing)
         return availableListings.push(listing);
       }
+      return null
     });
 
 
@@ -52,6 +53,7 @@ export default function HomePage({ listings }) {
             <a
               href="https://www.google.com/maps/dir//1102+Salem+Ave,+Dayton,+OH+45406/@39.7746572,-84.2196603,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x88408122b505a61d:0xc35c5f962acf2cf5!2m2!1d-84.2174716!2d39.7746572"
               target="_blank"
+              rel="noreferrer"
             >
               <span>1102 Salem Ave. Dayton, OH 45406</span>
             </a>
@@ -68,6 +70,7 @@ export default function HomePage({ listings }) {
             <a
               href="https://www.google.com/maps/dir//1102+Salem+Ave,+Dayton,+OH+45406/@39.7746572,-84.2196603,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x88408122b505a61d:0xc35c5f962acf2cf5!2m2!1d-84.2174716!2d39.7746572"
               target="_blank"
+              rel="noreferrer"
             >
               <span>1102 Salem Ave. Dayton, OH 45406</span>
             </a>
@@ -98,6 +101,7 @@ export default function HomePage({ listings }) {
             <a
               href="https://www.google.com/maps/dir//1102+Salem+Ave,+Dayton,+OH+45406/@39.7746572,-84.2196603,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x88408122b505a61d:0xc35c5f962acf2cf5!2m2!1d-84.2174716!2d39.7746572"
               target="_blank"
+              rel="noreferrer"
             >
               <span>1102 Salem Ave. Dayton, OH 45406</span>
             </a>
@@ -130,6 +134,7 @@ export default function HomePage({ listings }) {
         <a
           href="https://www.google.com/maps/dir//1102+Salem+Ave,+Dayton,+OH+45406/@39.7746572,-84.2196603,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x88408122b505a61d:0xc35c5f962acf2cf5!2m2!1d-84.2174716!2d39.7746572"
           target="_blank"
+          rel="noreferrer"
         >
           <span>1102 Salem Ave. Dayton, OH 45406</span>
         </a>
@@ -150,6 +155,7 @@ export default function HomePage({ listings }) {
           <img
             className="animate__zoomIn animate__bounce"
             src="https://i.imgur.com/T8ueCt2.jpg"
+            alt = "Salem Crown Outside Vector Style"
           />
 
           {/* <h3 className="home-pic-text">

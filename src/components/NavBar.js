@@ -14,7 +14,7 @@ export default function NavBar ({ name, setUser }) {
     <nav className = "navBar navbar fixed-top ">
         <div>
           <Link to="/" className = "d-inline-block align-text-top">
-          <img src ="https://i.imgur.com/3WSXIEd.png" height = "30px" className = "brand-img"></img> 
+          <img src ="https://i.imgur.com/3WSXIEd.png" height = "30px" className = "brand-img" alt="Salem Crown Apartments Logo"></img> 
           <span className="navbar-brand">Salem Crown Apartments</span> 
           </Link>
         </div>
@@ -43,7 +43,7 @@ export default function NavBar ({ name, setUser }) {
       <nav className = "navBar navbar fixed-top ">
         <div>
           <Link to="/" className = "d-inline-block align-text-top">
-          <img src ="https://i.imgur.com/3WSXIEd.png" height = "30px" className = "brand-img"></img> 
+          <img src ="https://i.imgur.com/3WSXIEd.png" height = "30px" className = "brand-img" alt="Salem Crown Apartments Logo"></img> 
           <span className="navbar-brand">Salem Crown Apartments</span> 
           </Link>
 

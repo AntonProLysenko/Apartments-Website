@@ -10,10 +10,10 @@ export default function AvailabilitiesPage({listings}) {
   function loaded() {
     const availableListings=[]//finding available listings
     listings.map((listing)=>{
-  
     if(listing.available === true){
      return availableListings.push( listing)
     }
+    return null
   })
 
   if (availableListings.length>0){
@@ -30,7 +30,7 @@ export default function AvailabilitiesPage({listings}) {
               <Link to={`/available/${listing._id}`}>
                 <div className="listing-ad">
                   <div className="listing-ad-img">
-                    <img src={listing.selectedFile1} />
+                    <img src={listing.selectedFile1} alt = "Salem Crown Apartment Interior" />
                   </div>
 
                   <div className="listing-title">
@@ -61,7 +61,7 @@ export default function AvailabilitiesPage({listings}) {
          <h4 className="title"> We do't have any apartments available right now</h4>
          <h5 className="title">
            Please check out our sister property{" "}
-           <a href="https://greenforestapts.business.site/" target="_blank">Green Forest Apartments</a>
+           <a href="https://greenforestapts.business.site/" target="_blank" rel="noreferrer">Green Forest Apartments</a>
          </h5>
 
          <Footer/>
