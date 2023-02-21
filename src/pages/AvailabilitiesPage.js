@@ -1,33 +1,17 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
-import * as listingsAPI from "../utilities/listings-api";
-import loading from "../components/loading";
 
+import loading from "../components/loading";
 import Footer from '../components/Footer';
 
 export default function AvailabilitiesPage({listings}) {
-  // const [listings, setListings] = useState(); //getting all listings from db
-
-  // async function getListings() {
-  //   const listings = await listingsAPI.getAll();
-  //   setListings(listings);
-  // }
-
-  // useEffect(() => {
-  //   getListings();
-  // }, [setListings]);
-
-  
-
 
   function loaded() {
     const availableListings=[]//finding available listings
     listings.map((listing)=>{
   
     if(listing.available === true){
-      // console.log(listing)
      return availableListings.push( listing)
     }
   })
@@ -38,7 +22,6 @@ export default function AvailabilitiesPage({listings}) {
       
       <ul className="listings-ul">
         {availableListings.map((listing, idx) => {
-          // console.log(listing)
           
           let lastUpdate = moment(listing.updatedAt).fromNow();
           

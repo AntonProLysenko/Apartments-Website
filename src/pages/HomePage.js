@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 // import "animate.css";
 
 
@@ -26,14 +26,10 @@ export default function HomePage({ listings }) {
         return availableListings.push(listing);
       }
     });
-    // console.log("in loaded");
 
-    // console.log(availableListings);
+
 
     function MultipleAvailable() {
-      // console.log("in multiple");
-
-      // console.log(availableListings);
 
       return (
         <div className="add-container">
@@ -175,8 +171,7 @@ export default function HomePage({ listings }) {
           </div>
         </div>
       </div>
-      <br />
-      <br />
+      
       <Footer />
     </>
   );
