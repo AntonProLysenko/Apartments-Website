@@ -46,12 +46,10 @@ export default function NavBar ({ name, setUser }) {
           <img src ="https://i.imgur.com/3WSXIEd.png" height = "30px" className = "brand-img" alt="Salem Crown Apartments Logo"></img> 
           <span className="navbar-brand">Salem Crown Apartments</span> 
           </Link>
-
         </div>
     
 
         <ul className="nav-links"> 
-    
           <li>
             <Link to="/available"> <span className="navbar-text">Availability</span> </Link>
           </li>
