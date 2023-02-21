@@ -71,7 +71,7 @@ export default function ContactUs() {
         <h3 className={isSent? "shown title":"hidden"}> We'll email you shortly</h3>
 
         <form className={isSent? "hidden":"emailUs-form"} onSubmit={onSubmit}>
-        ` <input
+         <input
             type='text'
             name='from_name'
             placeholder='Enter Your Name'

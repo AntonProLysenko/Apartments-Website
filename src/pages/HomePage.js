@@ -2,23 +2,12 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 // import "animate.css";
 
-import * as listingsAPI from "../utilities/listings-api";
+
 
 import Footer from "../components/Footer";
 
-export default function HomePage() {
-  const [listings, setListings] = useState();
+export default function HomePage({ listings }) {
   const [isHovering, setIsHovering] = useState(false);
-
-
-  async function getListing() {
-    const listings = await listingsAPI.getAll();
-    setListings(listings);
-  }
-
-  useEffect(() => {
-    getListing();
-  }, []);
 
   const handleMouseOver = () => {
     setIsHovering(true);
@@ -72,10 +61,11 @@ export default function HomePage() {
             </a>
           </div>
 
-          {//Pseudo element for aligning items to the very left and even center
+          {
+            //Pseudo element for aligning items to the very left and even center
           }
           <div className="ad-hidden">
-          <div>
+            <div>
               <i className="fa fa-compass" aria-hidden="true"></i>
               <span> Directions:</span>
             </div>
@@ -87,7 +77,6 @@ export default function HomePage() {
             </a>
             <br />
           </div>
-
         </div>
       );
     }
@@ -101,7 +90,6 @@ export default function HomePage() {
             We have {availableListings.length} available apartment
             <br />
             <Link to="/available">
-       
               <button className="btn-add">See more</button>
             </Link>
           </div>
@@ -119,7 +107,8 @@ export default function HomePage() {
             </a>
           </div>
 
-          {//Pseudo element for aligning items to the very left and even center
+          {
+            //Pseudo element for aligning items to the very left and even center
           }
           <div className="ad-hidden">
             <br />
@@ -154,43 +143,41 @@ export default function HomePage() {
 
   return (
     <>
-    <div className="homepageContainer">
+      <div className="homepageContainer">
+        {listings ? loaded() : noneAvailable()}
 
-      {listings ? loaded() : noneAvailable()}
+        <div
+          className={isHovering ? "homePic-faded" : "homePic"}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        >
+          <img
+            className="animate__zoomIn animate__bounce"
+            src="https://i.imgur.com/T8ueCt2.jpg"
+          />
 
-      <div 
-           className={isHovering ? 'homePic-faded' : 'homePic'}
-           onMouseOver={handleMouseOver}
-           onMouseOut={handleMouseOut}>
-        <img
-          className="animate__zoomIn animate__bounce" src="https://i.imgur.com/T8ueCt2.jpg"/>
-
-        {/* <h3 className="home-pic-text">
+          {/* <h3 className="home-pic-text">
           One Bedroom Apartments for Rent in Dayton, OH
         </h3> */}
 
-        <div className="home-pic-text">
-          <h1 className="title-main">Salem Crown Apartments</h1>
-          <br/>
-          <p>
-            Fully remodeled One Bedroom Apartments with luxury vinyl plank floors, and newer
-            appliances that consist of a stove, fridge and dishwasher.
-          </p>
+          <div className="home-pic-text">
+            <h1 className="title-main">Salem Crown Apartments</h1>
+            <br />
+            <p>
+              Fully remodeled One Bedroom Apartments with luxury vinyl plank
+              floors, and newer appliances that consist of a stove, fridge and
+              dishwasher.
+            </p>
 
-          <Link to="/about">
-            <button className="home-btn">See More</button>
-          </Link>
-          
+            <Link to="/about">
+              <button className="home-btn">See More</button>
+            </Link>
+          </div>
         </div>
       </div>
-
-
-      
-  
-    </div>
-    <br/>
-    <br/>
-        <Footer/>
-        </>
+      <br />
+      <br />
+      <Footer />
+    </>
   );
 }

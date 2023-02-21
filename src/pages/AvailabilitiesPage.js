@@ -7,17 +7,17 @@ import loading from "../components/loading";
 
 import Footer from '../components/Footer';
 
-export default function AvailabilitiesPage(props) {
-  const [listings, setListings] = useState(); //getting all listings from db
+export default function AvailabilitiesPage({listings}) {
+  // const [listings, setListings] = useState(); //getting all listings from db
 
-  async function getListings() {
-    const listings = await listingsAPI.getAll();
-    setListings(listings);
-  }
+  // async function getListings() {
+  //   const listings = await listingsAPI.getAll();
+  //   setListings(listings);
+  // }
 
-  useEffect(() => {
-    getListings();
-  }, [setListings]);
+  // useEffect(() => {
+  //   getListings();
+  // }, [setListings]);
 
   
 
