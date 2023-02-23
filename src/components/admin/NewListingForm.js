@@ -1,5 +1,5 @@
-import { Routes, Route, Link, useNavigate } from 'react-router-dom'
-import { useState, useEffect  } from "react";
+import { useNavigate } from 'react-router-dom'
+import { useState  } from "react";
 import FileBase from 'react-file-base64';
 
 
