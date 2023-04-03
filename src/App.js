@@ -18,6 +18,7 @@ import ListingDetailsPage from './pages/admin/ListingDetailsPage';
 import EditListingpage from './pages/admin/EditListingpage';
 
 import NavBar from './components/NavBar';
+import ErrorPage from "./pages/ErrorPage";
 
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
             <Route path="/principal/new" element={<NewListingPage />} />
             <Route path="/principal/:id" element={<ListingDetailsPage />} />
             <Route path="/principal/:id/edit" element={<EditListingpage />} />
+             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </>
       ) : (
@@ -76,6 +78,7 @@ function App() {
             <Route path="/contact" element={<ContactUsPage />} />
             <Route path="/available/" element={<AvailabilitiesPage listings={listings} />} />
             <Route path="/available/:id" element={<ListingShowPage />} />
+             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </>
       )}
