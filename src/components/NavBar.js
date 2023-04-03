@@ -11,7 +11,7 @@ export default function NavBar ({ name, setUser }) {
   return (
     name?
     <>
-    <nav className = "navBar navbar fixed-top ">
+    <nav className = "navBar navbar fixed-top admin-navbar">
         <div>
           <Link to="/" className = "d-inline-block align-text-top">
           <img src ="https://i.imgur.com/3WSXIEd.png" height = "30px" className = "brand-img" alt="Salem Crown Apartments Logo"></img> 
@@ -22,6 +22,9 @@ export default function NavBar ({ name, setUser }) {
 
         <ul className="nav-links"> 
           <li>
+            <Link to="/principal"> <span className="navbar-text">Manage</span> </Link>
+          </li>
+          <li>
             <Link to="/available"> <span className="navbar-text">Availability</span> </Link>
           </li>
           <li>
@@ -30,6 +33,7 @@ export default function NavBar ({ name, setUser }) {
           <li>
             <Link to="/contact"> <span className="navbar-text">Contact Us</span> </Link>
           </li>
+         
           <li>
             <Link to="" onClick={handleLogout}> <span className="navbar-text"> Log Out</span> </Link>
           </li>
