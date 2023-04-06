@@ -397,6 +397,7 @@ position: absolute;
   justify-content: center;
 
   width: 100%;
+
   padding: 0 0.5vw;
 
   margin-bottom: 10px;
@@ -406,6 +407,7 @@ position: absolute;
   color: #e6e6f2f3;
   font-weight: bolder;
   font-size: large;
+  height:8vh;
 }
 
 .single-direction > a {

@@ -5,7 +5,7 @@ import { useState } from "react";
 
 
 import Footer from "../components/Footer";
-import AboutUsPage from "./AboutUsPage";
+import AboutUsinfo from "../components/AboutUsinfo";
 
 export default function HomePage({ listings }) {
   const [isHovering, setIsHovering] = useState(false);
@@ -156,7 +156,7 @@ export default function HomePage({ listings }) {
           <img
             className="animate__zoomIn animate__bounce"
             src="https://i.imgur.com/T8ueCt2.jpg"
-            alt = "Salem Crown Outside Vector Style"
+            alt="Salem Crown Outside Vector Style"
           />
 
           {/* <h3 className="home-pic-text">
@@ -178,8 +178,9 @@ export default function HomePage({ listings }) {
           </div>
         </div>
       </div>
-      <AboutUsPage/>
       
+      <AboutUsinfo />
+
       <Footer />
     </>
   );
