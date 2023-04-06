@@ -5,6 +5,7 @@ import { useState } from "react";
 
 
 import Footer from "../components/Footer";
+import AboutUsPage from "./AboutUsPage";
 
 export default function HomePage({ listings }) {
   const [isHovering, setIsHovering] = useState(false);
@@ -177,6 +178,7 @@ export default function HomePage({ listings }) {
           </div>
         </div>
       </div>
+      <AboutUsPage/>
       
       <Footer />
     </>
