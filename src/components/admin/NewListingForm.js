@@ -43,7 +43,7 @@ export default function NewListingForm  (){
         
        try {
        
-        navigation("/principal");
+        navigation("/irunthis");
         setListingData(formData)
         await create(formData)
        
@@ -101,7 +101,7 @@ export default function NewListingForm  (){
 
 
                 <label>Qualifications: </label>
-                <textarea  name="qualifications" placeholder="Enter Minimum Qualifications for Residents" required onChange={(e) => setListingData({ ...listingData, qualifications: e.target.value })}/>
+                <textarea  name="qualifications" placeholder="Enter Minimum Qualifications for Residents devided by ." required onChange={(e) => setListingData({ ...listingData, qualifications: e.target.value })}/>
 
 
                 <div className = "checkr">
@@ -111,6 +111,7 @@ export default function NewListingForm  (){
                     <span className="slider"></span>
                   </label>
                 </div>
+         
 
 
 
@@ -118,6 +119,7 @@ export default function NewListingForm  (){
 
                 
                 <div className='photos'>
+               
                   <div><FileBase type="file" name = "selectedFile1" multiple={false}  onDone={({ base64 }) => setListingData({ ...listingData, selectedFile1: base64 })} /></div>
                   <div><FileBase type="file" name = "selectedFile2" multiple={false}  onDone={({ base64 }) => setListingData({ ...listingData, selectedFile2: base64 })} /></div>
                   <div><FileBase type="file" name = "selectedFile3" multiple={false}  onDone={({ base64 }) => setListingData({ ...listingData, selectedFile3: base64 })} /></div>
@@ -127,6 +129,10 @@ export default function NewListingForm  (){
                   <div><FileBase type="file" name = "selectedFile7" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile7: base64 })} /></div>
                   <div><FileBase type="file" name = "selectedFile8" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile8: base64 })} /></div>
                 </div>
+                  <div>
+                  Note: first picture will appear as a main listing photo
+                  </div> 
+
                 <p className="error-message">&nbsp;{error}</p>
               <button type="submit">Create Listing</button>
           

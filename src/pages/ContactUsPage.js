@@ -49,7 +49,7 @@ export default function ContactUs() {
 
         <div  data-aos="fade-left"data-aos-duration="2000"data-aos-delay="400" className='contactUs-text'>
         <p className='text'>Thank you for inquiring about our apartments for rent in Dayton. Feel free to contact us with any further questions and we will be happy to assist you.</p>
-        <address className='text single-direction'><span className='text'>Address:</span> <a href='https://www.google.com/maps/dir//SALEM+CROWN+APARTMENTS,+1102+Salem+Ave,+Dayton,+OH+45406/@39.7747335,-84.2174326,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x884081c5961332e7:0xe38cbd36b306e837!2m2!1d-84.2174326!2d39.7747335?hl=en-US'>1102 Salem Ave, Dayton, OH 45406</a> </address>
+        <address className='text single-direction'><span className='text'>Address:</span> <a target="_blank" href='https://www.google.com/maps/dir//SALEM+CROWN+APARTMENTS,+1102+Salem+Ave,+Dayton,+OH+45406/@39.7747335,-84.2174326,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x884081c5961332e7:0xe38cbd36b306e837!2m2!1d-84.2174326!2d39.7747335?hl=en-US'>1102 Salem Ave, Dayton, OH 45406</a> </address>
 
         <p className='single-direction text'><span className='text'>Phone:</span> <a href="sms:937-985-0069?&body=Hello! I'm interested in Salem Crown Apartments">937-985-0069</a></p>
 

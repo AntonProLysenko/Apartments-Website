@@ -44,7 +44,7 @@ useEffect(()=>{
       
           return(
                   <li key = {idx}>
-                      <Link to= {`/principal/${listing._id}`}>
+                      <Link to= {`/irunthis/${listing._id}`}>
                         <div className='listing-ad'>
 
                           <div className='listing-ad-img'>
@@ -72,7 +72,7 @@ useEffect(()=>{
     <>  
  
       <h1 className='title'>Listings</h1> 
-      <Link to = "/principal/new"><button className='create-btn'>Create new</button></Link>
+      <Link to = "/irunthis/new"><button className='create-btn'>Create new</button></Link>
 
    {   listings? loaded():loading()}
     </>

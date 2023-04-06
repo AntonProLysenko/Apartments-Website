@@ -27,7 +27,7 @@ export default function EditListingpage (){
     const  handleUpdate = async (evt) => {
         evt.preventDefault()
       try {
-        navigation(`/principal/${listing._id}`);
+        navigation(`/irunthis/${listing._id}`);
         await update(listing, listing._id)
       
 

@@ -28,7 +28,7 @@ export default function ListingDetailsPage({ listings }) {
   const handleDelete = async (evt) => {
     // evt.preventdefault()
     try {
-      navigation("/principal");
+      navigation("/irunthis");
       await deleteListing(listing);
     } catch {}
   };
@@ -39,7 +39,7 @@ export default function ListingDetailsPage({ listings }) {
       <>
         <div className="return">
           <div className="back">
-            <Link to="/principal">
+            <Link to="/irunthis">
               <h2 className="arrow left title">
                 <i></i> Back{" "}
               </h2>
@@ -123,7 +123,7 @@ export default function ListingDetailsPage({ listings }) {
         </div>
 
         <div className="bottom-buttons">
-          <Link to={`/principal/${listing._id}/edit`}>
+          <Link to={`/irunthis/${listing._id}/edit`}>
             <button className="create-btn">
             <i className="fa fa-pencil" aria-hidden="true"></i>
               &nbsp; Edit</button>
