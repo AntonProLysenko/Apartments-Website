@@ -34,7 +34,7 @@ export default function AboutUsinfo() {
             <p>
               The features inside this apartment are above the rest! Individual
               Furnace Units, new windows and doors, 3 closets, laundry area,
-              secure entrances, and state of the art security cameras.{" "}
+              secure entrances.{" "}
             </p>
             <p>
               Conveniently located 2 miles downtown Dayton, and close to Kroger
