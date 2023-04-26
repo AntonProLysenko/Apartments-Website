@@ -66,7 +66,7 @@ export default function AboutUsinfo() {
             data-aos-duration="1500"
             className="reviews-container"
           >
-            <div className="elfsight-app-84e13ad5-c5d0-4c66-9e18-0a2f25476153 reviews"></div>
+            <div className="elfsight-app-b0b21a6b-fd53-4e3e-8341-31d8dddb7771 reviews"></div>
           </div>
         </div>
 
