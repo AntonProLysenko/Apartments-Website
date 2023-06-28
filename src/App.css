@@ -57,6 +57,9 @@ body {
    .info, .quals>div{
     width:70%
   }
+   .quals-list{
+    text-align: center;
+  }
 }
 
 @media (orientation:portrait){
@@ -65,6 +68,9 @@ body {
   }
   .info, .quals>div{
     width:90%
+  }
+  .quals-list{
+    text-align: start;
   }
 }
 
@@ -937,12 +943,11 @@ button[type="submit"]:active {
 }
 
 .quals-list{
+  list-style:inside;
+  /* text-align: center; */
   color: var(--text-black);
   font-weight: 500;
-  
-  list-style:inside;
-  padding: 0;
-  margin: 0;
+
 }
 .quals-list>li{
   color: var(--text-black);
