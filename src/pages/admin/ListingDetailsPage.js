@@ -34,7 +34,9 @@ export default function ListingDetailsPage({ listings }) {
   };
 
   function loaded() {
-    let quals = listing.qualifications.split(".");
+    let quals = listing.qualifications.split(".")
+    quals.pop()
+    
     return (
       <>
         <div className="return">
@@ -116,9 +118,11 @@ export default function ListingDetailsPage({ listings }) {
         <div className="quals">
           <h2>Qualifications:</h2>
           <div>
+            <ul className="quals-list">
             {quals.map((pa, idx) => {
-              return <p key={idx}>{pa}</p>;
+              return <li key={idx}>{pa}</li>;
             })}
+            </ul>
           </div>
         </div>
 

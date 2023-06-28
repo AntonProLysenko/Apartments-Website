@@ -50,6 +50,22 @@ body {
   .map{
     width:50%
   }
+
+  .emailUs-form{
+    width:50%
+  }
+   .info, .quals>div{
+    width:70%
+  }
+}
+
+@media (orientation:portrait){
+   .emailUs-form{
+    width:80%
+  }
+  .info, .quals>div{
+    width:90%
+  }
 }
 
 @media screen and (max-width: 819px) {
@@ -197,6 +213,13 @@ ul {
 .center{
   text-align: center;
 }
+
+
+
+
+
+
+
 /*NAVBAR*/
 .navBar {
   padding: 5px 40px;
@@ -271,6 +294,7 @@ position: absolute;
   transform: translate(-50%,-50%);
   top:50%;
   left:50%;
+  width:90%
 }
 
 
@@ -857,7 +881,7 @@ button[type="submit"]:active {
   flex-direction: column;
 
   color: #3d3d3d;
-  width: 70%;
+  /* width: 70%; */
   text-align: initial;
 
   background-color: rgba(196, 193, 238, .7);
@@ -909,7 +933,20 @@ button[type="submit"]:active {
   font-weight: 500;
   background-color: rgba(196, 193, 238, .7);
   border-radius: 10px;
-  width: 70%;
+  /* width: 70%; */
+}
+
+.quals-list{
+  color: var(--text-black);
+  font-weight: 500;
+  
+  list-style:inside;
+  padding: 0;
+  margin: 0;
+}
+.quals-list>li{
+  color: var(--text-black);
+  margin-top: 5px;
 }
 
 .bottom-buttons {
@@ -1171,7 +1208,7 @@ width: 90%;
   display: flex;
   flex-direction: column;
 
-  width: 50%;
+  /* width: 50%; */
   background-color: var(--white);
   border-radius: 1vmin;
   padding:20px;
@@ -1180,13 +1217,13 @@ width: 90%;
 }
 
 .emailUs-form>input{
-  width:80%;
+  width:90%;
   /* align-self:flex-start; */
   margin-bottom: 10px;
 }
 
 .emailUs-form>textarea{
-  width:80%;
+  width:90%;
   margin-bottom: 10px;
   align-self: center;
 }

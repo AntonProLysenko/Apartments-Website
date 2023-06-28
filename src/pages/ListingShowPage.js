@@ -31,8 +31,8 @@ export default function ListingShowPage() {
 
   
   function loaded() {
-    let quals = listing.qualifications.split(".");
-    // console.log(quals);
+    let quals = listing.qualifications.split(".")
+    quals.pop()
     return (
       <>
         <div className="return">
@@ -140,9 +140,12 @@ export default function ListingShowPage() {
         <div className="quals">
           <h2>Qualifications:</h2>
           <div data-aos="fade-up" data-aos-duration="200">
+            <ul className="quals-list">
+
             {quals.map((pa, idx) => {
-              return <p key={idx}>{pa}</p>;
+              return <li key={idx}>{pa}</li>;
             })}
+            </ul>
             <a
               href="https://day.managebuilding.com/Resident/rental-application/new/apply"
               target="_blank"
