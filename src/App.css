@@ -1645,4 +1645,13 @@ input:checked + .slider:before {
   .gallery{
       grid-template-rows: repeat(10, 10vw);
   }
+  .about {
+    width: 95%
+  }
+  .virtual-tour{
+    width:95%
+  }
+  .container{
+    width:95%
+  }
 }
