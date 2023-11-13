@@ -128,9 +128,9 @@ export default function AboutUsinfo() {
                 className="gallery__item gallery__item--3"
               >
                 <img
-                  src="https://i.imgur.com/MFPbkjh.jpg"
+                  src="https://i.imgur.com/t5fnmv0.jpg"
                   className="gallery__img"
-                  alt="Living Room"
+                  alt="Bedroom"
                 />
               </figure>
 
@@ -174,10 +174,62 @@ export default function AboutUsinfo() {
               </figure>
 
               <figure
+                data-aos="fade-right"
+                data-aos-delay="500"
+                data-aos-duration="1000"
+                className="gallery__item gallery__item--7"
+              >
+                <img
+                  src="https://i.imgur.com/oYV2yrP.jpg"
+                  className="gallery__img"
+                  alt="Kitchen Bar"
+                />
+              </figure>
+
+              <figure
+                data-aos="fade-left"
+                data-aos-delay="800"
+                data-aos-duration="2500"
+                className="gallery__item gallery__item--8"
+              >
+                <img
+                  src="https://i.imgur.com/yafqqml.jpg"
+                  className="gallery__img"
+                  alt="Living Room Patio Enterance"
+                />
+              </figure>
+
+              <figure
+                data-aos="fade-up-left"
+                data-aos-delay="1000"
+                data-aos-duration="2000"
+                className="gallery__item gallery__item--9"
+              >
+                <img
+                  src="https://i.imgur.com/jB7Yruf.jpg"
+                  className="gallery__img"
+                  alt="Hallway"
+                />
+              </figure>
+
+              <figure
+                data-aos="zoom-in-up"
+                data-aos-delay="1200"
+                data-aos-duration="1000"
+                className="gallery__item gallery__item--10"
+              >
+                <img
+                  src=" https://i.imgur.com/MFPbkjh.jpg"
+                  className="gallery__img"
+                  alt="Living Room Vaulted Ceilings"
+                />
+              </figure>
+
+              <figure
                 data-aos="fade-up-right"
                 data-aos-delay="700"
                 data-aos-duration="1300"
-                className="gallery__item gallery__item--7"
+                className="gallery__item gallery__item--11"
               >
                 <img
                   src="https://i.imgur.com/U1Mtm2b.jpg"
@@ -190,7 +242,7 @@ export default function AboutUsinfo() {
                 data-aos="fade-up-left"
                 data-aos-delay="800"
                 data-aos-duration="1500"
-                className="gallery__item gallery__item--8"
+                className="gallery__item gallery__item--12"
               >
                 <img
                   src="https://i.imgur.com/CwSBvsh.jpg"
@@ -203,7 +255,7 @@ export default function AboutUsinfo() {
                 data-aos="fade-up-left"
                 data-aos-delay="900"
                 data-aos-duration="1400"
-                className="gallery__item gallery__item--9"
+                className="gallery__item gallery__item--13"
               >
                 <img
                   src="https://i.imgur.com/a880IHY.jpg"
@@ -216,7 +268,7 @@ export default function AboutUsinfo() {
                 data-aos="fade-up-right"
                 data-aos-delay="600"
                 data-aos-duration="1500"
-                className="gallery__item gallery__item--10"
+                className="gallery__item gallery__item--14"
               >
                 <img
                   src="https://i.imgur.com/BCQ72z5.jpg"
@@ -224,6 +276,7 @@ export default function AboutUsinfo() {
                   alt="Outside Summer"
                 />
               </figure>
+              
             </div>
           </div>
 
