@@ -250,6 +250,7 @@ export default function AboutUsinfo() {
             "https://i.imgur.com/MFPbkjh.jpg", //living vaulted
             "https://i.imgur.com/9TLB0Wu.jpg", //living regular
             "https://i.imgur.com/hzj7TXC.jpg", //living regular
+            "https://i.imgur.com/yafqqml.jpg", //living balcony door
             "https://i.imgur.com/J4xLkW4.jpg", //bedroom
             "https://i.imgur.com/t5fnmv0.jpg", //bedroom
             "https://i.imgur.com/9Pc0exQ.jpg", //bedroom
@@ -262,6 +263,7 @@ export default function AboutUsinfo() {
             "https://i.imgur.com/U1Mtm2b.jpg", //outside drone
             "https://i.imgur.com/a880IHY.jpg", //outside winter
             "https://i.imgur.com/BCQ72z5.jpg", //outside summer
+            
           ]}
         />
       </div>
