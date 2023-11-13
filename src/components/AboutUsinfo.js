@@ -174,7 +174,7 @@ export default function AboutUsinfo() {
               </figure>
 
               <figure
-                data-aos="fade-right"
+                data-aos="fade-up-right"
                 data-aos-delay="500"
                 data-aos-duration="1000"
                 className="gallery__item gallery__item--7"
@@ -214,7 +214,7 @@ export default function AboutUsinfo() {
 
               <figure
                 data-aos="zoom-in-up"
-                data-aos-delay="1200"
+                data-aos-delay="1800"
                 data-aos-duration="1000"
                 className="gallery__item gallery__item--10"
               >
