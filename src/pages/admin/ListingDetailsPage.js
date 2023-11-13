@@ -67,7 +67,7 @@ export default function ListingDetailsPage({ listings }) {
             sources={[
               listing.selectedFile1,
               <iframe
-                src="https://www.google.com/maps/embed?pb=!4v1672167750164!6m8!1m7!1sCAoSLEFGMVFpcE42WkZhcWhydG5waWxKVF9WYmhhUGdQdEg4bkNHTmRPb3FWaExu!2m2!1d39.7746093!2d-84.21754469999999!3f192.34562104242204!4f-14.765138178736677!5f0.4000000000000002"
+                src={`https://www.google.com/maps/embed/v1/streetview?location=39.7745%2C-84.2171&key=${process.env.REACT_APP_GOOGLE_KEY}`}
                 width="900"
                 height="550"
                 allowFullScreen=""

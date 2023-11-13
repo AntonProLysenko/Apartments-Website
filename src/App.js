@@ -34,7 +34,7 @@ function App() {
    useEffect(() => {
      getListing();
    }, []);
-   //Test
+  
   // const [listings, setListings] = useState([]);//getting all listings from db
 
   // async function getListings() {
