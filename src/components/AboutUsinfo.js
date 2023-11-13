@@ -243,16 +243,25 @@ export default function AboutUsinfo() {
         <FsLightbox
           toggler={slide}
           sources={[
-            "https://i.imgur.com/ILzD0HZ.jpg",
-            "https://i.imgur.com/R16jAox.jpg",
-            "https://i.imgur.com/MFPbkjh.jpg",
-            "https://i.imgur.com/J4xLkW4.jpg",
-            "https://i.imgur.com/9Pc0exQ.jpg",
-            "https://i.imgur.com/YUamIMj.jpg",
-            "https://i.imgur.com/CwSBvsh.jpg",
-            "https://i.imgur.com/U1Mtm2b.jpg",
-            "https://i.imgur.com/a880IHY.jpg",
-            "https://i.imgur.com/BCQ72z5.jpg",
+            "https://i.imgur.com/ILzD0HZ.jpg", // kitchen
+            "https://i.imgur.com/QSntCVw.jpg", // kitchen
+            "https://i.imgur.com/R16jAox.jpg", //bathroom
+            "https://i.imgur.com/QEGr0Yc.jpg", //bathroom
+            "https://i.imgur.com/MFPbkjh.jpg", //living vaulted
+            "https://i.imgur.com/9TLB0Wu.jpg", //living regular
+            "https://i.imgur.com/hzj7TXC.jpg", //living regular
+            "https://i.imgur.com/J4xLkW4.jpg", //bedroom
+            "https://i.imgur.com/t5fnmv0.jpg", //bedroom
+            "https://i.imgur.com/9Pc0exQ.jpg", //bedroom
+            "https://i.imgur.com/KmnAkPq.jpg", //bedroom
+            "https://i.imgur.com/YUamIMj.jpg", //living barshelf vaulted
+            "https://i.imgur.com/oYV2yrP.jpg", // kitchen window
+            "https://i.imgur.com/rUeTCeA.jpg", //entance
+            "https://i.imgur.com/jB7Yruf.jpg", //"halway"
+            "https://i.imgur.com/CwSBvsh.jpg", //floor plan
+            "https://i.imgur.com/U1Mtm2b.jpg", //outside drone
+            "https://i.imgur.com/a880IHY.jpg", //outside winter
+            "https://i.imgur.com/BCQ72z5.jpg", //outside summer
           ]}
         />
       </div>
