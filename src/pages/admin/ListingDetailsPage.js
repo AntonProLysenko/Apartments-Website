@@ -81,7 +81,8 @@ export default function ListingDetailsPage({ listings }) {
               listing.selectedFile5,
               listing.selectedFile6,
               listing.selectedFile7,
-              listing.selectedFile8
+              listing.selectedFile8,
+              "https://i.imgur.com/CwSBvsh.jpg", //floor plan
             ]}
           />
 

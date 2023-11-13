@@ -91,6 +91,7 @@ export default function ListingShowPage() {
               listing.selectedFile6,
               listing.selectedFile7,
               listing.selectedFile8,
+              "https://i.imgur.com/CwSBvsh.jpg", //floor plan
             ]}
           />
 
