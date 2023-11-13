@@ -745,6 +745,8 @@ button[type="submit"]:active {
   border-radius: 15px;
   padding: 10px;
   margin: 20px;
+  /* min-width: 40vw;
+  max-width: 50vw; */
   /* width: 50vw; */
   color: var(--text-dark);
 
@@ -763,8 +765,11 @@ button[type="submit"]:active {
   display: flex;
   flex-direction: column;
   margin-left: 5%;
-  width: 50%;
+  width: 100%;
   text-align: left;
+}
+.listing-title>h3{
+  text-wrap: balance;
 }
 
 .price {

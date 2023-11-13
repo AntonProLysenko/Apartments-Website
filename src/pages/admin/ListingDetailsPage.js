@@ -36,7 +36,7 @@ export default function ListingDetailsPage({ listings }) {
   function loaded() {
     let quals = listing.qualifications.split(".")
     quals.pop()
-    
+    // console.log(listing)
     return (
       <>
         <div className="return">
@@ -74,14 +74,14 @@ export default function ListingDetailsPage({ listings }) {
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
               ></iframe>,
-
+            
               listing.selectedFile2,
               listing.selectedFile3,
               listing.selectedFile4,
               listing.selectedFile5,
               listing.selectedFile6,
               listing.selectedFile7,
-              listing.selectedFile8,
+              listing.selectedFile8
             ]}
           />
 

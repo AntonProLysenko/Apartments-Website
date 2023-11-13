@@ -25,6 +25,7 @@ export default function EditListingpage (){
     }, [setListing]);
 
     const  handleUpdate = async (evt) => {
+
         evt.preventDefault()
       try {
         navigation(`/irunthis/${listing._id}`);
@@ -102,9 +103,9 @@ export default function EditListingpage (){
              
             <div className='photos'>
               <div><FileBase type="file" name = "selectedFile1" multiple={false} value = {listing.selectedFile1}  onDone={({ base64 }) => setListing({ ...listing, selectedFile1: base64 })} /></div>
-              <div><FileBase type="file" name = "selectedFile2" multiple={false}  onDone={({ base64 }) => setListing({ ...listing, selectedFile2: base64 })} /></div>
-              <div><FileBase type="file" name = "selectedFile3" multiple={false}  onDone={({ base64 }) => setListing({ ...listing, selectedFile3: base64 })} /></div>
-              <div><FileBase type="file" name = "selectedFile4" multiple={false}  onDone={({ base64 }) => setListing({ ...listing, selectedFile4: base64 })} /></div>
+              <div><FileBase type="file" name = "selectedFile2" multiple={false} onDone={({ base64 }) => setListing({ ...listing, selectedFile2: base64 })} /></div>
+              <div><FileBase type="file" name = "selectedFile3" multiple={false} onDone={({ base64 }) => setListing({ ...listing, selectedFile3: base64 })} /></div>
+              <div><FileBase type="file" name = "selectedFile4" multiple={false} onDone={({ base64 }) => setListing({ ...listing, selectedFile4: base64 })} /></div>
               <div><FileBase type="file" name = "selectedFile5" multiple={false} onDone={({ base64 }) => setListing({ ...listing, selectedFile5: base64 })} /></div>
               <div><FileBase type="file" name = "selectedFile6" multiple={false} onDone={({ base64 }) => setListing({ ...listing, selectedFile6: base64 })} /></div>
               <div><FileBase type="file" name = "selectedFile7" multiple={false} onDone={({ base64 }) => setListing({ ...listing, selectedFile7: base64 })} /></div>
@@ -115,7 +116,7 @@ export default function EditListingpage (){
 
             <button type="submit"> 
             <i className="fa fa-pencil" aria-hidden="true"></i>
-           &nbsp; Edit Listing</button>
+           &nbsp; Save Changes</button>
         
 
           
