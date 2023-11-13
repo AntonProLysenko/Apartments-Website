@@ -94,7 +94,7 @@ export default function ListingShowPage() {
             ]}
           />
 
-          <div className="info">
+          <div className="info info-box">
             <h3 className="info-title">
               Rent: <span className="price">{listing.rent}</span>
             </h3>
@@ -137,7 +137,7 @@ export default function ListingShowPage() {
           </div>
         </div>
 
-        <div className="quals">
+        <div className="quals info-box">
           <h2>Qualifications:</h2>
           <div data-aos="fade-up" data-aos-duration="200">
             <ul className="quals-list">
