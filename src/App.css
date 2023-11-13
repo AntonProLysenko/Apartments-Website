@@ -72,6 +72,9 @@ body {
   .quals-list{
     text-align: start;
   }
+  .gallery{
+      grid-template-rows: repeat(10, 10vw);
+  }
 }
 
 @media screen and (max-width: 819px) {
@@ -1625,4 +1628,21 @@ input:checked + .slider:before {
 
 .back {
   align-self: flex-start;
+}
+
+
+
+@media (orientation:portrait){
+   .emailUs-form{
+    width:80%
+  }
+  .info, .quals>div{
+    width:90%
+  }
+  .quals-list{
+    text-align: start;
+  }
+  .gallery{
+      grid-template-rows: repeat(10, 10vw);
+  }
 }
