@@ -51,6 +51,92 @@ export default function AboutUsinfo() {
           </div>
         </div>
 
+         <div className="box-container">
+          <h1
+            data-aos="zoom-in"
+            data-aos-delay="300"
+            data-aos-duration="1500"
+            className="title"
+          >
+            Our Main Criteria
+          </h1>
+          <div
+            data-aos="zoom-in"
+            data-aos-delay="500"
+            data-aos-duration="2000"
+            className="about"
+          >
+            {/* <p>
+              Must have a <strong>minimum</strong> gross monthly family <strong>income</strong> of $2500
+            </p> */}
+<p>
+No evictions, eviction filings, or criminal convictions in the past 5 years (including theft, domestic violence, drug charges, and any felony charges).
+</p>
+
+<p>
+The Household makes more than $2500 a month in combined verifiable income (net income). Will need proof of income (and three months with the current employer).
+</p>
+
+<p>
+Any credit is acceptable.
+</p>
+
+
+
+
+<p>
+No section 8.
+        
+</p>
+
+<p>
+No smoking inside
+        
+</p>
+
+<p>
+        
+No pets over 25 lbs.
+</p>
+
+
+
+
+
+
+
+
+
+
+
+            
+            {/* <p>
+              Must be currently employed
+            </p> 
+            <p>
+              The only income that can be documented will be considered
+            </p>
+            <p>
+              No criminal background including theft, domestic violence, drug charges, and any felony charges for the past 5 years
+            </p>
+            <p>
+              No evictions, evictions filings in the past 5 years
+            </p>
+            <p>
+              You must be able to obtain electricity (AES) in your name
+            </p>
+            <p>
+              This is a drug-free and smoke-free home
+            </p>
+            <p>
+              No Pets over 25 lbs
+            </p>
+            <p>
+              $35 application fee for each adult living in the household
+            </p> */}
+          </div>
+        </div>
+
         <div className="box-container">
           <h1
             data-aos="zoom-in"

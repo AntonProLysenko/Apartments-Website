@@ -13,7 +13,7 @@ import Footer from "../components/Footer";
 
 
 export default function ListingShowPage() {
-  const [listing, setListing] = useState(); //getting all listings from db
+  const [listing, setListing] = useState(); //getting needed listing from db
 
   const [slide, setSlide] = useState(false);
   const { id } = useParams();

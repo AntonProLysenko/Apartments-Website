@@ -1052,8 +1052,8 @@ button[type="submit"]:active {
 }
 /*About*/
 .about{
-  width:80%;
-  padding: 10px;
+  width:85%;
+  padding:15px 10px 0px 10px;
 
   color:var(--text-black);
   font-size: larger;
