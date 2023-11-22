@@ -54,21 +54,21 @@ export default function AboutUsinfo() {
          <div className="box-container">
           <h1
             data-aos="zoom-in"
-            data-aos-delay="300"
-            data-aos-duration="1500"
+            data-aos-delay="600"
+            data-aos-duration="1000"
             className="title"
           >
-            Our Main Criteria
+            Our Main Creteria
           </h1>
           <div
             data-aos="zoom-in"
-            data-aos-delay="500"
+            data-aos-delay="900"
             data-aos-duration="2000"
             className="about"
           >
-            {/* <p>
+            <p>
               Must have a <strong>minimum</strong> gross monthly family <strong>income</strong> of $2500
-            </p> */}
+            </p>
 <p>
 No evictions, eviction filings, or criminal convictions in the past 5 years (including theft, domestic violence, drug charges, and any felony charges).
 </p>
