@@ -31,6 +31,16 @@ function App() {
      const listings = await listingsAPI.getAll();
      setListings(listings);
    }
+
+   async function postVisitor(){
+
+   }
+
+   async function getVisitors(){
+
+   }
+
+   
    useEffect(() => {
      getListing();
    }, []);
