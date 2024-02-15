@@ -26,10 +26,17 @@ export function update(listingData, id) {
   return sendRequest(`${BASE_URL}/${id}`,'PUT', listingData);
 }
 
-export function postStat(){
-  return sendRequest(`${STAT_URL}/new`, 'POST', stat)
+
+
+export function addStats(stat){
+  console.log("addStats", stat);
+  return sendRequest(`${STAT_URL}/new`, 'PUT', stat)
 }
 
 export function getStats(){
-  return sendRequest(STAT_URL, 'GET');
+  return sendRequest(`${STAT_URL}/read`, 'GET');
+}
+
+export function updateStats(stat, id){
+  return sendRequest(`${BASE_URL}/${id}`,'PUT', stat);
 }

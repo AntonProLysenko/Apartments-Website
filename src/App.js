@@ -22,29 +22,50 @@ import NavBar from './components/NavBar';
 import ErrorPage from './pages/ErrorPage'
 
 
+import { addStat } from "./utilities/listings-service";
+
 function App() {
 
   const [user, setUser] = useState(getUser())//we need this state to be sure wether user is logged in
 
-   const [listings, setListings] = useState();
-   async function getListing() {
-     const listings = await listingsAPI.getAll();
-     setListings(listings);
-   }
+  const [listings, setListings] = useState();
+  const [newvisitor, setVisitor] = useState(false)
 
-   async function postVisitor(){
+  function getDate() {
+    const today = new Date();
+    const month = today.getMonth() + 1;
+    const year = today.getFullYear();
+    const date = today.getDate();
+    return `${month}/${date}/${year}`;
+  }
 
-   }
 
-   async function getVisitors(){
 
-   }
 
-   
-   useEffect(() => {
-     getListing();
-   }, []);
+  async function getListing() {
+    const listings = await listingsAPI.getAll();
+    setListings(listings);
+  }
+
+  async function addVisitors(visitorData){
+    addStat(visitorData)
+  }
+
+  async function getVisitors(){
+
+  }
+
+
+  useEffect(() => {
+    setVisitor(true)
+    getListing();
+  }, []);
+
+  useEffect(()=>{
+    if (newvisitor){addVisitors([1, getDate()])}
+  },[newvisitor])
   
+
   // const [listings, setListings] = useState([]);//getting all listings from db
 
   // async function getListings() {
@@ -59,6 +80,7 @@ function App() {
 
   return (
     <main className="App">
+      {/* {!visitor && createVisitors([1, getDate()])} */}
       {user ? (
         <>
           <NavBar name={user.name} setUser={setUser} />
@@ -85,7 +107,7 @@ function App() {
         </>
       ) : (
         <>
-          <NavBar />
+          <NavBar />  
 
           <Routes>
             <Route path="/irunthis" element={<AuthPage setUser={setUser} />} />

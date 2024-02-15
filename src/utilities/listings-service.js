@@ -12,3 +12,12 @@ export async function update (listingData, id){
      return  await listingAPI.update(listingData, id)
 }
 
+
+
+export async function addStat(statData){
+     return  await listingAPI.addStats(statData)   
+}
+
+export async function getStats(){
+     return await listingAPI.getStats()
+}
