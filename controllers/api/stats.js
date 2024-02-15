@@ -3,13 +3,14 @@ const Stat = require("../../models/stat")
 
 module.exports = {
   indexStats,
-  addStat
+  addStat,
+  removeStat
 
 };
 
 // router.post('/stats', statCtrl.updateStats)
 async function addStat(req, res){
-  // console.log("On your BACK",req.body);
+  
   try {
     // await Stat.create(req.body)
     await Stat.findOneAndUpdate({
@@ -19,11 +20,31 @@ async function addStat(req, res){
         visitors: req.body
       }
     })
+
+    console.log("On your BACK",req.body);
   } catch (error) {
     res.status(400).json({msg:error.message})
   }
 }
 
+
+async function removeStat(req,res){
+  try {
+    // await Stat.create(req.body)
+    await Stat.findOneAndUpdate({
+      _id: "65ce67076d2f7f56c1057959"
+    },{
+      $pop:{
+        visitors: 1
+      }
+    })
+
+    console.log("On your Back -1");
+    
+  } catch (error) {
+    res.status(400).json({msg:error.message})
+  }
+}
 
 async function indexStats(req,res){
   try {

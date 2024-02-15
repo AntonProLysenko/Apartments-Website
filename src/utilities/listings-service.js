@@ -14,8 +14,16 @@ export async function update (listingData, id){
 
 
 
+
+
+
+
+export async function removeStat(){
+     return  await listingAPI.removeStat()   
+}
+
 export async function addStat(statData){
-     return  await listingAPI.addStats(statData)   
+     return  await listingAPI.addStat(statData)   
 }
 
 export async function getStats(){

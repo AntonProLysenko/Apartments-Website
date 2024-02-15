@@ -22,7 +22,7 @@ import NavBar from './components/NavBar';
 import ErrorPage from './pages/ErrorPage'
 
 
-import { addStat } from "./utilities/listings-service";
+import { addStat, getStats } from "./utilities/listings-service";
 
 function App() {
 
@@ -30,6 +30,7 @@ function App() {
 
   const [listings, setListings] = useState();
   const [newvisitor, setVisitor] = useState(false)
+  const [statistic, setStatistic] = useState(null)
 
   function getDate() {
     const today = new Date();
@@ -38,7 +39,6 @@ function App() {
     const date = today.getDate();
     return `${month}/${date}/${year}`;
   }
-
 
 
 
@@ -52,17 +52,19 @@ function App() {
   }
 
   async function getVisitors(){
-
+    const statistics = await getStats();
+    setStatistic(statistics[0].visitors);
   }
 
 
   useEffect(() => {
     setVisitor(true)
     getListing();
+    getVisitors()
   }, []);
 
   useEffect(()=>{
-    if (newvisitor){addVisitors([1, getDate()])}
+    if ((newvisitor && !user)|| (newvisitor && user == null)){addVisitors([1, getDate()])}
   },[newvisitor])
   
 
@@ -96,7 +98,7 @@ function App() {
             <Route path="/available/:id" element={<ListingShowPage />} />
 
             {/* <Route path="/orders" element={<OrderHistoryPage />} /> */}
-            <Route path="/irunthis" element={<AdminHome />} />
+            <Route path="/irunthis" element={<AdminHome visitors={statistic} listings={listings}  />} />
             <Route path="/irunthis/new" element={<NewListingPage />} />
             <Route path="/irunthis/:id" element={<ListingDetailsPage />} />
             <Route path="/irunthis/:id/edit" element={<EditListingpage />} />

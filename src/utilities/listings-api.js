@@ -28,7 +28,7 @@ export function update(listingData, id) {
 
 
 
-export function addStats(stat){
+export function addStat(stat){
   console.log("addStats", stat);
   return sendRequest(`${STAT_URL}/new`, 'PUT', stat)
 }
@@ -37,6 +37,10 @@ export function getStats(){
   return sendRequest(`${STAT_URL}/read`, 'GET');
 }
 
-export function updateStats(stat, id){
-  return sendRequest(`${BASE_URL}/${id}`,'PUT', stat);
+export function removeStat(){
+  return sendRequest(`${STAT_URL}/adm`, 'PUT')
 }
+
+// export function updateStats(stat, id){
+//   return sendRequest(`${BASE_URL}/${id}`,'PUT', stat);
+// }

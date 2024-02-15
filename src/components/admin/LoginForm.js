@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import {removeStat} from '../../utilities/listings-service'
 import * as usersService from '../../utilities/users-service';
 
 export default function LoginForm({ setUser }) {
@@ -13,6 +14,10 @@ function handleChange(evt) {
   setError('');
 }
 
+async function removeVisitor(){
+  removeStat()
+}
+
 async function handleSubmit(evt) {
   // Prevent form from being submitted to the server
   evt.preventDefault();
@@ -22,6 +27,8 @@ async function handleSubmit(evt) {
     // payload of the JSON Web Token (JWT)
     const user = await usersService.login(credentials);
     setUser(user);
+    removeVisitor()
+
   } catch {
     setError('Log In Failed - Try Again');
   }

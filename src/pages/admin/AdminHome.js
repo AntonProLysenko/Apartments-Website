@@ -9,18 +9,18 @@ import * as listingsAPI from "../../utilities/listings-api"
 import loading from '../../components/loading';
 
 
-export default function AdminHome() {
-// const listingsArr = Object.values(listings);//converting object props to array props
-const [listings, setListings] = useState();//getting all listings from db
+export default function AdminHome({listings, visitors}) {
+  // const listingsArr = Object.values(listings);//converting object props to array props
+//const [listings, setListings] = useState();//getting all listings from db
 
-async function getListings() {
-  const listings = await listingsAPI.getAll();
-  setListings(listings);
-}
+// async function getListings() {
+//   const listings = await listingsAPI.getAll();
+//   setListings(listings);
+// }
 
-useEffect(()=>{
-  getListings()
-},[setListings])
+// useEffect(()=>{
+//   getListings()
+// },[setListings])
 
 
   function loaded (){
@@ -73,9 +73,11 @@ useEffect(()=>{
  
       <h1 className='title'>Listings</h1> 
       <Link to = "/irunthis/new"><button className='create-btn'>Create new</button></Link>
+      {listings? loaded():loading()}
 
-   {   listings? loaded():loading()}
+      {visitors&&<h1 className='title'>Total visitors {visitors.length}</h1> }
+      
+
     </>
-     
   )
 }
