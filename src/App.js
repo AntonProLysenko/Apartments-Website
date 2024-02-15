@@ -35,9 +35,17 @@ function App() {
   function getDate() {
     const today = new Date();
     const month = today.getMonth() + 1;
+
+    console.log(month);
+    
     const year = today.getFullYear();
     const date = today.getDate();
-    return `${month}/${date}/${year}`;
+
+    return {
+      month: month,
+      day: date,
+      year: year
+    };
   }
 
 
@@ -64,7 +72,8 @@ function App() {
   }, []);
 
   useEffect(()=>{
-    if ((newvisitor && !user)|| (newvisitor && user == null)){addVisitors([1, getDate()])}
+    // if ((newvisitor && !user)|| (newvisitor && user == null)){addVisitors([1, getDate()])}
+    addVisitors([1, getDate()])
   },[newvisitor])
   
 

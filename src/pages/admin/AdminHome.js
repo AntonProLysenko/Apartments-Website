@@ -23,6 +23,32 @@ export default function AdminHome({listings, visitors}) {
 // },[setListings])
 
 
+function createSetOfDates(){let years =  []
+  visitors.map((visitor)=>{
+    years.push(visitor[1].year)
+  })
+  const availableYears = [...new Set(years)]
+
+  let months =  []
+  visitors.map((visitor)=>{
+    months.push(visitor[1].month)
+  })
+  const availableMonths = [...new Set(months)]
+  console.log(availableYears);
+
+  let dates =  []
+  visitors.map((visitor)=>{
+    dates.push(visitor[1].day)
+  })
+  const availableDays = [...new Set(dates)]
+
+  return{
+    days: availableDays,
+    months: availableMonths, 
+    years: availableYears, 
+  }
+}
+
   function loaded (){
     //sorting, available listing goes first
     const sorted=[]
@@ -33,38 +59,76 @@ export default function AdminHome({listings, visitors}) {
         sorted.push(listing)
       }
     })
+
+    //getting set of available dates
+    let availabileDates = createSetOfDates();
     return(
- 
+      <>
       <ul className='listings-ul'>
-      {sorted.map((listing, idx)=>{
-        // console.log(listing)
-       
-
-        let lastUpdate = moment(listing.updatedAt).fromNow();
-      
+        {sorted.map((listing, idx)=>{
+          // console.log(listing)
+          
+          
+          let lastUpdate = moment(listing.updatedAt).fromNow();
+          
           return(
-                  <li key = {idx}>
-                      <Link to= {`/irunthis/${listing._id}`}>
-                        <div className='listing-ad'>
+            <li key = {idx}>
+                  <Link to= {`/irunthis/${listing._id}`}>
+                    <div className='listing-ad'>
 
-                          <div className='listing-ad-img'>
-                            <img src = {listing.selectedFile1}/>
-                          </div>
+                      <div className='listing-ad-img'>
+                        <img src = {listing.selectedFile1}/>
+                      </div>
 
-             
-                            <div className = "listing-title">
-                              <div className='lastUpdate'> updated: {lastUpdate} </div>
-                             { listing.available===true?  <h3> <span className="dot-online"></span> {listing.title}  </h3> : <h3> <span className="dot-offline"></span> {listing.title}  </h3> }
-                             
-                              <h4 className='price'><span className='rent'>Rent:</span> {listing.rent}/mo</h4>
-                            </div>
-                          
+        
+                        <div className = "listing-title">
+                          <div className='lastUpdate'> updated: {lastUpdate} </div>
+                        { listing.available===true?  <h3> <span className="dot-online"></span> {listing.title}  </h3> : <h3> <span className="dot-offline"></span> {listing.title}  </h3> }
+                        
+                          <h4 className='price'><span className='rent'>Rent:</span> {listing.rent}/mo</h4>
                         </div>
-                      </Link>    
-                  </li>
-          )
-      })}
+                      
+                    </div>
+                  </Link>    
+              </li>
+
+
+        ) 
+        })}
       </ul>
+      
+      <h1 className='title'>Total visitors {visitors.length}</h1> 
+
+      <select>
+      {Object.entries(availabileDates).map(([key, value]) =>{
+        if (key === "years"){
+          return(
+            <option value = "year">{value}</option>
+          )
+        }
+      })}
+      </select>
+
+      <select>
+      {Object.entries(availabileDates).map(([key, value]) =>{
+        if (key === "months"){
+          return(
+            <option value = "month">{value}</option>
+          )
+        }
+      })}
+      </select>
+
+      <select>
+      {Object.entries(availabileDates).map(([key, value]) =>{
+        if (key === "days"){
+          return(
+            <option value = "day">{value}</option>
+          )
+        }
+      })}
+      </select>
+</>
     )
   }
 
@@ -75,7 +139,7 @@ export default function AdminHome({listings, visitors}) {
       <Link to = "/irunthis/new"><button className='create-btn'>Create new</button></Link>
       {listings? loaded():loading()}
 
-      {visitors&&<h1 className='title'>Total visitors {visitors.length}</h1> }
+      
       
 
     </>

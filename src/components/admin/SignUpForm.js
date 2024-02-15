@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { signUp } from '../../utilities/users-service';
 import { Link, useNavigate } from "react-router-dom";
-
+import {removeStat} from '../../utilities/listings-service'
 export default class SignUpForm extends Component {
   state = {
     name: "",
@@ -12,7 +12,9 @@ export default class SignUpForm extends Component {
   }
 
   // navigate=useNavigate()
-  
+  removeVisitor = async ()=>{
+    removeStat()
+  }
 
   handleChange = (evt) => {
     this.setState({
@@ -35,6 +37,7 @@ export default class SignUpForm extends Component {
       // payload of the JSON Web Token (JWT)
       const user = await signUp(formData)
       this.props.setUser(user)
+      this.removeVisitor()
     } catch {
       this.setState({ error: "Sign Up Failed - Try Again"})
     }
