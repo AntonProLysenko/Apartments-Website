@@ -22,32 +22,26 @@ export default function AdminHome({listings, visitors}) {
 //   getListings()
 // },[setListings])
 
+const [sortedVisitors, setSortedVisitors] = useState(visitors)
 
 function createSetOfDates(){
   let years = []
-  visitors.map((visitor)=>{
+  sortedVisitors.map((visitor)=>{
     years.push(visitor[1].year)
   })
   const availableYears = [...new Set(years)]
 
   let months =  []
-  visitors.map((visitor)=>{
+  sortedVisitors.map((visitor)=>{
     months.push(visitor[1].month)
   })
   const availableMonths = [...new Set(months)]
-  console.log(availableYears);
 
   let dates =  []
-  visitors.map((visitor)=>{
+  sortedVisitors.map((visitor)=>{
     dates.push(visitor[1].day)
   })
   const availableDays = [...new Set(dates)]
-
-  console.log({
-    days: availableDays,
-    months: availableMonths, 
-    years: availableYears, 
-  });
   
   return{
     days: availableDays,
@@ -55,6 +49,89 @@ function createSetOfDates(){
     years: availableYears, 
   }
 }
+
+const [filterOptions, setfilterOptions] = useState({
+  year: 'all years',
+  month: 'any month',
+  day: 'any day'
+});
+
+
+
+
+
+
+
+
+function sortVisitors(){
+  console.log(filterOptions,"CHANGE");
+  // console.log(evt)
+  // evt.preventDefault();
+
+  let sorted = visitors
+  console.log(filterOptions.day );
+
+  console.log(filterOptions.year , "Inside")
+  if (filterOptions.year != 'all years'){
+    console.log(filterOptions.year);
+    sorted = visitors.filter((visitor)=>{
+      if (visitor[1].year == parseInt(filterOptions.year)){
+        return visitor
+      }
+    })
+  }
+
+
+  // console.log(sorted, "after Years");
+  
+
+  if (filterOptions.month != 'any month'){
+    sorted = visitors.filter((visitor)=>{
+       if (visitor[1].month== parseInt(filterOptions.month)){
+         return visitor
+       }
+     })
+   }
+  
+  if (filterOptions.day != 'any day'){
+   sorted = visitors.filter((visitor)=>{
+      if (visitor[1].day== parseInt(filterOptions.day)){
+        return visitor
+      }
+    })
+  }else{
+    sorted = sorted
+  }
+
+
+  // console.log(sorted);
+  setSortedVisitors(sorted)
+
+}
+
+function changeFilter(evt){
+
+console.log(evt.target.name, evt.target.value);
+
+  setfilterOptions({...filterOptions, [evt.target.name]: evt.target.value})   
+   
+  // sortVisitors(evt)
+}
+
+function resetFilters(evt){
+  evt.preventDefault()
+  setfilterOptions({
+    year: 'all years',
+    month: 'any month',
+    day: 'any day'
+  })  
+  setSortedVisitors(visitors)  
+  // sortVisitors(evt)
+}
+
+useEffect(()=>{
+  sortVisitors()
+},[filterOptions])
 
   function loaded (){
     //sorting, available listing goes first
@@ -104,33 +181,36 @@ function createSetOfDates(){
         })}
       </ul>
       
-      <h1 className='title'>Total visitors {visitors.length}</h1> 
-      {visitors&&
+      <h1 className='title'>Total visitors {sortedVisitors.length}</h1> 
+      
 
-        <select>
+      <div className='visitors_sorting_form' onSubmit={resetFilters}>
+      <form autoComplete="off" >
+        <select name="year" onChange={changeFilter}>
+        <option value = "all years">all years</option>
         {Object.entries(availabileDates).map(([key, value]) =>{
           if (key === "years"){
             return(
               value.map((year)=>{
                 return(
-                  <option value = "year">{year}</option>
+                  <option value = {year}>{year}</option>
                 )
               })
             )            
           }
         })}
         </select>
-      }
+      
       
 
-      <select>
-        <option value = "month">any month</option>
+      <select name="month" onChange={changeFilter}>
+        <option value = "any month">any month</option>
         {Object.entries(availabileDates).map(([key, value]) =>{
           if (key === "months"){
             return(
               value.map((month)=>{
                 return(
-                  <option value = "month">{month}</option>
+                  <option value={month}>{month}</option>
                 )
               })
             )
@@ -138,20 +218,23 @@ function createSetOfDates(){
         })}
       </select>
 
-      <select>
-        <option value = "day">any day</option>
+      <select name="day" onChange={changeFilter}>
+        <option value = "any day">any day</option>
         {Object.entries(availabileDates).map(([key, value]) =>{
           if (key === "days"){
             return(
               value.map((day)=>{
                 return(
-                  <option value = "day">{day}</option>
+                  <option value = {day}>{day}</option>
                 )
               })
             )
           }
         })}
       </select>
+      <button type='submit'>Reset filters</button>
+      </form>
+      </div>
 </>
     )
   }
