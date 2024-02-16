@@ -23,7 +23,8 @@ export default function AdminHome({listings, visitors}) {
 // },[setListings])
 
 
-function createSetOfDates(){let years =  []
+function createSetOfDates(){
+  let years = []
   visitors.map((visitor)=>{
     years.push(visitor[1].year)
   })
@@ -42,6 +43,12 @@ function createSetOfDates(){let years =  []
   })
   const availableDays = [...new Set(dates)]
 
+  console.log({
+    days: availableDays,
+    months: availableMonths, 
+    years: availableYears, 
+  });
+  
   return{
     days: availableDays,
     months: availableMonths, 
@@ -98,35 +105,52 @@ function createSetOfDates(){let years =  []
       </ul>
       
       <h1 className='title'>Total visitors {visitors.length}</h1> 
+      {visitors&&
+
+        <select>
+        {Object.entries(availabileDates).map(([key, value]) =>{
+          if (key === "years"){
+            return(
+              value.map((year)=>{
+                return(
+                  <option value = "year">{year}</option>
+                )
+              })
+            )            
+          }
+        })}
+        </select>
+      }
+      
 
       <select>
-      {Object.entries(availabileDates).map(([key, value]) =>{
-        if (key === "years"){
-          return(
-            <option value = "year">{value}</option>
-          )
-        }
-      })}
+        <option value = "month">any month</option>
+        {Object.entries(availabileDates).map(([key, value]) =>{
+          if (key === "months"){
+            return(
+              value.map((month)=>{
+                return(
+                  <option value = "month">{month}</option>
+                )
+              })
+            )
+          }
+        })}
       </select>
 
       <select>
-      {Object.entries(availabileDates).map(([key, value]) =>{
-        if (key === "months"){
-          return(
-            <option value = "month">{value}</option>
-          )
-        }
-      })}
-      </select>
-
-      <select>
-      {Object.entries(availabileDates).map(([key, value]) =>{
-        if (key === "days"){
-          return(
-            <option value = "day">{value}</option>
-          )
-        }
-      })}
+        <option value = "day">any day</option>
+        {Object.entries(availabileDates).map(([key, value]) =>{
+          if (key === "days"){
+            return(
+              value.map((day)=>{
+                return(
+                  <option value = "day">{day}</option>
+                )
+              })
+            )
+          }
+        })}
       </select>
 </>
     )
@@ -137,7 +161,7 @@ function createSetOfDates(){let years =  []
  
       <h1 className='title'>Listings</h1> 
       <Link to = "/irunthis/new"><button className='create-btn'>Create new</button></Link>
-      {listings? loaded():loading()}
+      {listings && visitors? loaded():loading()}
 
       
       

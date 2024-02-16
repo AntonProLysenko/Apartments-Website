@@ -62,6 +62,9 @@ function App() {
   async function getVisitors(){
     const statistics = await getStats();
     setStatistic(statistics[0].visitors);
+
+    console.log("GOT VISITORS");
+    
   }
 
 
@@ -72,8 +75,8 @@ function App() {
   }, []);
 
   useEffect(()=>{
-    // if ((newvisitor && !user)|| (newvisitor && user == null)){addVisitors([1, getDate()])}
-    addVisitors([1, getDate()])
+    if ((newvisitor && !user)){addVisitors([1, getDate()])}
+    // addVisitors([1, getDate()])
   },[newvisitor])
   
 
