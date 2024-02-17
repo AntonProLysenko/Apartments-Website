@@ -30,6 +30,7 @@ function App() {
 
   const [listings, setListings] = useState();
   const [newvisitor, setVisitor] = useState(false)
+  const [firstload, setFirstLoad] = useState(false)
   const [statistic, setStatistic] = useState(null)
 
   function getDate() {
@@ -56,7 +57,11 @@ function App() {
   }
 
   async function addVisitors(visitorData){
-    addStat(visitorData)
+    await addStat(visitorData)
+
+    console.log("FRONTEND ADD visitor");
+    setFirstLoad(true)
+    
   }
 
   async function getVisitors(){
@@ -72,8 +77,11 @@ function App() {
   }, []);
 
   useEffect(()=>{
-    if ((newvisitor && !user)){addVisitors([1, getDate()])}
-    // addVisitors([1, getDate()])
+
+    console.log(firstload);
+    
+    if ((newvisitor && !user && !firstload)){addVisitors([1, getDate()])}
+    // setFirstLoad(true)
   },[newvisitor])
   
 
