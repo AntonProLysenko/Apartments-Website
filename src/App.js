@@ -1,9 +1,12 @@
 import './App.css';
 import { useState, useEffect } from 'react'
 import { Routes, Route,} from 'react-router-dom'
+import axios from "axios";
 
 import { getUser } from './utilities/users-service';
 import * as listingsAPI from "./utilities/listings-api";
+// import{ sendRequest} from ""
+// import sendRequest from './utilities/send-request';
 
 import HomePage from './pages/HomePage';
 import AboutUsPage from './pages/AboutUsPage'
@@ -27,47 +30,66 @@ import { addStat, getStats } from "./utilities/listings-service";
 function App() {
 
   const [user, setUser] = useState(getUser())//we need this state to be sure wether user is logged in
-
+  
+  const [currentIp, setIP] = useState(null);
   const [listings, setListings] = useState();
   const [newvisitor, setVisitor] = useState(false)
   const [firstload, setFirstLoad] = useState(false)
   const [statistic, setStatistic] = useState(null)
 
-  function getDate() {
+  function getStatisticCreteria() {
     const today = new Date();
-    const month = today.getMonth() + 1;
-
-    console.log(month);
-    
+    const month = today.getMonth() + 1;    
     const year = today.getFullYear();
     const date = today.getDate();
 
-    return {
-      month: month,
-      day: date,
-      year: year
-    };
+    // const ip = await getIpAddress()
+
+      return {
+        month: month,
+        day: date,
+        year: year,
+        ip: ""
+
+    }
   }
+
+
+  const getIpAddress = async () => {
+    const res = await axios.get("https://api.ipify.org/?format=json");
+    // const res = await sendRequest("https://api.ipify.org/?format=json", "GET")
+    // console.log(res.data.ip, "IPPPPPP");
+    // return res.data.ip
+    setIP(res.data.ip)
+  };
 
 
 
   async function getListing() {
+    await getIpAddress()
     const listings = await listingsAPI.getAll();
     setListings(listings);
   }
 
-  async function addVisitors(visitorData){
-    await addStat(visitorData)
-
-    console.log("FRONTEND ADD visitor");
-    setFirstLoad(true)
-    
-  }
 
   async function getVisitors(){
     const statistics = await getStats();
-    setStatistic(statistics[0].visitors);    
+    setStatistic(statistics[0].visitors);  
+    return statistics[0].visitors
   }
+
+  async function addVisitors(visitorData){
+    const allVisitors = await getVisitors()
+
+    visitorData[1].ip = currentIp
+
+    let visitedBefore = JSON.stringify(allVisitors).includes(JSON.stringify(visitorData))
+    
+    if (!visitedBefore && visitorData[1].ip)
+      await addStat(visitorData)
+    setFirstLoad(true)
+  }
+
 
 
   useEffect(() => {
@@ -76,13 +98,11 @@ function App() {
     getVisitors()
   }, []);
 
-  useEffect(()=>{
-
-    console.log(firstload);
-    
-    if ((newvisitor && !user && !firstload)){addVisitors([1, getDate()])}
+  useEffect(()=>{    
+    // if ((newvisitor && !user && !firstload)){addVisitors([1, getStatisticCreteria()])}
+    addVisitors([1, getStatisticCreteria()])
     // setFirstLoad(true)
-  },[newvisitor])
+  },[newvisitor, currentIp])
   
 
   // const [listings, setListings] = useState([]);//getting all listings from db
