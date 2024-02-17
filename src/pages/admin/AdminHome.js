@@ -5,7 +5,7 @@ import {Link} from "react-router-dom"
 import moment from 'moment';//for calculating dataof change from now
 
 // import NewListingForm from '../../components/admin/NewListingForm';
-import * as listingsAPI from "../../utilities/listings-api"
+// import * as listingsAPI from "../../utilities/listings-api"
 import loading from '../../components/loading';
 
 
@@ -25,29 +25,42 @@ export default function AdminHome({listings, visitors}) {
 const [sortedVisitors, setSortedVisitors] = useState(visitors)
 
 function createSetOfDates(){
-  let years = []
-  sortedVisitors.map((visitor)=>{
-    years.push(visitor[1].year)
-  })
-  const availableYears = [...new Set(years)]
+   
+    let years = []
+    sortedVisitors.forEach((visitor)=>{
+      years.push(visitor[1].year)
+    })
+    let availableYears = [...new Set(years)]
 
-  let months =  []
-  sortedVisitors.map((visitor)=>{
-    months.push(visitor[1].month)
-  })
-  const availableMonths = [...new Set(months)]
+    if(availableYears.length>1){
+      availableYears.unshift("all years")
+    }
 
-  let dates =  []
-  sortedVisitors.map((visitor)=>{
-    dates.push(visitor[1].day)
-  })
-  const availableDays = [...new Set(dates)]
-  
-  return{
-    days: availableDays,
-    months: availableMonths, 
-    years: availableYears, 
-  }
+    let months =  []
+    sortedVisitors.forEach((visitor)=>{
+      months.push(visitor[1].month)
+    })
+    const availableMonths = [...new Set(months)]
+    if(availableMonths.length>1){
+      availableMonths.unshift("any month")
+    }
+
+    let dates =  []
+    sortedVisitors.forEach((visitor)=>{
+      dates.push(visitor[1].day)
+    })
+
+    let availableDays = [...new Set(dates)]
+    
+    if(availableDays.length>1){
+      availableDays.unshift("any day")
+    }
+
+    return{
+      days: availableDays,
+      months: availableMonths, 
+      years: availableYears, 
+    }
 }
 
 const [filterOptions, setfilterOptions] = useState({
@@ -64,38 +77,30 @@ const [filterOptions, setfilterOptions] = useState({
 
 
 function sortVisitors(){
-  console.log(filterOptions,"CHANGE");
-  // console.log(evt)
-  // evt.preventDefault();
-
   let sorted = visitors
-  console.log(filterOptions.day );
 
-  console.log(filterOptions.year , "Inside")
-  if (filterOptions.year != 'all years'){
-    console.log(filterOptions.year);
+  if (filterOptions.year !== 'all years'){
     sorted = visitors.filter((visitor)=>{
-      if (visitor[1].year == parseInt(filterOptions.year)){
+      if (visitor[1].year === parseInt(filterOptions.year)){
         return visitor
       }
     })
   }
 
 
-  // console.log(sorted, "after Years");
   
 
-  if (filterOptions.month != 'any month'){
+  if (filterOptions.month !== 'any month'){
     sorted = visitors.filter((visitor)=>{
-       if (visitor[1].month== parseInt(filterOptions.month)){
+       if (visitor[1].month === parseInt(filterOptions.month)){
          return visitor
        }
      })
    }
   
-  if (filterOptions.day != 'any day'){
+  if (filterOptions.day !== 'any day'){
    sorted = visitors.filter((visitor)=>{
-      if (visitor[1].day== parseInt(filterOptions.day)){
+      if (visitor[1].day === parseInt(filterOptions.day)){
         return visitor
       }
     })
@@ -103,19 +108,11 @@ function sortVisitors(){
     sorted = sorted
   }
 
-
-  // console.log(sorted);
   setSortedVisitors(sorted)
-
 }
 
 function changeFilter(evt){
-
-console.log(evt.target.name, evt.target.value);
-
   setfilterOptions({...filterOptions, [evt.target.name]: evt.target.value})   
-   
-  // sortVisitors(evt)
 }
 
 function resetFilters(evt){
@@ -146,6 +143,7 @@ useEffect(()=>{
 
     //getting set of available dates
     let availabileDates = createSetOfDates();
+        
     return(
       <>
       <ul className='listings-ul'>
@@ -186,8 +184,7 @@ useEffect(()=>{
 
       <div className='visitors_sorting_form' onSubmit={resetFilters}>
       <form autoComplete="off" >
-        <select name="year" onChange={changeFilter}>
-        <option value = "all years">all years</option>
+        <select name="year" defaultValue={"all years"} onChange={changeFilter}>
         {Object.entries(availabileDates).map(([key, value]) =>{
           if (key === "years"){
             return(
@@ -203,8 +200,7 @@ useEffect(()=>{
       
       
 
-      <select name="month" onChange={changeFilter}>
-        <option value = "any month">any month</option>
+      <select name="month" defaultValue={"any month"} onChange={changeFilter}>
         {Object.entries(availabileDates).map(([key, value]) =>{
           if (key === "months"){
             return(
@@ -218,8 +214,7 @@ useEffect(()=>{
         })}
       </select>
 
-      <select name="day" onChange={changeFilter}>
-        <option value = "any day">any day</option>
+      <select name="day" defaultValue={"any day"} onChange={changeFilter}>
         {Object.entries(availabileDates).map(([key, value]) =>{
           if (key === "days"){
             return(
@@ -244,11 +239,8 @@ useEffect(()=>{
  
       <h1 className='title'>Listings</h1> 
       <Link to = "/irunthis/new"><button className='create-btn'>Create new</button></Link>
-      {listings && visitors? loaded():loading()}
-
       
-      
-
+      {listings&&sortedVisitors? loaded():loading()}
     </>
   )
 }

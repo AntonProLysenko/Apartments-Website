@@ -61,10 +61,7 @@ function App() {
 
   async function getVisitors(){
     const statistics = await getStats();
-    setStatistic(statistics[0].visitors);
-
-    console.log("GOT VISITORS");
-    
+    setStatistic(statistics[0].visitors);    
   }
 
 

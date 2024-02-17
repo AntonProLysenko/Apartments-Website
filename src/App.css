@@ -821,6 +821,11 @@ button[type="submit"]:active {
 }
 
 
+.visitors_sorting_form{
+  width:50%;
+  align-self: center;
+}
+
 
 
 
