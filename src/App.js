@@ -99,9 +99,7 @@ function App() {
   }, []);
 
   useEffect(()=>{    
-    // if ((newvisitor && !user && !firstload)){addVisitors([1, getStatisticCreteria()])}
-    addVisitors([1, getStatisticCreteria()])
-    // setFirstLoad(true)
+    if ((newvisitor && !user && !firstload)){addVisitors([1, getStatisticCreteria()])}
   },[newvisitor, currentIp])
   
 

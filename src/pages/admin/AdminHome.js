@@ -179,7 +179,7 @@ useEffect(()=>{
         })}
       </ul>
       
-      <h1 className='title'>Total visitors {sortedVisitors.length}</h1> 
+      <h1 className='title'>Total unique visitors {sortedVisitors.length}</h1> 
       
 
       <div className='visitors_sorting_form' onSubmit={resetFilters}>
