@@ -136,7 +136,7 @@ function App() {
 
   useEffect(()=>{    
     if ((newvisitor && !user && !firstload)){addVisitors([1, getStatisticCreteria()])}
-  },[newvisitor, currentIp])
+  },[newvisitor, currentIp, currentCity])
   
 
   // const [listings, setListings] = useState([]);//getting all listings from db
