@@ -57,18 +57,14 @@ function App() {
 
 
   const getIpAddress = async () => {
-
-    console.log("Getting IP");
-    
-    const res = await axios.get("https://api.ipify.org/?format=json");
-    // const res = await sendRequest("https://api.ipify.org/?format=json", "GET")
-    // console.log(res.data.ip, "IPPPPPP");
-    // return res.data.ip
-
-    console.log(res.data, "GOT IP");
-    
-    setIP(res.data.ip)
-    return(res.data.ip)
+    try {
+      const res = await axios.get("https://api.ipify.org/?format=json");
+      console.log(res.data, "GOT IP");
+      setIP(res.data.ip)
+      return(res.data.ip)
+    } catch (error) {
+      console.log(error);
+    }
   };
 
 
@@ -77,11 +73,11 @@ function App() {
     const listings = await listingsAPI.getAll();
     setListings(listings);
   }
+  
   async function getAnalysisData(){
     let ip = await getIpAddress()
     await getIpCity(ip) 
   }
-
 
   async function getVisitors(){
     const statistics = await getStats();
@@ -90,34 +86,19 @@ function App() {
   }
 
   const getIpCity = async(ipAddress)=>{
-    console.log("Started getting city");
-
-    console.log(ipAddress);
-    
     if (ipAddress){
-      console.log("Getting City by this IP", ipAddress);
       try {
         const res = await axios.get(`https://ipwho.is/${ipAddress}`)
         setCity(res.data.city)
-        console.log("Got City", res.data.city);
         return res.data.city
       } catch (error) {
-        console.log("Unable to get city");
         setCity("hidden")
-        console.log(currentCity,"current City state");
         return "hidden"  
       }
     }else{
-      console.log("Unable to get city");
-      setCity("hidden")
-      console.log(currentCity,"current City state");
-      return "hidden"
+      setCity("ip undetecteble")
+      return "ip hidden"
     }
-
-
-    
-    
-
   }
 
 

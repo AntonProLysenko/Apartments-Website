@@ -56,12 +56,15 @@ function createSetOfDates(){
       availableDays.unshift("any day")
     }
 
+
     let cities =  []
     sortedVisitors.forEach((visitor)=>{
       cities.push(visitor[1].city)
     })
     let availabileCities = [...new Set(cities)]
 
+    console.log(availabileCities, "cities inside sorting");
+    
     return{
       days: availableDays,
       months: availableMonths, 
@@ -192,12 +195,14 @@ useEffect(()=>{
       <ul id='visitor_cities_ul'>
       <h2 className='title'>Cities visited:</h2>
       {
-        sortedVisitors.map((visitor)=>{
-          return(
-            <li> {visitor[1].city}</li> 
-            )
-          })
-        }
+         Object.entries(availabileDates).map(([key, value]) =>{
+          if (key === "cities"){
+            return(
+              <li> {`${value},  `}</li> 
+              )
+          }
+        })
+      }
         </ul>
       
 
