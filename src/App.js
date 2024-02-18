@@ -97,7 +97,7 @@ function App() {
     if (ipAddress){
       console.log("Getting City by this IP", ipAddress);
       try {
-        const res = await axios.get(`http://ipwho.is/${ipAddress}`)
+        const res = await axios.get(`https://ipwho.is/${ipAddress}`)
         setCity(res.data.city)
         console.log("Got City", res.data.city);
         return res.data.city
