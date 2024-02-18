@@ -826,6 +826,14 @@ button[type="submit"]:active {
   align-self: center;
 }
 
+#visitor_cities_ul{
+  display: inline;
+  color: var(--title-light)
+}
+#visitor_cities_ul>li{
+  font-weight: bold;
+}
+
 
 
 

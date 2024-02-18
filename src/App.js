@@ -78,12 +78,25 @@ function App() {
     return statistics[0].visitors
   }
 
+  async function getIpCity(ipAddress){
+    const res = await axios.get(`http://ip-api.com/json/${ipAddress}`)
+
+    return res.data.city
+  }
+
   async function addVisitors(visitorData){
     const allVisitors = await getVisitors()
 
+    const visitorCity = await getIpCity(visitorData[1].ip)
+    // const visitorCity = undefined
     visitorData[1].ip = currentIp
+    visitorData[1].city = visitorCity
 
+    console.log(visitorData, "ClientData");
+    
     let visitedBefore = JSON.stringify(allVisitors).includes(JSON.stringify(visitorData))
+    
+    console.log("Visited Before", visitedBefore);
     
     if (!visitedBefore && visitorData[1].ip)
       await addStat(visitorData)

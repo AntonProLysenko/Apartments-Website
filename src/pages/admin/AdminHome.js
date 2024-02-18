@@ -56,10 +56,17 @@ function createSetOfDates(){
       availableDays.unshift("any day")
     }
 
+    let cities =  []
+    sortedVisitors.forEach((visitor)=>{
+      cities.push(visitor[1].city)
+    })
+    let availabileCities = [...new Set(cities)]
+
     return{
       days: availableDays,
       months: availableMonths, 
-      years: availableYears, 
+      years: availableYears,
+      cities: availabileCities
     }
 }
 
@@ -88,8 +95,6 @@ function sortVisitors(){
   }
 
 
-  
-
   if (filterOptions.month !== 'any month'){
     sorted = visitors.filter((visitor)=>{
        if (visitor[1].month === parseInt(filterOptions.month)){
@@ -109,6 +114,9 @@ function sortVisitors(){
   }
 
   setSortedVisitors(sorted)
+
+  console.log(sorted, "sorted vis");
+  
 }
 
 function changeFilter(evt){
@@ -180,6 +188,17 @@ useEffect(()=>{
       </ul>
       
       <h1 className='title'>Total unique visitors {sortedVisitors.length}</h1> 
+      
+      <ul id='visitor_cities_ul'>
+      <h2 className='title'>Cities visited:</h2>
+      {
+        sortedVisitors.map((visitor)=>{
+          return(
+            <li> {visitor[1].city}</li> 
+            )
+          })
+        }
+        </ul>
       
 
       <div className='visitors_sorting_form' onSubmit={resetFilters}>
