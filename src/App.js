@@ -74,10 +74,12 @@ function App() {
 
 
   async function getListing() {
-    let ip = await getIpAddress()
-    await getIpCity(ip) 
     const listings = await listingsAPI.getAll();
     setListings(listings);
+  }
+  async function getAnalysisData(){
+    let ip = await getIpAddress()
+    await getIpCity(ip) 
   }
 
 
@@ -87,7 +89,7 @@ function App() {
     return statistics[0].visitors
   }
 
-  async function getIpCity(ipAddress){
+  const getIpCity = async(ipAddress)=>{
     console.log("Started getting city");
     if (ipAddress){
       console.log("Getting City by this IP", ipAddress);
@@ -110,7 +112,6 @@ function App() {
     const allVisitors = await getVisitors()
 
     // const visitorCity = await getIpCity(visitorData[1].ip)
-    // const visitorCity = undefined
     visitorData[1].ip = currentIp
     visitorData[1].city = currentCity
 
@@ -132,6 +133,7 @@ function App() {
     setVisitor(true)
     getListing();
     getVisitors()
+    getAnalysisData()
   }, []);
 
   useEffect(()=>{    
