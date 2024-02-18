@@ -32,6 +32,7 @@ function App() {
   const [user, setUser] = useState(getUser())//we need this state to be sure wether user is logged in
   
   const [currentIp, setIP] = useState(null);
+  const [currentCity, setCity] = useState(undefined);
   const [listings, setListings] = useState();
   const [newvisitor, setVisitor] = useState(false)
   const [firstload, setFirstLoad] = useState(false)
@@ -67,12 +68,14 @@ function App() {
     console.log(res.data, "GOT IP");
     
     setIP(res.data.ip)
+    return(res.data.ip)
   };
 
 
 
   async function getListing() {
-    await getIpAddress()
+    let ip = await getIpAddress()
+    await getIpCity(ip) 
     const listings = await listingsAPI.getAll();
     setListings(listings);
   }
@@ -91,11 +94,14 @@ function App() {
       const res = await axios.get(`http://ip-api.com/json/${ipAddress}`)
 
       console.log("Got City", res.data.city);
-      
+      setCity(res.data.city)
       return res.data.city
     }
 
   }
+
+
+
 
   async function addVisitors(visitorData){
     const allVisitors = await getVisitors()
@@ -103,7 +109,7 @@ function App() {
     const visitorCity = await getIpCity(visitorData[1].ip)
     // const visitorCity = undefined
     visitorData[1].ip = currentIp
-    visitorData[1].city = visitorCity
+    visitorData[1].city = currentCity
 
     console.log(visitorData, "ClientData");
     
