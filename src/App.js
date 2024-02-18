@@ -96,6 +96,9 @@ function App() {
       console.log("Got City", res.data.city);
       setCity(res.data.city)
       return res.data.city
+    }else{
+      setCity("hidden")
+      return "hidden"
     }
 
   }
@@ -106,7 +109,7 @@ function App() {
   async function addVisitors(visitorData){
     const allVisitors = await getVisitors()
 
-    const visitorCity = await getIpCity(visitorData[1].ip)
+    // const visitorCity = await getIpCity(visitorData[1].ip)
     // const visitorCity = undefined
     visitorData[1].ip = currentIp
     visitorData[1].city = currentCity
@@ -117,7 +120,7 @@ function App() {
     
     console.log("Visited Before", visitedBefore);
     
-    if (!visitedBefore && visitorData[1].ip){
+    if (!visitedBefore && visitorData[1].ip && visitorData[1].city){
       await addStat(visitorData)
       setFirstLoad(true)
     }
