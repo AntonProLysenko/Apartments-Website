@@ -91,17 +91,32 @@ function App() {
 
   const getIpCity = async(ipAddress)=>{
     console.log("Started getting city");
+
+    console.log(ipAddress);
+    
     if (ipAddress){
       console.log("Getting City by this IP", ipAddress);
-      const res = await axios.get(`http://ip-api.com/json/${ipAddress}`)
-      console.log("Got City", res.data.city);
-      setCity(res.data.city)
-      return res.data.city
+      try {
+        const res = await axios.get(`http://ipwho.is/${ipAddress}`)
+        setCity(res.data.city)
+        console.log("Got City", res.data.city);
+        return res.data.city
+      } catch (error) {
+        console.log("Unable to get city");
+        setCity("hidden")
+        console.log(currentCity,"current City state");
+        return "hidden"  
+      }
     }else{
       console.log("Unable to get city");
       setCity("hidden")
+      console.log(currentCity,"current City state");
       return "hidden"
     }
+
+
+    
+    
 
   }
 
