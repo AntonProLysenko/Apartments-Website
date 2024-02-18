@@ -88,15 +88,15 @@ function App() {
   }
 
   async function getIpCity(ipAddress){
-    
-    console.log("Getting City by this IP", ipAddress );
+    console.log("Started getting city");
     if (ipAddress){
+      console.log("Getting City by this IP", ipAddress);
       const res = await axios.get(`http://ip-api.com/json/${ipAddress}`)
-
       console.log("Got City", res.data.city);
       setCity(res.data.city)
       return res.data.city
     }else{
+      console.log("Unable to get city");
       setCity("hidden")
       return "hidden"
     }
