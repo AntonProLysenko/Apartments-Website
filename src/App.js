@@ -56,10 +56,16 @@ function App() {
 
 
   const getIpAddress = async () => {
+
+    console.log("Getting IP");
+    
     const res = await axios.get("https://api.ipify.org/?format=json");
     // const res = await sendRequest("https://api.ipify.org/?format=json", "GET")
     // console.log(res.data.ip, "IPPPPPP");
     // return res.data.ip
+
+    console.log(res.data, "GOT IP");
+    
     setIP(res.data.ip)
   };
 
@@ -79,9 +85,16 @@ function App() {
   }
 
   async function getIpCity(ipAddress){
-    const res = await axios.get(`http://ip-api.com/json/${ipAddress}`)
+    
+    console.log("Getting City");
+    if (ipAddress){
+      const res = await axios.get(`http://ip-api.com/json/${ipAddress}`)
 
-    return res.data.city
+      console.log("Got City", res.data.city);
+      
+      return res.data.city
+    }
+
   }
 
   async function addVisitors(visitorData){
