@@ -86,7 +86,7 @@ function App() {
 
   async function getIpCity(ipAddress){
     
-    console.log("Getting City");
+    console.log("Getting City by this IP", ipAddress );
     if (ipAddress){
       const res = await axios.get(`http://ip-api.com/json/${ipAddress}`)
 
