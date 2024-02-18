@@ -98,9 +98,10 @@ function App() {
     
     console.log("Visited Before", visitedBefore);
     
-    if (!visitedBefore && visitorData[1].ip)
+    if (!visitedBefore && visitorData[1].ip){
       await addStat(visitorData)
-    setFirstLoad(true)
+      setFirstLoad(true)
+    }
   }
 
 
