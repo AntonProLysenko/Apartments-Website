@@ -63,7 +63,7 @@ function createSetOfDates(){
     })
     let availabileCities = [...new Set(cities)]
 
-    console.log(availabileCities, "cities inside sorting");
+    // console.log(availabileCities, "cities inside sorting");
     
     return{
       days: availableDays,
@@ -118,7 +118,7 @@ function sortVisitors(){
 
   setSortedVisitors(sorted)
 
-  console.log(sorted, "sorted vis");
+  // console.log(sorted, "sorted vis");
   
 }
 

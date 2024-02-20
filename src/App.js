@@ -81,8 +81,14 @@ function App() {
 
   async function getVisitors(){
     const statistics = await getStats();
-    setStatistic(statistics[0].visitors);  
-    return statistics[0].visitors
+    console.log(statistics, "Statis");
+    // setStatistic(statistics[0].visitors);  
+    setStatistic(statistics);  
+
+
+    
+    // return statistics[0].visitors
+    return statistics
   }
 
   const getIpCity = async(ipAddress)=>{
@@ -105,8 +111,7 @@ function App() {
 
 
   async function addVisitors(visitorData){
-    const allVisitors = await getVisitors()
-
+    const allVisitors = await getVisitors()   
     // const visitorCity = await getIpCity(visitorData[1].ip)
     visitorData[1].ip = currentIp
     visitorData[1].city = currentCity
@@ -114,12 +119,14 @@ function App() {
     console.log(visitorData, "ClientData");
     
     let visitedBefore = JSON.stringify(allVisitors).includes(JSON.stringify(visitorData))
-    
-    console.log("Visited Before", visitedBefore);
-    
+    // let visitedBefore = false
     if (!visitedBefore && visitorData[1].ip && visitorData[1].city){
-      await addStat(visitorData)
-      setFirstLoad(true)
+      try {
+        await addStat(visitorData)
+        setFirstLoad(true)
+      } catch (error) {
+        console.log(error,"ERR IN ADD");
+      } 
     }
   }
 
