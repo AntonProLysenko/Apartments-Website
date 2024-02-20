@@ -81,7 +81,7 @@ function App() {
 
   async function getVisitors(){
     const statistics = await getStats();
-    console.log(statistics, "Statis");
+    // console.log(statistics, "Statis");
     // setStatistic(statistics[0].visitors);  
     setStatistic(statistics);  
 
@@ -116,7 +116,7 @@ function App() {
     visitorData[1].ip = currentIp
     visitorData[1].city = currentCity
 
-    console.log(visitorData, "ClientData");
+    // console.log(visitorData, "ClientData");
     
     let visitedBefore = JSON.stringify(allVisitors).includes(JSON.stringify(visitorData))
     // let visitedBefore = false
