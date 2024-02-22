@@ -25,8 +25,6 @@ export default function AdminHome({listings, visitors}) {
 const [sortedVisitors, setSortedVisitors] = useState(visitors)
 
 function createSetOfDates(){   
-  console.log('visitors', visitors);
-  console.log("sortedVisitors",sortedVisitors);
   
     let years = []
     sortedVisitors.forEach((visitor)=>{      

@@ -156,7 +156,6 @@ function App() {
   // },[setListings])
   // // console.log(listings)
 
-  console.log("statistic", statistic);
   
   return (
     <main className="App">
