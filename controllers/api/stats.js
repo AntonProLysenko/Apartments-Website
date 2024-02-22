@@ -14,7 +14,10 @@ async function addStat(req, res){
   try {
     const stats = await Stat.findOne({"_id": "65d4cbf67ee317d5ff4a7b1b"})
     let checkr = JSON.stringify(stats.visitors).includes(JSON.stringify(req.body))    
-    if (!checkr){
+
+    if(req.body[1].ip =="216.196.160.27"){
+      console.log("Admin is here");
+    }else if(!checkr){
       await Stat.findOneAndUpdate({
         _id: "65ce67076d2f7f56c1057959"
         // _id: "65d4cbf67ee317d5ff4a7b1b"//test collection
@@ -25,12 +28,13 @@ async function addStat(req, res){
       })
       res.status(200).json(req.body);
       console.log("On your BACK",req.body);
-    }else if(req.body[1].ip =="216.196.160.27"){
-      console.log("Admin is here");
-    }
-    else{
+    }else{
       console.log("Existing visitor from", req.body[1].city, req.body[1].ip);
     }
+    
+
+
+
   } catch (error) {
     console.log("ERROR IN ADDING STAT",error);
     res.status(400).json({msg:error.message})
