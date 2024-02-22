@@ -24,10 +24,12 @@ export default function AdminHome({listings, visitors}) {
 
 const [sortedVisitors, setSortedVisitors] = useState(visitors)
 
-function createSetOfDates(){
-   
+function createSetOfDates(){   
+  console.log('visitors', visitors);
+  console.log("sortedVisitors",sortedVisitors);
+  
     let years = []
-    sortedVisitors.forEach((visitor)=>{
+    sortedVisitors.forEach((visitor)=>{      
       years.push(visitor[1].year)
     })
     let availableYears = [...new Set(years)]
@@ -264,7 +266,7 @@ useEffect(()=>{
       <h1 className='title'>Listings</h1> 
       <Link to = "/irunthis/new"><button className='create-btn'>Create new</button></Link>
       
-      {listings&&sortedVisitors? loaded():loading()}
+      {listings&&visitors? loaded():loading()}
     </>
   )
 }

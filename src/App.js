@@ -83,7 +83,7 @@ function App() {
     const statistics = await getStats();
     // console.log(statistics, "Statis");
     // setStatistic(statistics[0].visitors);  
-    setStatistic(statistics);  
+    setStatistic(statistics.visitors);  
 
 
     
@@ -156,6 +156,8 @@ function App() {
   // },[setListings])
   // // console.log(listings)
 
+  console.log("statistic", statistic);
+  
   return (
     <main className="App">
       {/* {!visitor && createVisitors([1, getDate()])} */}
