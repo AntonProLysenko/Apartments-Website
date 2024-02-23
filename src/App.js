@@ -22,7 +22,10 @@ import ListingDetailsPage from './pages/admin/ListingDetailsPage';
 import EditListingpage from './pages/admin/EditListingpage';
 
 import NavBar from './components/NavBar';
+
 import ErrorPage from './pages/ErrorPage'
+
+
 
 
 import { addStat, getStats } from "./utilities/listings-service";
@@ -175,13 +178,14 @@ function App() {
             <Route path="/available/:id" element={<ListingShowPage />} />
 
             {/* <Route path="/orders" element={<OrderHistoryPage />} /> */}
-            <Route path="/irunthis" element={<AdminHome visitors={statistic} listings={listings}  />} />
-            <Route path="/irunthis/new" element={<NewListingPage />} />
-            <Route path="/irunthis/:id" element={<ListingDetailsPage />} />
-            <Route path="/irunthis/:id/edit" element={<EditListingpage />} />
 
-            <Route path="/imneworforgotmypassword" element={<AdminHome />} />
-            <Route path="*" element={<ErrorPage />} />
+        
+            <Route path="/principal" element={<<AdminHome visitors={statistic} listings={listings} />} />
+            <Route path="/principal/new" element={<NewListingPage />} />
+            <Route path="/principal/:id" element={<ListingDetailsPage />} />
+            <Route path="/principal/:id/edit" element={<EditListingpage />} />
+             <Route path="*" element={<ErrorPage />} />
+
           </Routes>
         </>
       ) : (
@@ -189,8 +193,8 @@ function App() {
           <NavBar />  
 
           <Routes>
-            <Route path="/irunthis" element={<AuthPage setUser={setUser} />} />
-            <Route path="/imneworforgotmypassword" element={<SignUpForm setUser={setUser} />} />
+            <Route path="/principal" element={<AuthPage setUser={setUser} />} />
+
 
             <Route path="/" element={<HomePage listings={listings} />} />
             <Route path="/about" element={<AboutUsPage />} />
@@ -200,7 +204,11 @@ function App() {
               element={<AvailabilitiesPage listings={listings} />}
             />
             <Route path="/available/:id" element={<ListingShowPage />} />
+
             <Route path="*" element={<ErrorPage />} />
+
+             <Route path="*" element={<ErrorPage />} />
+
           </Routes>
         </>
       )}

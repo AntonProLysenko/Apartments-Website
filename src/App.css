@@ -50,7 +50,11 @@ body {
   .map{
     width:50%
   }
-
+    
+    
+    
+    
+    
   .emailUs-form{
     width:50%
   }
@@ -821,10 +825,12 @@ button[type="submit"]:active {
 }
 
 
+
 .visitors_sorting_form{
   width:50%;
   align-self: center;
 }
+
 
 #visitor_cities_ul{
   display: inline;
