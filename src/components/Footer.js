@@ -9,8 +9,8 @@ export default function Footer() {
         <a className="social" target="_blank" href="https://www.yelp.com/biz/salem-crown-apartments-dayton"><i className="fa fa-yelp" aria-hidden="true"></i></a>
         <br/>
       <span className= "copy"> &copy;  Copyright 2023 Salem Crown Apartments. </span>
-      &nbsp; &nbsp; &nbsp;
-      <span className="copy"> Designed and Developed by <a target="_blank" href="http://antonlys.com">me</a></span>
+      {/* &nbsp; &nbsp; &nbsp; */}
+      {/* <span className="copy"> Designed and Developed by <a target="_blank" href="http://antonlys.com">me</a></span> */}
 
      
       </div>

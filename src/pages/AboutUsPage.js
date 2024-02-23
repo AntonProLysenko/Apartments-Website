@@ -1,14 +1,13 @@
-import { useState } from "react";
 
-import FsLightbox from "fslightbox-react";
 
 import Footer from '../components/Footer'
+import AboutUsinfo from '../components/AboutUsinfo';
 
 
 
 export default function AboutUsPage() {
 
-  const [slide, setSlide] = useState(false);
+
 
   return (
     <>
@@ -158,6 +157,7 @@ export default function AboutUsPage() {
               />
       </div>
       <Footer/>
+
     </>
   );
 

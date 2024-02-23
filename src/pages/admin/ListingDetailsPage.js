@@ -28,18 +28,20 @@ export default function ListingDetailsPage({ listings }) {
   const handleDelete = async (evt) => {
     // evt.preventdefault()
     try {
-      navigation("/principal");
+      navigation("/irunthis");
       await deleteListing(listing);
     } catch {}
   };
 
   function loaded() {
-    let quals = listing.qualifications.split(".");
+    let quals = listing.qualifications.split(".")
+    quals.pop()
+    // console.log(listing)
     return (
       <>
         <div className="return">
           <div className="back">
-            <Link to="/principal">
+            <Link to="/irunthis">
               <h2 className="arrow left title">
                 <i></i> Back{" "}
               </h2>
@@ -65,14 +67,14 @@ export default function ListingDetailsPage({ listings }) {
             sources={[
               listing.selectedFile1,
               <iframe
-                src="https://www.google.com/maps/embed?pb=!4v1672167750164!6m8!1m7!1sCAoSLEFGMVFpcE42WkZhcWhydG5waWxKVF9WYmhhUGdQdEg4bkNHTmRPb3FWaExu!2m2!1d39.7746093!2d-84.21754469999999!3f192.34562104242204!4f-14.765138178736677!5f0.4000000000000002"
+                src={`https://www.google.com/maps/embed/v1/streetview?location=39.7745%2C-84.2171&key=${process.env.REACT_APP_GOOGLE_KEY}`}
                 width="900"
                 height="550"
                 allowFullScreen=""
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
               ></iframe>,
-
+            
               listing.selectedFile2,
               listing.selectedFile3,
               listing.selectedFile4,
@@ -80,6 +82,7 @@ export default function ListingDetailsPage({ listings }) {
               listing.selectedFile6,
               listing.selectedFile7,
               listing.selectedFile8,
+              "https://i.imgur.com/CwSBvsh.jpg", //floor plan
             ]}
           />
 
@@ -116,14 +119,16 @@ export default function ListingDetailsPage({ listings }) {
         <div className="quals">
           <h2>Qualifications:</h2>
           <div>
+            <ul className="quals-list">
             {quals.map((pa, idx) => {
-              return <p key={idx}>{pa}</p>;
+              return <li key={idx}>{pa}</li>;
             })}
+            </ul>
           </div>
         </div>
 
         <div className="bottom-buttons">
-          <Link to={`/principal/${listing._id}/edit`}>
+          <Link to={`/irunthis/${listing._id}/edit`}>
             <button className="create-btn">
             <i className="fa fa-pencil" aria-hidden="true"></i>
               &nbsp; Edit</button>

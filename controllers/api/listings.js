@@ -66,7 +66,7 @@ async function createListing (req,res){
   try{
     req.body.available  = req.body.available === "on"? true : false;
     await Listing.create(req.body)
-    res.redirect('/principal')
+    // res.redirect('/principal')
 
   }catch(e){
     res.status(400).json({msg:e.message})

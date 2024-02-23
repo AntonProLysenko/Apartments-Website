@@ -1,7 +1,7 @@
 import sendRequest from './send-request';
 
 const BASE_URL = '/api/listings';
-
+const STAT_URL = '/api/stats'
 
 
 export function getAll() {
@@ -25,3 +25,22 @@ export function update(listingData, id) {
   // console.log(listingData, id);
   return sendRequest(`${BASE_URL}/${id}`,'PUT', listingData);
 }
+
+
+
+export function addStat(stat){
+  console.log("addStats", stat);
+  return sendRequest(`${STAT_URL}/new`, 'PUT', stat)
+}
+
+export function getStats(){
+  return sendRequest(`${STAT_URL}/read`, 'GET');
+}
+
+export function removeStat(){
+  return sendRequest(`${STAT_URL}/adm`, 'PUT')
+}
+
+// export function updateStats(stat, id){
+//   return sendRequest(`${BASE_URL}/${id}`,'PUT', stat);
+// }

@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { signUp } from '../../utilities/users-service';
-
+import { Link, useNavigate } from "react-router-dom";
+import {removeStat} from '../../utilities/listings-service'
 export default class SignUpForm extends Component {
   state = {
     name: "",
@@ -8,6 +9,11 @@ export default class SignUpForm extends Component {
     password: "",
     confirm: "",
     error: ""
+  }
+
+  // navigate=useNavigate()
+  removeVisitor = async ()=>{
+    removeStat()
   }
 
   handleChange = (evt) => {
@@ -31,15 +37,20 @@ export default class SignUpForm extends Component {
       // payload of the JSON Web Token (JWT)
       const user = await signUp(formData)
       this.props.setUser(user)
+      this.removeVisitor()
     } catch {
       this.setState({ error: "Sign Up Failed - Try Again"})
     }
   }
 
   render() {
+
+    console.log(this.props);
+    
     const disable = this.state.password !== this.state.confirm;
     return (
-      <div>
+      // this.props.user===null?
+      <div className='auth-page'>
         <div className="auth-form">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
             <label>Name</label>
@@ -50,11 +61,13 @@ export default class SignUpForm extends Component {
             <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required/>
             <label>Confirm</label>
             <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required/>
-            <button type="submit" disabled={disable}>SIGN UP</button>
+             <button type="submit" disabled={disable}>SIGN UP</button>
           </form>
         </div>  
         <p className="error-message">&#160;{this.state.error}</p>
       </div>
+      //   :
+      // <div><h1>Succes</h1><Link to = "/irunthis"><h2>Listings</h2></Link></div>
     )
   }
 }

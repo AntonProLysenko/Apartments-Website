@@ -55,17 +55,20 @@ export default function AvailabilitiesPage({listings}) {
     );
   }else{
     return(
-    <>
+      <>
+    <div className="error">
     <h3 className="title">Sorry...</h3>
 
-         <h4 className="title"> We do't have any apartments available right now</h4>
+         <h4 className="title"> We don't have any apartments available right now</h4>
          <h5 className="title">
-           Please check out our sister property{" "}
-           <a href="https://greenforestapts.business.site/" target="_blank" rel="noreferrer">Green Forest Apartments</a>
+           <span> Please check out our sister property </span>{" "}
+           <a className="forestLink" href="https://greenforestapts.business.site/" target="_blank" rel="noreferrer">Green Forest Apartments</a>
          </h5>
 
-         <Footer/>
-       </>)
+       </div>
+      <Footer/>
+      </>)
+
   }
     
   }

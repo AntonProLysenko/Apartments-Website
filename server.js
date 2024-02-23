@@ -13,7 +13,7 @@ require("./config/database");
 
 const app = express();
 
-app.use(bodyParser.json({ limit: '10mb', extended: true }))   //setting the limin for uploading images no more than 10 mb
+app.use(bodyParser.json({ limit: '100mb', extended: true }))   //setting the limin for uploading images no more than 10 mb
 app.use(bodyParser.urlencoded({ limin: "10mb", extended: true}))
 // app.use(cors())
 
@@ -33,6 +33,7 @@ app.use('/api/users', require("./routes/api/users"))
 const ensureLoggedIn = require('./config/ensureLoggedIn');//pass it as second arg to app.use to give acces only when loggendin
 
 app.use('/api/listings',require('./routes/api/listings'));
+app.use('/api/stats', require('./routes/api/stats'))
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests

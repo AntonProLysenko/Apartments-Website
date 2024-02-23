@@ -41,15 +41,16 @@ export default function NewListingForm  (){
     const  handleSubmit = async (evt) => {
          evt.preventDefault()
         
-       try {
-       
-        navigation("/principal");
-        setListingData(formData)
-        await create(formData)
-       
+        try {
+          setListingData(formData)
+          navigation("/irunthis");
+          await create(formData)
+      
        } catch {
         setError("Failed - Try Again")
        }
+
+       
      }
 
     return(
@@ -101,7 +102,7 @@ export default function NewListingForm  (){
 
 
                 <label>Qualifications: </label>
-                <textarea  name="qualifications" placeholder="Enter Minimum Qualifications for Residents" required onChange={(e) => setListingData({ ...listingData, qualifications: e.target.value })}/>
+                <textarea  name="qualifications" placeholder="Enter Minimum Qualifications for Residents devided by ." required onChange={(e) => setListingData({ ...listingData, qualifications: e.target.value })}/>
 
 
                 <div className = "checkr">
@@ -111,6 +112,7 @@ export default function NewListingForm  (){
                     <span className="slider"></span>
                   </label>
                 </div>
+         
 
 
 
@@ -118,15 +120,52 @@ export default function NewListingForm  (){
 
                 
                 <div className='photos'>
-                  <div><FileBase type="file" name = "selectedFile1" multiple={false}  onDone={({ base64 }) => setListingData({ ...listingData, selectedFile1: base64 })} /></div>
-                  <div><FileBase type="file" name = "selectedFile2" multiple={false}  onDone={({ base64 }) => setListingData({ ...listingData, selectedFile2: base64 })} /></div>
-                  <div><FileBase type="file" name = "selectedFile3" multiple={false}  onDone={({ base64 }) => setListingData({ ...listingData, selectedFile3: base64 })} /></div>
-                  <div><FileBase type="file" name = "selectedFile4" multiple={false}  onDone={({ base64 }) => setListingData({ ...listingData, selectedFile4: base64 })} /></div>
-                  <div><FileBase type="file" name = "selectedFile5" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile5: base64 })} /></div>
-                  <div><FileBase type="file" name = "selectedFile6" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile6: base64 })} /></div>
-                  <div><FileBase type="file" name = "selectedFile7" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile7: base64 })} /></div>
-                  <div><FileBase type="file" name = "selectedFile8" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile8: base64 })} /></div>
+               
+                  <div className = "file-input-wrapper">
+                    <label className="input-group-text" htmlFor="selectedFile1">Select Main Photo</label>
+                    <FileBase type="file" className="fileBtn" id="selectedFile1" name = "selectedFile1" multiple={false}  onDone={({ base64 }) => setListingData({ ...listingData, selectedFile1: base64 })} />
+                  </div>
+
+                  <div className = "file-input-wrapper">
+                    <label className="input-group-text" htmlFor="selectedFile2">Select Second Photo</label>
+                    <FileBase type="file" className="fileBtn" id="selectedFile2" name = "selectedFile2" multiple={false}  onDone={({ base64 }) => setListingData({ ...listingData, selectedFile2: base64 })} />
+                  </div>
+
+                  <div className = "file-input-wrapper">
+                    <label className="input-group-text" htmlFor="selectedFile3">Select Third Photo</label>
+                    <FileBase type="file" className="fileBtn" id="selectedFile3" name = "selectedFile3" multiple={false}  onDone={({ base64 }) => setListingData({ ...listingData, selectedFile3: base64 })} />
+                  </div>
+
+                  <div className = "file-input-wrapper">
+                    <label className="input-group-text" htmlFor="selectedFile4">Select Fourth Photo</label>
+                    <FileBase type="file" className="fileBtn" id="selectedFile4" name = "selectedFile4" multiple={false}  onDone={({ base64 }) => setListingData({ ...listingData, selectedFile4: base64 })} />
+                  </div>
+
+                  <div className = "file-input-wrapper">
+                    <label className="input-group-text" htmlFor="selectedFile5">Select Fifth Photo</label>
+                    <FileBase type="file" className="fileBtn" id="selectedFile5" name = "selectedFile5" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile5: base64 })} />
+                  </div>
+
+                  <div className = "file-input-wrapper">
+                    <label className="input-group-text" htmlFor="selectedFile6">Select Sixth Photo</label>
+                    <FileBase type="file" className="fileBtn" id="selectedFile6" name = "selectedFile6" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile6: base64 })} />
+                  </div>
+
+                  <div className = "file-input-wrapper">
+                    <label className="input-group-text" htmlFor="selectedFile7">Select Seventh Photo</label>
+                    <FileBase type="file" className="fileBtn" id="selectedFile7" name = "selectedFile7" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile7: base64 })} />
+                  </div>
+
+                  <div className = "file-input-wrapper">
+                    <label className="input-group-text" htmlFor="selectedFile8">Select Eighth Photo</label>
+                    <FileBase type="file" className="fileBtn" id="selectedFile8" name = "selectedFile8" multiple={false} onDone={({ base64 }) => setListingData({ ...listingData, selectedFile8: base64 })} />
+                  </div>
                 </div>
+                  <div>
+                    <p>Note: first picture will appear as a main listing photo</p>
+                    PS. There is ALREADY a FLOOR PLAN in Photos, DO NOT Add it here
+                  </div> 
+
                 <p className="error-message">&nbsp;{error}</p>
               <button type="submit">Create Listing</button>
           
