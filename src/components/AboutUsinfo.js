@@ -58,7 +58,7 @@ export default function AboutUsinfo() {
             data-aos-duration="1000"
             className="title"
           >
-            Our Main Creteria
+            Our Main Criteria
           </h1>
           <div
             data-aos="zoom-in"
