@@ -62,7 +62,7 @@ export default function AvailabilitiesPage({listings}) {
          <h4 className="title"> We don't have any apartments available right now</h4>
          <h5 className="title">
            <span> Please check out our sister property </span>{" "}
-           <a className="forestLink" href="https://greenforestapts.business.site/" target="_blank" rel="noreferrer">Green Forest Apartments</a>
+           <a className="forestLink" href="https://greenforestapts.com/" target="_blank" rel="noreferrer">Green Forest Apartments</a>
          </h5>
 
        </div>
