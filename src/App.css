@@ -3,6 +3,7 @@
   min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 /* CSS Custom Properties */
@@ -39,6 +40,7 @@ body {
   /* padding: 2vmin; */
   height: 100vh;
 }
+
 
 
   @media (orientation: landscape) {
@@ -519,7 +521,7 @@ position: absolute;
 
   filter: brightness(65%);
   height: 70vh;
-  width: 98vw;
+  width: 100vw;
   border-radius: 5px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
   object-fit: cover;
@@ -550,7 +552,7 @@ position: absolute;
 .homePic-faded>img{
   filter: brightness(55%);
   height: 70vh;
-  width: 98vw;
+  width: 100vw;
   border-radius: 5px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
   object-fit: cover;
@@ -1236,8 +1238,8 @@ width: 90%;
 
 
 .map{
-  width:90%;
-  height:300px
+  width:100%;
+  height:500px
 }
 
 
