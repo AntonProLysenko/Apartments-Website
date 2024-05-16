@@ -175,7 +175,7 @@ function App() {
             <Route path="/available/:id" element={<ListingShowPage />} />
 
             {/* <Route path="/orders" element={<OrderHistoryPage />} /> */}
-            <Route path="/irunthis" element={<AdminHome visitors={statistic} listings={listings}  />} />
+            <Route path="/irunthis" element={<AdminHome visitors={statistic} getVisitors={getVisitors} listings={listings}  />} />
             <Route path="/irunthis/new" element={<NewListingPage />} />
             <Route path="/irunthis/:id" element={<ListingDetailsPage />} />
             <Route path="/irunthis/:id/edit" element={<EditListingpage />} />

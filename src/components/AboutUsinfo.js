@@ -70,7 +70,7 @@ export default function AboutUsinfo() {
               Must have a <strong>minimum</strong> gross monthly family <strong>income</strong> of $2500
             </p>
 <p>
-No evictions, eviction filings, or criminal convictions in the past 5 years (including theft, domestic violence, drug charges, and any felony charges).
+<strong>No evictions</strong>, <strong>no eviction filings</strong>,no criminal convictions in the past 5 years (including theft, domestic violence, drug charges, and any felony charges).
 </p>
 
 <p>

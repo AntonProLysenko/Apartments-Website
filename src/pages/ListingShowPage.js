@@ -144,7 +144,11 @@ export default function ListingShowPage() {
             <ul className="quals-list">
 
             {quals.map((pa, idx) => {
-              return <li key={idx}>{pa}</li>;
+                if (pa.includes("evictions") || pa.includes("Evictions") || pa.includes("evictions".toUpperCase())){
+                  return <li key={idx}><strong>{pa}</strong></li>;
+                }else{
+                  return <li key={idx}>{pa}</li>;
+                }
             })}
             </ul>
             <a
