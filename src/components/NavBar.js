@@ -22,7 +22,8 @@ export default function NavBar ({ name, setUser }) {
 
         <ul className="nav-links"> 
           <li>
-            <Link to="/irunthis"> <span className="navbar-text">Manage</span> </Link>
+
+            <Link to="/principal"> <span className="navbar-text">Manage</span> </Link>
           </li>
           <li>
             <Link to="/available"> <span className="navbar-text">Availability</span> </Link>

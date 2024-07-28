@@ -52,7 +52,11 @@ body {
   .map{
     width:50%
   }
-
+    
+    
+    
+    
+    
   .emailUs-form{
     width:50%
   }
@@ -823,12 +827,14 @@ button[type="submit"]:active {
 }
 
 
+
 .visitors_sorting_form{
   width:50%;
   align-self: center;
 }
 
 
+<
 #Title_visitor_cities_ul{
   margin-top: 5dvh;
   align-self: flex-start;
@@ -857,6 +863,7 @@ button[type="submit"]:active {
   margin: 5px 20px 5px 0px;
   font-weight: bold;
 }
+
 
 
 
