@@ -9,7 +9,7 @@ import moment from 'moment';//for calculating dataof change from now
 import loading from '../../components/loading';
 
 
-export default function AdminHome({listings, visitors}) {
+export default function AdminHome({listings, visitors, getVisitors}) {
   // const listingsArr = Object.values(listings);//converting object props to array props
 //const [listings, setListings] = useState();//getting all listings from db
 
@@ -22,11 +22,20 @@ export default function AdminHome({listings, visitors}) {
 //   getListings()
 // },[setListings])
 
-const [sortedVisitors, setSortedVisitors] = useState(visitors)
+const [sortedVisitors, setSortedVisitors] = useState([])
+
+const [filterOptions, setfilterOptions] = useState({
+  year: 'all years',
+  month: 'any month',
+  day: 'any day'
+});
 
 function createSetOfDates(){   
-  
+  // if (visitors.length !== 0) {
     let years = []
+
+    console.log(sortedVisitors, "SORTED VISITORS INSIDE CREATE FUNCTION");
+    
     sortedVisitors.forEach((visitor)=>{      
       years.push(visitor[1].year)
     })
@@ -71,13 +80,12 @@ function createSetOfDates(){
       years: availableYears,
       cities: availabileCities
     }
+  // }else{
+  //   createSetOfDates()
+  // }
 }
 
-const [filterOptions, setfilterOptions] = useState({
-  year: 'all years',
-  month: 'any month',
-  day: 'any day'
-});
+
 
 
 
@@ -87,7 +95,13 @@ const [filterOptions, setfilterOptions] = useState({
 
 
 function sortVisitors(){
+
+  console.log("sortVisitors");
+  
   let sorted = visitors
+
+  console.log(sorted);
+  
 
   if (filterOptions.year !== 'all years'){
     sorted = visitors.filter((visitor)=>{
@@ -96,7 +110,6 @@ function sortVisitors(){
       }
     })
   }
-
 
   if (filterOptions.month !== 'any month'){
     sorted = visitors.filter((visitor)=>{
@@ -116,10 +129,7 @@ function sortVisitors(){
     sorted = sorted
   }
 
-  setSortedVisitors(sorted)
-
-  // console.log(sorted, "sorted vis");
-  
+  setSortedVisitors(sorted)  
 }
 
 function changeFilter(evt){
@@ -138,8 +148,15 @@ function resetFilters(evt){
 }
 
 useEffect(()=>{
+  getVisitors()  
+},[])
+
+useEffect(()=>{
   sortVisitors()
-},[filterOptions])
+},[filterOptions, visitors])
+
+
+
 
   function loaded (){
     //sorting, available listing goes first
@@ -153,7 +170,7 @@ useEffect(()=>{
     })
 
     //getting set of available dates
-    let availabileDates = createSetOfDates();
+    let availabileDates = createSetOfDates();   
         
     return(
       <>
@@ -167,10 +184,10 @@ useEffect(()=>{
           return(
             <li key = {idx}>
                   <Link to= {`/irunthis/${listing._id}`}>
-                    <div className='listing-ad'>
+                    <div className='listing-ad infobox'>
 
                       <div className='listing-ad-img'>
-                        <img src = {listing.selectedFile1}/>
+                        <img src = {listing.selectedFile1} alt='listing-ad-img'/>
                       </div>
 
         
@@ -192,13 +209,16 @@ useEffect(()=>{
       
       <h1 className='title'>Total unique visitors {sortedVisitors.length}</h1> 
       
+      <h2 id="Title_visitor_cities_ul" className='title'>Cities visited:</h2>
       <ul id='visitor_cities_ul'>
-      <h2 className='title'>Cities visited:</h2>
       {
-         Object.entries(availabileDates).map(([key, value]) =>{
+         Object.entries(availabileDates).map(([key, values]) =>{
           if (key === "cities"){
+            
             return(
-              <li> {`${value},  `}</li> 
+              values.map((city)=>{
+                return <li> {`${city}`}</li> 
+              })
               )
           }
         })
@@ -262,9 +282,9 @@ useEffect(()=>{
     <>  
  
       <h1 className='title'>Listings</h1> 
-      <Link to = "/irunthis/new"><button className='create-btn'>Create new</button></Link>
+      <Link to = "/irunthis/new"><button className='create-btn standart-button-black'>Create new</button></Link>
       
-      {listings&&visitors? loaded():loading()}
+      {listings&&visitors.length!==0? loaded():loading()}
     </>
   )
 }

@@ -1,7 +1,7 @@
 import sendRequest from './send-request';
-
-const BASE_URL = '/api/listings';
-const STAT_URL = '/api/stats'
+const BASIC_URL = process.env.REACT_APP_BASIC_URL;
+const BASE_URL = `${BASIC_URL}/api/listings`;
+const STAT_URL = `${BASIC_URL}/api/stats`
 
 
 export function getAll() {

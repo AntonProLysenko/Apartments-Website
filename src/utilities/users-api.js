@@ -1,5 +1,6 @@
 import { getToken } from './users-service';
-const BASE_URL = '/api/users';
+const BASIC_URL = process.env.REACT_APP_BASIC_URL;
+const BASE_URL = `${BASIC_URL}/api/users`
 
 
 export function signUp(userData) {

@@ -58,7 +58,7 @@ export default function AboutUsinfo() {
             data-aos-duration="1000"
             className="title"
           >
-            Our Main Creteria
+            Our Main Criteria
           </h1>
           <div
             data-aos="zoom-in"
@@ -70,7 +70,7 @@ export default function AboutUsinfo() {
               Must have a <strong>minimum</strong> gross monthly family <strong>income</strong> of $2500
             </p>
 <p>
-No evictions, eviction filings, or criminal convictions in the past 5 years (including theft, domestic violence, drug charges, and any felony charges).
+<strong>No evictions</strong>, <strong>no eviction filings</strong>,no criminal convictions in the past 5 years (including theft, domestic violence, drug charges, and any felony charges).
 </p>
 
 <p>
@@ -85,7 +85,7 @@ Any credit is acceptable.
 
 
 <p>
-No section 8.
+We do not participate in inspection programs
         
 </p>
 
@@ -160,7 +160,7 @@ No pets over 25 lbs.
           <h1 data-aos="zoom-in" data-aos-duration="2000" className="title">
             Virtual Tour
           </h1>
-          <iframe
+          {/* <iframe
             title="virtual tour about"
             data-aos="zoom-in"
             data-aos-delay="300"
@@ -171,7 +171,17 @@ No pets over 25 lbs.
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
+          ></iframe> */}
+
+          <iframe 
+              title="virtual tour about"
+              data-aos="zoom-in"
+              data-aos-delay="300"
+              data-aos-duration="1500"
+              className="virtual-tour"
+              src="https://www.google.com/maps/embed?pb=!4v1718836309858!6m8!1m7!1sCAoSLEFGMVFpcE42WkZhcWhydG5waWxKVF9WYmhhUGdQdEg4bkNHTmRPb3FWaExu!2m2!1d39.7746093!2d-84.21754469999999!3f244.38685630399706!4f-14.393705879204362!5f0.4000000000000002" 
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
 
          
         </div>

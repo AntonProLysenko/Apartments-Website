@@ -179,12 +179,13 @@ function App() {
 
             {/* <Route path="/orders" element={<OrderHistoryPage />} /> */}
 
-        
-            <Route path="/principal" element={<<AdminHome visitors={statistic} listings={listings} />} />
-            <Route path="/principal/new" element={<NewListingPage />} />
-            <Route path="/principal/:id" element={<ListingDetailsPage />} />
-            <Route path="/principal/:id/edit" element={<EditListingpage />} />
-             <Route path="*" element={<ErrorPage />} />
+            <Route path="/irunthis" element={<AdminHome visitors={statistic} getVisitors={getVisitors} listings={listings}  />} />
+            <Route path="/irunthis/new" element={<NewListingPage />} />
+            <Route path="/irunthis/:id" element={<ListingDetailsPage />} />
+            <Route path="/irunthis/:id/edit" element={<EditListingpage />} />
+
+
+      
 
           </Routes>
         </>
