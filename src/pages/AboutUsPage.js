@@ -1,17 +1,18 @@
-
+// import { useState } from "react";
 
 import Footer from '../components/Footer'
 import AboutUsinfo from '../components/AboutUsinfo';
-
+// import FsLightbox from "fslightbox-react";
 
 
 export default function AboutUsPage() {
 
-
+  // const [slide, setSlide] = useState(false);
 
   return (
     <>
-    <div className="aboutUs-container">
+    <AboutUsinfo/>
+    {/* <div className="aboutUs-container">
 
           <div className="box-container">
             <h1  data-aos="zoom-in"data-aos-delay="300"data-aos-duration="1500"className="title">About</h1>
@@ -155,7 +156,7 @@ export default function AboutUsPage() {
                   
                   ]}
               />
-      </div>
+      </div> */}
       <Footer/>
 
     </>

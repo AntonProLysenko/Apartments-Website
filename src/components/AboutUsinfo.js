@@ -66,50 +66,31 @@ export default function AboutUsinfo() {
             data-aos-duration="2000"
             className="about"
           >
-            <p>
-              Must have a <strong>minimum</strong> gross monthly family <strong>income</strong> of $2500
-            </p>
-<p>
-<strong>No evictions</strong>, <strong>no eviction filings</strong>,no criminal convictions in the past 5 years (including theft, domestic violence, drug charges, and any felony charges).
-</p>
-
-<p>
-The Household makes more than $2500 a month in combined verifiable income (net income). Will need proof of income (and three months with the current employer).
-</p>
-
-<p>
-Any credit is acceptable.
-</p>
-
-
-
-
-<p>
-We do not participate in inspection programs
-        
-</p>
-
-<p>
-No smoking inside
-        
-</p>
-
-<p>
-        
-No pets over 25 lbs.
-</p>
-
-
-
-
-
-
-
-
-
-
-
             
+              <p>
+              <strong>No evictions</strong>, <strong>no eviction filings</strong>,<strong>no criminal convictions in the past 5 years</strong> (including theft, domestic violence, drug charges, and any felony charges).
+              </p>
+
+              <p>
+              Must have a <strong>minimum</strong> gross monthly family <strong>income</strong> of $2500. Will need proof of income (and three months with the current employer).
+              </p>
+
+              <p>
+              Any credit is acceptable
+              </p>
+
+              <p>
+              We do not participate in inspection programs                      
+              </p>
+
+              <p>
+              No smoking inside
+              </p>
+
+              <p>
+              No pets over 25 lbs
+              </p>
+
             {/* <p>
               Must be currently employed
             </p> 
