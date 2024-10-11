@@ -194,7 +194,7 @@ function App() {
           <NavBar />  
 
           <Routes>
-            <Route path="/principal" element={<AuthPage setUser={setUser} />} />
+            <Route path="/irunthis" element={<AuthPage setUser={setUser} />} />
 
 
             <Route path="/" element={<HomePage listings={listings} />} />
