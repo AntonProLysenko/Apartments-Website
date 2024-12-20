@@ -40,7 +40,7 @@ export default function NavBar ({ name, setUser }) {
           </li>
         </ul>
     </nav>
-    <p>Welcome, {name}</p>
+    <p id="admin-welcome-msg">Welcome, {name}</p>
     </>
   
     :

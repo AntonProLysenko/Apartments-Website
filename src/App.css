@@ -96,6 +96,13 @@ body {
   .admin-navbar{
     font-size: 0.5rem;
   }
+  #admin-welcome-msg{
+    font-size: 25px;
+    font-weight: 500;
+    color: white;
+  }
+
+  
   .homePic>.home-pic-text{
 
     position: absolute;
