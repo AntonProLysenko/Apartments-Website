@@ -22,6 +22,8 @@ export default function AdminHome({listings, visitors, getVisitors}) {
 //   getListings()
 // },[setListings])
 
+
+
 const [sortedVisitors, setSortedVisitors] = useState([])
 
 const [filterOptions, setfilterOptions] = useState({
@@ -30,13 +32,19 @@ const [filterOptions, setfilterOptions] = useState({
   day: 'any day'
 });
 
-function createSetOfDates(){   
+
+useEffect(()=>{
+  console.log("Filter Criteria", filterOptions)
+  console.log(visitors)
+}, [filterOptions])
+
+function createSetOfDates(initialData){   
   // if (visitors.length !== 0) {
     let years = []
 
-    console.log(sortedVisitors, "SORTED VISITORS INSIDE CREATE FUNCTION");
+    // console.log(sortedVisitors, "SORTED VISITORS INSIDE CREATE FUNCTION");
     
-    sortedVisitors.forEach((visitor)=>{      
+    initialData.forEach((visitor)=>{      
       years.push(visitor[1].year)
     })
     let availableYears = [...new Set(years)]
@@ -46,7 +54,7 @@ function createSetOfDates(){
     }
 
     let months =  []
-    sortedVisitors.forEach((visitor)=>{
+    initialData.forEach((visitor)=>{
       months.push(visitor[1].month)
     })
     const availableMonths = [...new Set(months)]
@@ -55,7 +63,7 @@ function createSetOfDates(){
     }
 
     let dates =  []
-    sortedVisitors.forEach((visitor)=>{
+    initialData.forEach((visitor)=>{
       dates.push(visitor[1].day)
     })
 
@@ -67,7 +75,7 @@ function createSetOfDates(){
 
 
     let cities =  []
-    sortedVisitors.forEach((visitor)=>{
+    initialData.forEach((visitor)=>{
       cities.push(visitor[1].city)
     })
     let availabileCities = [...new Set(cities)]
@@ -94,17 +102,17 @@ function createSetOfDates(){
 
 
 
-function sortVisitors(){
+function sortVisitors(allvisitors){
 
-  console.log("sortVisitors");
+  // console.log("sortVisitors");
   
-  let sorted = visitors
+  let sorted = allvisitors
 
-  console.log(sorted);
+  // console.log(sorted);
   
 
   if (filterOptions.year !== 'all years'){
-    sorted = visitors.filter((visitor)=>{
+    sorted = allvisitors.filter((visitor)=>{
       if (visitor[1].year === parseInt(filterOptions.year)){
         return visitor
       }
@@ -112,7 +120,7 @@ function sortVisitors(){
   }
 
   if (filterOptions.month !== 'any month'){
-    sorted = visitors.filter((visitor)=>{
+    sorted = allvisitors.filter((visitor)=>{
        if (visitor[1].month === parseInt(filterOptions.month)){
          return visitor
        }
@@ -120,7 +128,7 @@ function sortVisitors(){
    }
   
   if (filterOptions.day !== 'any day'){
-   sorted = visitors.filter((visitor)=>{
+   sorted = allvisitors.filter((visitor)=>{
       if (visitor[1].day === parseInt(filterOptions.day)){
         return visitor
       }
@@ -133,7 +141,37 @@ function sortVisitors(){
 }
 
 function changeFilter(evt){
-  setfilterOptions({...filterOptions, [evt.target.name]: evt.target.value})   
+  console.log(evt.target.name)
+  // if (evt.target.name == "day"){
+  //   console.log("Day Changed")
+  //   console.log("Options.month:" , filterOptions.month)
+  //   setfilterOptions({
+  //     year: filterOptions.year,
+  //     month: filterOptions.month,
+  //     day: evt.target.value
+  //   })
+  // }else if (evt.target.name == "month"){
+  //   console.log("Month Changed")
+
+  //   setfilterOptions({
+  //     year: filterOptions.year,
+  //     month: evt.target.value,
+  //     day: filterOptions.day
+  //   })
+
+  // }else if (evt.target.name == "year"){
+  //   console.log("Year Changed")
+  //   setfilterOptions({
+  //     year: evt.target.year,
+  //     month: filterOptions.month,
+  //     day: filterOptions.day
+  //   })
+  // }
+  setfilterOptions({...filterOptions, [evt.target.name]: evt.target.value})
+  // console.log("FILTER OPTIONS")
+  // console.log({...filterOptions})
+  // console.log("Changed options",filterOptions)
+  
 }
 
 function resetFilters(evt){
@@ -152,7 +190,14 @@ useEffect(()=>{
 },[])
 
 useEffect(()=>{
-  sortVisitors()
+  if (sortedVisitors.length>0){
+    console.log(sortedVisitors)
+    sortVisitors(sortedVisitors)
+  }
+  else{
+    sortVisitors(visitors)
+  }
+
 },[filterOptions, visitors])
 
 
@@ -170,7 +215,7 @@ useEffect(()=>{
     })
 
     //getting set of available dates
-    let availabileDates = createSetOfDates();   
+    let availabileDates = createSetOfDates(sortedVisitors);   
         
     return(
       <>
@@ -257,6 +302,7 @@ useEffect(()=>{
           }
         })}
       </select>
+
 
       <select name="day" defaultValue={"any day"} onChange={changeFilter}>
         {Object.entries(availabileDates).map(([key, value]) =>{
