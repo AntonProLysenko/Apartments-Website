@@ -35,8 +35,8 @@ const [filterOptions, setfilterOptions] = useState({
 
 useEffect(()=>{
   console.log("Filter Criteria", filterOptions)
-  console.log(visitors)
-}, [filterOptions])
+  console.log("Sorted Data: ", sortedVisitors)
+}, [filterOptions, sortedVisitors])
 
 function createSetOfDates(initialData){   
   // if (visitors.length !== 0) {
@@ -190,14 +190,13 @@ useEffect(()=>{
 },[])
 
 useEffect(()=>{
-  if (sortedVisitors.length>0){
-    console.log(sortedVisitors)
+  if (sortedVisitors && sortedVisitors.length>0){
     sortVisitors(sortedVisitors)
   }
+  //if First Launch
   else{
     sortVisitors(visitors)
   }
-
 },[filterOptions, visitors])
 
 
