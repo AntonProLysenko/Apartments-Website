@@ -454,7 +454,7 @@ position: absolute;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-bottom: 16vh;
+  margin-bottom: 1vh;
 }
 
 .add-container {
