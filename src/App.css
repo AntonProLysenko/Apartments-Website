@@ -1158,6 +1158,12 @@ button[type="submit"]:active {
 width: 90%;
 
 }
+.WidgetBackground__Content-sc-1ho7q3r-2>a{
+  display: none !important;
+}
+.ciCnpO>a{
+  display: none !important;
+}
 /*Galery*/
 .container {
   width: 90%;
