@@ -12,7 +12,7 @@ export default function NavBar ({ name, setUser }) {
     name?
     <>
     <nav className = "navBar navbar fixed-top admin-navbar">
-        <div>
+        <div className="navbar-logo">
           <Link to="/" className = "d-inline-block align-text-top">
           <img src ="https://i.imgur.com/3WSXIEd.png" height = "30px" className = "brand-img" alt="Salem Crown Apartments Logo"></img> 
           <span className="navbar-brand">Salem Crown Apartments</span> 
