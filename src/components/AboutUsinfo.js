@@ -45,8 +45,7 @@ export default function AboutUsinfo() {
             </p>
             <p>
               We strive to provide nice, clean, comfortable, and affordable
-              housing for responsible residents! 27-unit apartment complex under
-              new management (fully remodeled in 2018-2019)
+              housing for responsible residents! Salem Crown Apartments fully remodeled in 2018-2019.
             </p>
           </div>
         </div>
