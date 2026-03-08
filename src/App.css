@@ -841,11 +841,13 @@ button[type="submit"]:active {
   width: 75%;
   height: 100%;
   text-align: left;
-   min-width: 0;
+  min-width: 0;
+  padding-left: 10px;
 }
 .listing-title>h3{
   /* text-wrap: balance; */
   margin: 0;
+ 
   overflow-wrap: break-word;
   word-break: break-word;
 }
@@ -958,7 +960,7 @@ button[type="submit"]:active {
 }
 .stack:after {
   width:100%;
-  /* height:100% !important ; */
+  height:103%;
   background: #768590;
   top: 5px;
   left: 0px;
@@ -1066,7 +1068,7 @@ button[type="submit"]:active {
 
 .stack-info {
   position: relative;
-  top: -55px;
+  top: -45px;
   /* margin: 0 auto; */
   width: 90%;
   color: #606060;
