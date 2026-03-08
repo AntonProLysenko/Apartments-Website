@@ -8,7 +8,7 @@ import * as listingsAPI from "../utilities/listings-api";
 import Footer from "../components/Footer";
 import AboutUsinfo from "../components/AboutUsinfo";
 
-export default function HomePage({ listings }) {
+export default function HomePage() {
   const [isHovering, setIsHovering] = useState(false);
   const [availableCount, setAvailableCount] = useState(null);
 
@@ -157,7 +157,7 @@ export default function HomePage({ listings }) {
   return (
     <>
       <div className="homepageContainer">
-        {listings ? loaded() : noneAvailable()}
+        {availableCount ? loaded() : noneAvailable()}
 
         <div
           className={isHovering ? "homePic-faded" : "homePic"}
