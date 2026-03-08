@@ -36,7 +36,7 @@ function App() {
   
   const [currentIp, setIP] = useState(null);
   const [currentCity, setCity] = useState(undefined);
-  const [listings, setListings] = useState();
+  // const [listings, setListings] = useState();
   const [newvisitor, setVisitor] = useState(false)
   const [firstload, setFirstLoad] = useState(false)
   const [statistic, setStatistic] = useState(null)
@@ -72,10 +72,10 @@ function App() {
 
 
 
-  async function getListing() {
-    const listings = await listingsAPI.getAll();
-    setListings(listings);
-  }
+  // async function getListing() {
+  //   const listings = await listingsAPI.getAll();
+  //   setListings(listings);
+  // }
   
   async function getAnalysisData(){
     let ip = await getIpAddress()
@@ -137,7 +137,7 @@ function App() {
 
   useEffect(() => {
     setVisitor(true)
-    getListing();
+    // getListing();
     getVisitors()
     getAnalysisData()
   }, []);
@@ -168,18 +168,18 @@ function App() {
           <NavBar name={user.name} setUser={setUser} />
 
           <Routes>
-            <Route path="/" element={<HomePage listings={listings} />} />
+            <Route path="/" element={<HomePage/>} />
             <Route path="/about" element={<AboutUsPage />} />
             <Route path="/contact" element={<ContactUsPage />} />
             <Route
               path="/available/"
-              element={<AvailabilitiesPage listings={listings} />}
+              element={<AvailabilitiesPage/>}
             />
             <Route path="/available/:id" element={<ListingShowPage />} />
 
             {/* <Route path="/orders" element={<OrderHistoryPage />} /> */}
 
-            <Route path="/irunthis" element={<AdminHome visitors={statistic} getVisitors={getVisitors} listings={listings}  />} />
+            <Route path="/irunthis" element={<AdminHome visitors={statistic} getVisitors={getVisitors}/>} />
             <Route path="/irunthis/new" element={<NewListingPage />} />
             <Route path="/irunthis/:id" element={<ListingDetailsPage />} />
             <Route path="/irunthis/:id/edit" element={<EditListingpage />} />
@@ -197,12 +197,12 @@ function App() {
             <Route path="/irunthis" element={<AuthPage setUser={setUser} />} />
 
 
-            <Route path="/" element={<HomePage listings={listings} />} />
+            <Route path="/" element={<HomePage/>} />
             <Route path="/about" element={<AboutUsPage />} />
             <Route path="/contact" element={<ContactUsPage />} />
             <Route
               path="/available/"
-              element={<AvailabilitiesPage listings={listings} />}
+              element={<AvailabilitiesPage/>}
             />
             <Route path="/available/:id" element={<ListingShowPage />} />
 
