@@ -1,6 +1,6 @@
 import { useState, useEffect} from 'react';
 
-// import * as listingsAPI from "../../utilities/listings-api"
+import * as listingsAPI from "../../utilities/listings-api"
 import {Link} from "react-router-dom"
 import moment from 'moment';//for calculating dataof change from now
 
@@ -9,18 +9,18 @@ import moment from 'moment';//for calculating dataof change from now
 import loading from '../../components/loading';
 
 
-export default function AdminHome({listings, visitors, getVisitors}) {
+export default function AdminHome({visitors, getVisitors}) {
   // const listingsArr = Object.values(listings);//converting object props to array props
-//const [listings, setListings] = useState();//getting all listings from db
+const [listings, setListings] = useState();//getting all listings from db
 
-// async function getListings() {
-//   const listings = await listingsAPI.getAll();
-//   setListings(listings);
-// }
+async function getListings() {
+  const listings = await listingsAPI.getShortAllListings();
+  setListings(listings);
+}
 
-// useEffect(()=>{
-//   getListings()
-// },[setListings])
+useEffect(()=>{
+  getListings()
+},[])
 
 
 
@@ -239,7 +239,7 @@ useEffect(()=>{
                           <div className='lastUpdate'> updated: {lastUpdate} </div>
                         { listing.available===true?  <h3> <span className="dot-online"></span> {listing.title}  </h3> : <h3> <span className="dot-offline"></span> {listing.title}  </h3> }
                         
-                          <h4 className='price'><span className='rent'>Rent:</span> {listing.rent}/mo</h4>
+                          <h4 className='price'><span className='rent'>Rent:</span> ${listing.rent}/mo</h4>
                         </div>
                       
                     </div>
@@ -329,7 +329,7 @@ useEffect(()=>{
       <h1 className='title'>Listings</h1> 
       <Link to = "/irunthis/new"><button className='create-btn standart-button-black'>Create new</button></Link>
       
-      {listings&&visitors.length!==0? loaded():loading()}
+      {listings&&visitors.length!==0? loaded():loading("Getting Visitors and Listings")}
     </>
   )
 }

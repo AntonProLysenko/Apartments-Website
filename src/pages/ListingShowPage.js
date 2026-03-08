@@ -29,8 +29,41 @@ export default function ListingShowPage() {
     getListing();
   }, []);
 
+
   
   function loaded() {
+    let apartmentPhotos = [
+      listing.selectedFile1,
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!4v1718836309858!6m8!1m7!1sCAoSLEFGMVFpcE42WkZhcWhydG5waWxKVF9WYmhhUGdQdEg4bkNHTmRPb3FWaExu!2m2!1d39.7746093!2d-84.21754469999999!3f244.38685630399706!4f-14.393705879204362!5f0.4000000000000002" 
+        width="900"
+        height="550"
+        allowFullScreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        title = "galery show"
+      ></iframe>,
+      listing.selectedFile2,
+      listing.selectedFile3,
+      listing.selectedFile4,
+      listing.selectedFile5,
+      listing.selectedFile6,
+      listing.selectedFile7,
+      listing.selectedFile8,
+      "https://i.imgur.com/CwSBvsh.jpg", //floor plan
+    ]
+
+  let studioPhotos = [
+    listing.selectedFile1,
+    listing.selectedFile2,
+    listing.selectedFile3,
+    listing.selectedFile4,
+    listing.selectedFile5,
+    listing.selectedFile6,
+    listing.selectedFile7,
+    listing.selectedFile8
+  ]
+
     let quals = listing.qualifications.split(".")
     quals.pop()
     return (
@@ -63,45 +96,27 @@ export default function ListingShowPage() {
               onClick={() => setSlide(!slide)}
               className="stack"
             >
-              <img src={listing.selectedFile1} width="250" height="180" alt="Salem Crown Apartment Interior"/>
-              <span>
+              {/* width="100%" height="100%" */}
+              <img src={listing.selectedFile1}  alt="Salem Crown Apartment Interior"/>
+            </div>
+              <span className = "stack-info">
                 Click to See All Photos and <br />
                 Virtual Tour
               </span>
-            </div>
           </div>
 
           <FsLightbox
             toggler={slide}
-            sources={[
-              listing.selectedFile1,
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!4v1718836309858!6m8!1m7!1sCAoSLEFGMVFpcE42WkZhcWhydG5waWxKVF9WYmhhUGdQdEg4bkNHTmRPb3FWaExu!2m2!1d39.7746093!2d-84.21754469999999!3f244.38685630399706!4f-14.393705879204362!5f0.4000000000000002" 
-                width="900"
-                height="550"
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title = "galery show"
-              ></iframe>,
-              listing.selectedFile2,
-              listing.selectedFile3,
-              listing.selectedFile4,
-              listing.selectedFile5,
-              listing.selectedFile6,
-              listing.selectedFile7,
-              listing.selectedFile8,
-              "https://i.imgur.com/CwSBvsh.jpg", //floor plan
-            ]}
+            sources={listing.title.toLowerCase().includes("studio")?studioPhotos:apartmentPhotos}
           />
 
           <div className="info info-box">
             <h3 className="info-title">
-              Rent: <span className="price">{listing.rent}</span>
+              Rent: <span className="price">${listing.rent}</span>
             </h3>
             <h3 className="info-title">
               Security Deposit:
-              <span className="price">{listing.securityDeposit} </span>
+              <span className="price">${listing.securityDeposit} </span>
             </h3>
 
             <p>

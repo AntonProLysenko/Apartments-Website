@@ -34,7 +34,9 @@ export default function NavBar ({ name, setUser }) {
           <li>
             <Link to="/contact"> <span className="navbar-text">Contact Us</span> </Link>
           </li>
-         
+          <li>
+            <a target="_blank" href="https://signin.managebuilding.com/Resident/portal/global-login"> <span className="navbar-text">Resident Portal</span> </a>
+          </li>
           <li>
             <Link to="" onClick={handleLogout}> <span className="navbar-text"> Log Out</span> </Link>
           </li>
@@ -63,6 +65,9 @@ export default function NavBar ({ name, setUser }) {
           </li>
           <li>
             <Link to="/contact"> <span className="navbar-text">Contact Us</span> </Link>
+          </li>  
+          <li>
+            <a target="_blank" href="https://signin.managebuilding.com/Resident/portal/global-login"> <span className="navbar-text">Resident Portal</span> </a>
           </li>
   
         </ul>

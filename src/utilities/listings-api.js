@@ -8,6 +8,22 @@ export function getAll() {
   return sendRequest(BASE_URL, 'GET');
 }
 
+export function getAvailableCount(){
+    console.log('Counting Available listings')
+   return sendRequest(`${BASE_URL}/countAvailable`, 'GET');
+}
+
+export function getShortAvailableListings(){
+  console.log('Geting Summary of Available listings')
+   return sendRequest(`${BASE_URL}/shortAvailable`, 'GET');
+}
+
+
+export function getShortAllListings(){
+  console.log('Geting Summary of ALL listings')
+   return sendRequest(`${BASE_URL}/shortAll`, 'GET');
+}
+
 export function deleteListing(listingData){
   return sendRequest(`${BASE_URL}/:id`, 'DELETE',listingData)
 }

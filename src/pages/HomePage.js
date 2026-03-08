@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState,useEffect} from "react";
+import * as listingsAPI from "../utilities/listings-api";
 // import "animate.css";
 
 
@@ -9,6 +10,16 @@ import AboutUsinfo from "../components/AboutUsinfo";
 
 export default function HomePage({ listings }) {
   const [isHovering, setIsHovering] = useState(false);
+  const [availableCount, setAvailableCount] = useState(null);
+
+  async function getAvailableCount(){
+    const count = await listingsAPI.getAvailableCount();
+    setAvailableCount(count.count);
+  }
+
+  useEffect(() => {
+    getAvailableCount()
+  },[])
 
   const handleMouseOver = () => {
     setIsHovering(true);
@@ -19,15 +30,15 @@ export default function HomePage({ listings }) {
   };
 
   const loaded = () => {
-    const availableListings = []; //finding available listings
+    // const availableListings = []; //finding available listings
 
-    listings.map((listing) => {
-      if (listing.available === true) {
-        // console.log(listing)
-        return availableListings.push(listing);
-      }
-      return null
-    });
+    // listings.map((listing) => {
+    //   if (listing.available === true) {
+    //     // console.log(listing)
+    //     return availableListings.push(listing);
+    //   }
+    //   return null
+    // });
 
 
 
@@ -37,7 +48,7 @@ export default function HomePage({ listings }) {
         <div className="add-container">
           <div className="ad">
             <span>
-              We have {availableListings.length} available apartments
+              We have {availableCount} available apartments
               <br />
               <Link to="/available">
                 {" "}
@@ -87,7 +98,7 @@ export default function HomePage({ listings }) {
       return (
         <div className="add-container">
           <div className="ad">
-            We have {availableListings.length} available apartment
+            We have {availableCount} available apartment
             <br />
             <Link to="/available">
               <button className="btn-add">See more</button>
@@ -118,9 +129,9 @@ export default function HomePage({ listings }) {
       );
     }
 
-    return availableListings.length === 1
+    return availableCount === 1
       ? SingleAvailable()
-      : availableListings.length === 0
+      : availableCount === 0
       ? noneAvailable()
       : MultipleAvailable();
   };

@@ -15,10 +15,20 @@ export default function ListingDetailsPage({ listings }) {
   const [slide, setSlide] = useState(false); //for slide show
   const { id } = useParams();
   const navigation = useNavigate();
+  const [display, setDisplay] = useState({
+    isLoaded: false,
+    message: "Getting Listing"
+  });
+
 
   async function getListing() {
-    const listing = await listingsAPI.getById(id);
-    setListing(listing);
+   const recievedlisting = await listingsAPI.getById(id);
+    setListing(recievedlisting);
+    setDisplay(prev=>({
+      ...prev,
+      isLoaded:true,
+      message:""
+    }))
   }
 
   useEffect(() => {
@@ -26,12 +36,30 @@ export default function ListingDetailsPage({ listings }) {
   }, [setListing]);
 
   const handleDelete = async (evt) => {
-    // evt.preventdefault()
+     // evt.preventdefault()
     try {
-      navigation("/irunthis");
-      await deleteListing(listing);
+      setDisplay({
+        ...display,
+        isLoaded:false,
+        message:"Deleting"
+      })
+      let deleteResponce = await deleteListing(listing);
+      if (deleteResponce.status == 201){
+        navigation("/irunthis");
+      }else{
+        setDisplay({
+          ...display,
+          isLoaded:true,
+          message:""
+        })
+      }
+      
     } catch {}
   };
+
+  function handleEditClick() {
+    navigation(`/irunthis/${id}/edit`, { state: { listing } });
+  }
 
   function loaded() {
     let quals = listing.qualifications.split(".")
@@ -54,12 +82,14 @@ export default function ListingDetailsPage({ listings }) {
         <div className="main-info">
           <div className="stack-container">
             <div onClick={() => setSlide(!slide)} className="stack">
-              <img src={listing.selectedFile1} width="250" height="180" />
-              <span>
+              {/* width="250" height="180" */}
+              <img src={listing.selectedFile1}  />
+             
+            </div>
+                <span className = "stack-info">
                 Click to See All Photos and <br />
                 Virtual Tour
               </span>
-            </div>
           </div>
 
           <FsLightbox
@@ -94,11 +124,11 @@ export default function ListingDetailsPage({ listings }) {
             )}
 
             <h3 className="info-title">
-              Rent: <span className="price">{listing.rent}</span>
+              Rent: <span className="price">${listing.rent}</span>
             </h3>
             <h3 className="info-title">
               Security Deposit:{" "}
-              <span className="price">{listing.securityDeposit} </span>
+              <span className="price">${listing.securityDeposit} </span>
             </h3>
 
             <p>
@@ -132,11 +162,12 @@ export default function ListingDetailsPage({ listings }) {
         </div>
 
         <div className="bottom-buttons">
-          <Link to={`/irunthis/${listing._id}/edit`}>
-            <button className="create-btn">
-            <i className="fa fa-pencil" aria-hidden="true"></i>
-              &nbsp; Edit</button>
-          </Link>
+          {/* <Link to={`/irunthis/${listing._id}/edit`}> */}
+            <button onClick={handleEditClick} className="create-btn">
+              <i className="fa fa-pencil" aria-hidden="true"></i>
+                &nbsp; Edit
+            </button>
+          {/* </Link> */}
 
           <form>
             <button onClick={handleDelete} className="delete-btn">
@@ -151,7 +182,7 @@ export default function ListingDetailsPage({ listings }) {
 
   return (
     <>
-      {listing ? loaded() : loading()}
+      {listing ? loaded() : loading(display.message)}
     </>
   );
 }

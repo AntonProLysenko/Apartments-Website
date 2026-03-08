@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, useLocation} from 'react-router-dom'
 import { useState, useEffect } from "react"
 import FileBase from 'react-file-base64';
 
@@ -9,37 +9,74 @@ import { update } from "../../utilities/listings-service";
 import loading from '../../components/loading';
 
 export default function EditListingpage (){
-    const [listing, setListing] = useState(); //getting all listings from db
-    const [error, setError] = useState('');
-    const {id} = useParams()
-    const navigation = useNavigate();
+  const {id} = useParams()
+  const location = useLocation();
+  const [listing, setListing] = useState(location.state?.listing ?? null);
+  const [error, setError] = useState('');
+  const [display, setDisplay] = useState({
+                                isLoaded: false,
+                                message: "Getting Listing"
+                              });
+
+  const navigation = useNavigate();
    
-
-    async function getListing() {
-    const listing = await listingsAPI.getById(id);
-    setListing(listing);
+  async function getListing() {
+  const responcelisting  = location.state?.listing ?? await listingsAPI.getById(id);
+    setListing(responcelisting);
+    if (listing){
+      setDisplay({
+        ...display,
+        isLoaded: true,
+        message: ""
+      });
     }
-
-    useEffect(() => {
-    getListing();
-    }, [setListing]);
+  }
+useEffect(() => {
+      console.log("UseEffect Log")
+      if (!listing) {
+        console.log("Getting Listings")
+        getListing();
+      }else{
+        setDisplay({
+          ...display,
+          isLoaded: true,
+          message: ""
+        });
+      }
+    }, [id, listing]);
 
     const  handleUpdate = async (evt) => {
-
         evt.preventDefault()
       try {
-        navigation(`/irunthis/${listing._id}`);
-        await update(listing, listing._id)
-      } catch {
-        setError("Failed - Try Again")
+        console.log("Sending:", listing)
+        setDisplay({
+          ...display,
+          isLoaded: false,
+          message: "Updating Listing"
+        });
+        let updResponse = await update(listing, listing._id)
+        console.log("Applied: ", updResponse)
+        if (updResponse.status == 201) {
+          navigation(`/irunthis/${listing._id}`);
+        }else{
+          setDisplay({
+            ...display,
+            isLoaded: true,
+            message: ""
+          });
+        }
+      } catch(e) {
+        setError(`Failed to update ${e.message}`)
+        // setError(`Unexpected error! ${error.message}`);
+        setDisplay(d => ({ ...d, isLoaded: true, message: "" }));
       }
       // finally{
       //   navigation(`/irunthis/${listing._id}`);
       //  }
-    }
+  }
 
 
-    function loaded(){
+  function loaded(){
     return(
         <>
             <form  autoComplete="off" onSubmit={handleUpdate}>
@@ -55,11 +92,11 @@ export default function EditListingpage (){
           <div className='prices'>
             <div>
             <label>Rent:</label>
-            <input type="text" name="rent" placeholder="Monthly Rent Price"  onChange={(e) => setListing({ ...listing, rent: e.target.value })} value ={listing.rent}/>
+            <input type="number" name="rent" placeholder="Monthly Rent Price"  onChange={(e) => setListing({ ...listing, rent: e.target.value })} value ={listing.rent}/>
             </div>
             <div>
             <label>Security Deposit:</label>
-            <input type="text" name="securityDeposit" placeholder="Security Deposit Price"  onChange={(e) => setListing({...listing, securityDeposit: e.target.value })} value ={listing.securityDeposit}/>
+            <input type="number" name="securityDeposit" placeholder="Security Deposit Price"  onChange={(e) => setListing({...listing, securityDeposit: e.target.value })} value ={listing.securityDeposit}/>
             </div>          
           </div>
 
@@ -88,13 +125,19 @@ export default function EditListingpage (){
 
            
               
-                <div className = "checkr">
+              <div className = "checkr">
                 <label className='available'>Available: &nbsp;</label>
                 <label className="switch">
-                    <input type="checkbox" name="available"  onChange={(e) => setListing({ ...listing, available: e.target.value })}  />
-                    <span className="slider"></span>
+                  {listing.available ? (            
+                    <input type="checkbox" name="available" checked onChange={(e) => setListing({ ...listing, available: e.target.checked })} />
+                  ):(
+                    <input type="checkbox" name="available"  onChange={(e) => setListing({ ...listing, available: e.target.checked })}  />
+                  )}
+                  <span className="slider"></span>
                 </label>
-                </div>
+              </div>
+
+              
 
 
 
@@ -164,5 +207,5 @@ export default function EditListingpage (){
 
 
 
-  return  listing ? loaded() : loading()
+  return  listing ? loaded() : loading(display.message)
 }

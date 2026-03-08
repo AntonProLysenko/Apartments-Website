@@ -1,14 +1,19 @@
 import { useNavigate } from 'react-router-dom'
-import { useState  } from "react";
+import { useState, useEffect } from "react";
 import FileBase from 'react-file-base64';
 
 
 import { create } from "../../utilities/listings-service";
-
+import loading from '../loading';
 export default function NewListingForm  (){
+    
+  const [display, setDisplay] = useState({
+    isLoaded: true,
+    message: "Loading form"
+  });
 
-    const [error, setError] = useState('');
-    const [listingData, setListingData] = useState({   
+  const [error, setError] = useState('');
+  const [listingData, setListingData] = useState({   
 
     title: '',
     rent: '',
@@ -33,27 +38,55 @@ export default function NewListingForm  (){
   const navigation = useNavigate();
 
   
-    const formData = {...listingData}
+  const formData = {...listingData}
+
+  useEffect(()=>{
+    setDisplay({
+      isLoaded: true,
+      message:""
+    })
+  },[])  
+
+  useEffect(()=>{
+    setDisplay({
+      isLoaded: true,
+      message:""
+    })
+  },[setError])
 
   
+ const  handleSubmit = async (evt) => {
+      let blnSuccess = false;
+      evt.preventDefault()
+      // console.log("formData: ", formData)
+      try {
+        setListingData(formData)
+        setDisplay({
+          ...display,
+          isLoaded: false,
+          message:"Creating new listing"
+        })
 
-  
-    const  handleSubmit = async (evt) => {
-         evt.preventDefault()
-        
-        try {
-          setListingData(formData)
-          navigation("/irunthis");
-          await create(formData)
-      
-       } catch {
-        setError("Failed - Try Again")
-       }
+        let responce = await create(formData)
+        if (responce.staus==201) {
+          navigation("/irunthis")
+        }else{
+          setDisplay({
+            ...display,
+            isLoaded: true,
+            message:""
+          })
+        }
+          
+      } catch(error){
+        setError(`Unexpected error! ${error.message}`);
+        setDisplay(d => ({ ...d, isLoaded: true, message: "" }));
+      }
+      return blnSuccess
+    }
 
-       
-     }
 
-    return(
+    return display.isLoaded ?   (
      
       <div>
 
@@ -176,5 +209,5 @@ export default function NewListingForm  (){
           
         </form>
       </div>
-    )
+    ): loading(display.message)
 }
